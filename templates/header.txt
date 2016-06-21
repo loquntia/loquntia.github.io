@@ -1,5 +1,5 @@
 ﻿<div id="title">
-<h5><br>Kingdom of Loquntia<br>Rec Felcwnloandu</h5>
+<strong>Kingdom of Loquntia<br>Rec Felcwnloandu</strong>
  </div>
   <hr>
 <center>
