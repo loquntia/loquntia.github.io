@@ -1,5 +1,6 @@
 ﻿<div id="title">
-<h4><br><i>Kingdom of Loquntia<br>Rec Felcwnloandu</i></h4>
+<h4><object data="flag.svg" type="image/svg+xml">
+</object><i>Kingdom of Loquntia<br>Rec Felcwnloandu</i></h4>
  </div>
   <hr>
 <center>
