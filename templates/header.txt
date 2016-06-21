@@ -14,8 +14,16 @@
 
 			<div class="design-selection" id="design-selection">
 
-				<h3>Navigate</h3>
+				<nav role="navigation">
 
+					<ul>
+
+					<li>
+
+						<center><img src="images/flag.png"><br><small><i>"dieu et mon droit"</i></small></center>
+					</li>
+					</ul>
+				</nav>
 				<nav role="navigation">
 
 					<ul>
