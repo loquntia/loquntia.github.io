@@ -37,10 +37,6 @@ CONTENT MAY BE OUTDATED OR INCORRECT ♦ HWGTEN COL FAARAN USDAAGT OTH ONTRET</p
 
 						<a href="citizenship.html" class="design-name">Citizenship</a>
 					</li>
-					<li>
-
-						<a href="travel.html" class="design-name">Travel</a>
-					</li>
 					</ul>
 
 				</nav>
