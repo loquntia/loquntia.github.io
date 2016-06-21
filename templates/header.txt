@@ -1,5 +1,5 @@
 ﻿<div id="title">
-<h4><img src="images/flag.png"><br><i>Kingdom of Loquntia<br>Rec Felcwnloandu</i></h4>
+<h4><br><i>Kingdom of Loquntia<br>Rec Felcwnloandu</i></h4>
  </div>
   <hr>
 <center>
@@ -20,6 +20,10 @@
 
 					<ul>
 
+					<li>
+
+						<center><img src="images/flag.png"><br><small><i>"dieu et mon droit"</i></small></center>
+					</li>
 					<li>
 
 						<a href="index.html" class="design-name">Home</a>
