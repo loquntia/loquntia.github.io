@@ -1,0 +1,20 @@
+<hr>
+<div class="en">
+<h5 align="center">♦ <a href="http://www.libraryofblueink.weebly.com/">Library of Blue Ink</a> ♦ <a href="http://www.hmnbl.weebly.com/">National Bank of Loquntia</a> ♦ <a href="http://www.hmrms.weebly.com/">Royal Marshals Service</a> ♦ <a href="http://www.ul.boards.net/">University of Loquntia</a> ♦<br></h5>
+</div>
+<div class="nr">
+<h5 align="center">♦ <a href="http://www.libraryofblueink.weebly.com/">Boochus won Bluu Blaac</a> ♦ <a href="http://www.hmnbl.weebly.com/">Reccish Banc won Wellcuunloand</a> ♦ <a href="http://www.hmrms.weebly.com/">Kronish Marishalen Halding</a> ♦ <a href="http://www.ul.boards.net/">Storshuleen won Wellcuunloand</a> ♦<br></h5>
+</div>
+<div class="en">
+<h6 align="center">♦ <a href="policy.htm?lang=en">Privacy Policy and Terms of Use</a> ♦ <a href="credits.htm?lang=en">Acknowledgements</a> ♦ <a href="contact.htm?lang=en">Contact Us</a> ♦<br></h6>
+</div>
+<div class="nr">
+<h6 align="center">♦ <a href="policy.htm?lang=nr">Worden oc Gesaaten Medworcanu</a> ♦ <a href="credits.htm?lang=nr">Accnoften</a> ♦ <a href="contact.htm?lang=nr">Betwuusproakan Oas</a> ♦<br></h6>
+</div>
+
+<h6 align="right">
+<div class="en">Any misrepresentation or plagiarism of this information which does not qualify as Fair Use is a civil offence under the Encouragement of Learning Act.<br> &copy; Copyright 2012-2016 His Majesty King John I, all rights reserved.</div>
+
+<div class="nr">Mis•shorgan oth andcraftan harworden huith canneth ec beheedan Fair Use ar eem guult under dem Laarnanbehaardangesaat. <br> &copy; Copyright 2012-2016 HM Kooning Johan I.</div>
+</h6>
+<a href="/bot-trap/"><img src="images/pixel.gif" border="0" alt=" " width="1" height="1" onload="setLanguage(getParameterByName('lang'))"></a>

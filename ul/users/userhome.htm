@@ -1,0 +1,21 @@
+<script src="scripts/jquery.js"></script> 
+<script language="javascript">$(function () {
+$("#userinfo").load("restricted/"+getParameterByName('usercode'));
+$("#header").load("templates/header.txt");
+$("#footer").load("templates/footer.txt");})</script>
+<script language="javascript" src="scripts/standard.js"></script>
+<script language="javascript" src="scripts/login.js"></script>
+<div id="header"></div>
+<h4>
+<div class="en">Welcome,</div>
+<div class="es">Bienvenido,</div>
+<div class="nr">Velkommen,</div>
+</h4>
+<form name="user">
+<input type="hidden" name="name">
+</form>
+<div id="userinfo">User info failed to load. :(</div>
+<center>
+<!-- OLD GOOGLE FORM: <iframe src="https://docs.google.com/forms/d/1twHhV4ehm8XwBGJ1sLlAnP_s5GCvff3eP_eXt4MjUDk/viewform?embedded=true" width="760" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe></center> -->
+<div id="title"><div class="en">User Home</div><div class="es">Usador</div><div class="nr">Medvorkur Hem</div></div>
+<div id="footer"></div>

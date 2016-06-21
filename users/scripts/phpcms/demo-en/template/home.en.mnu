@@ -1,0 +1,23 @@
+MENU: MAIN
+CLASS;      MNAME;         LINK;                  TEXT
+00.01;      Start page;    $home/index.htm;       Start page
+00.02;      Page 1;        $home/page_1.en.htm;   Page 1
+00.03;      Page 2;        $home/page_2.en.htm;   Page 2
+00.04;      Page 3;        $home/page_3.en.htm;   Page 3: License
+00.05;      Search;        $home/search.en.htm;   Comprehensive Search Facility of phpCMS
+00.06;      Sitemap;       $home/sitemap.en.htm;  Sitemap
+
+
+MENU: SUB1
+CLASS;      MNAME;                LINK;                      TEXT
+00.02.01;   Sub page 1/1;         $home/spage_1_1.en.htm;    Sub page 1 of page 1
+00.02.02;   Sub page 1/2;         $home/spage_1_2.en.htm;    Sub page 2 of page 1
+
+MENU: SUB1
+CLASS;      MNAME;                LINK;                      TEXT
+00.03.01;   Online Editing;       $home/edit.en.htm;         The Online Editor of phpCMS
+00.03.02;   Online Editing Help;  $home/edit_help.en.htm;    Help for the Online Editor
+
+MENU: SUB1
+CLASS;      MNAME;                LINK;                      TEXT
+00.05.01;   Search Explanations;  $home/search_help.en.htm;  Search Facility - Explanations

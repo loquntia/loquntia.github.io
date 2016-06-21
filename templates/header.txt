@@ -1,0 +1,22 @@
+  <div class="title"><b>Contact us at <i>loquntia@gmail.com</i></b> <br><br>
+<!-- <a href="?lang=nr"><img align="right" class="langs" src="images/lang/nr.png"></a>
+<a href="?lang=en"><img align="right" class="langs" src="images/lang/en.png"></a> -->
+ </div>
+<br>
+<div id="bar">
+<a href="index.html?lang=en">♦ Home</a><br>
+<a href="http://www.ul.boards.net/">♦ University of Loquntia</a><br>
+<a href="timers.htm?lang=en">♦ Important Dates</a><br>
+<a href="links.htm?lang=en">♦ Links</a><br>
+</div>
+<center>
+  <br>
+  <h2><img id="logo" src="images/seal.png" height="94" width="79"><br><i>Kingdom of Loquntia<br>Rec Felcwnlôndu</i></h2>
+  <h4>Dieu et mon droit <i><small>"God and my right" (French)</small></i></h4>
+
+<p>
+  <hr>
+<pre>THIS SITE IS UNDER CONSTRUCTION ♦ DAN HUAR AR IIN BOLDNAN
+CONTENT MAY BE OUTDATED OR INCORRECT ♦ HWGTEN COL FAARAN USDAAGT OTH ONTRET</pre>
+ <hr>
+  </center>
