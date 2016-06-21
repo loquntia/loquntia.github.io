@@ -1,15 +1,24 @@
-﻿<html>
+<html>
 <!DOCTYPE html>
 <head>
  <!-- metadata about page -->
- <title>404 Error</title>
+ <title>University of Loquntia</title>
  <meta charset="Unicode">
  <meta http-equiv="Content-Style-Type" content="text/css">
- <meta name="description" content="Republic of the Kingdom of Loquntia">
- <meta name="keywords" content="Loquntia,RKL">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
  <meta name="author" content="John Houston">
  
  <!-- load scripts -->
+ <script language="javascript" src="scripts/standard.js"></script>
+ <script src="scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("templates/header.txt"); $("#footer").load("templates/footer.txt");
+    });
+ </script>
  
  <!-- load stylesheet and favicons -->
  <link rel="stylesheet" type="text/css" href="scripts/standard.css" />
@@ -19,15 +28,26 @@
 
 </head>
 
-<body>
-<!-- official title of page here (will become window/tab title)-->
- 
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
 <center>
-<h1>404 Error</h1>
-<p>
-It appears the page you are looking for does not exist. If you clicked on a link and this site is not currently under construction, please contact a Library of Blue Ink webmaster at <i><a href="mailto:loquntia@gmail.com">loquntia@gmail.com</a></i>
-</p>
+<h2>404</h2>
+<i>Error - Page Not Found</i>
+<hr>
+Please check the URL.<br>
+If you got here by clicking on a link and an "under construction" message does <b>not</b> appear above, please notify our Library of Blue Ink webmasters at <a href="mailto:loquntia@gmail.com">loquntia@gmail.com</a>.
 </center>
+
+<!-- loads footer data here -->
+<div id="footer"></div>
 
 </body>
 </html>
