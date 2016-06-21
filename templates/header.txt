@@ -27,7 +27,7 @@ CONTENT MAY BE OUTDATED OR INCORRECT ♦ HWGTEN COL FAARAN USDAAGT OTH ONTRET</p
 
 			<div class="design-selection" id="design-selection">
 
-				<h3>Navigate:</h3>
+				<h3>Navigate</h3>
 
 				<nav role="navigation">
 
@@ -54,7 +54,7 @@ CONTENT MAY BE OUTDATED OR INCORRECT ♦ HWGTEN COL FAARAN USDAAGT OTH ONTRET</p
 
 			<div class="design-archives" id="design-archives">
 
-				<h3>Government Agencies:</h3>
+				<h3>Government</h3>
 
 				<nav role="navigation">
 
@@ -87,7 +87,7 @@ CONTENT MAY BE OUTDATED OR INCORRECT ♦ HWGTEN COL FAARAN USDAAGT OTH ONTRET</p
 
 			<div class="zen-resources" id="zen-resources">
 
-				<h3>External Links:</h3>
+				<h3>External Links</h3>
 
 				<ul>
 
