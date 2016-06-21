@@ -58,6 +58,14 @@ CONTENT MAY BE OUTDATED OR INCORRECT ♦ HWGTEN COL FAARAN USDAAGT OTH ONTRET</p
 
 					<li>
 
+						<a href="http://hmnbl.weebly.com/" class="design-name">National Bank of Loquntia</a>
+					</li>
+					<li>
+
+						<a href="http://ul.boards.net/" class="design-name">University of Loquntia</a>
+					</li>
+					<li>
+
 						<a href="http://libraryofblueink.weebly.com/" class="design-name">Library of Blue Ink</a>
 					</li>
 					<li>
@@ -67,6 +75,10 @@ CONTENT MAY BE OUTDATED OR INCORRECT ♦ HWGTEN COL FAARAN USDAAGT OTH ONTRET</p
 					<li>
 
 						<a href="http://exchequer.weebly.com/" class="design-name">Ministry of the Exchequer</a>
+					</li>
+					<li>
+
+						<a href="http://scorkl.weebly.com/" class="design-name">Supreme Court of Loquntia</a>
 					</li>
 					</ul>
 
