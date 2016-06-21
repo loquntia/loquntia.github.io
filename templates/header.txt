@@ -20,7 +20,7 @@
 
 					<li>
 
-						<center><img src="images/flag.png"><br><small><i>"dieu et mon droit"</i></small></center>
+						<center><a href="index.html"><img src="images/flag.png"><br><small><i>"Dieu et mon droit"</i></small></a></center>
 					</li>
 					</ul>
 				</nav>
@@ -28,10 +28,6 @@
 
 					<ul>
 
-					<li>
-
-						<center><img src="images/flag.png"><br><small><i>"dieu et mon droit"</i></small></center>
-					</li>
 					<li>
 
 						<a href="index.html" class="design-name">Home</a>
