@@ -3,22 +3,15 @@
 <a href="?lang=en"><img align="right" class="langs" src="images/lang/en.png"></a> -->
  </div>
 <br>
-<div id="bar">
-<a href="index.html?lang=en">♦ Home</a><br>
-<a href="http://www.ul.boards.net/">♦ University of Loquntia</a><br>
-<a href="timers.htm?lang=en">♦ Important Dates</a><br>
-<a href="links.htm?lang=en">♦ Links</a><br>
-</div>
-<center>
-  <br>
-  <h2><br><i>Kingdom of Loquntia<br>Rec Felcwnlôndu</i></h2>
-
-<p>
+<div id="title">
+<h2><br><i>Kingdom of Loquntia<br>Rec Felcwnlôndu</i></h2>
+ </div>
   <hr>
-<pre>THIS SITE IS UNDER CONSTRUCTION ♦ DAN HUAR AR IIN BOLDNAN
+<center>
+<pre>THIS SITE IS UNDER CONSTRUCTION ♦ DEN HUAR AR IIN BOLDNAN
 CONTENT MAY BE OUTDATED OR INCORRECT ♦ HWGTEN COL FAARAN USDAAGT OTH ONTRET</pre>
- <hr>
   </center>
+ <hr>
 
 <aside class="sidebar" role="complementary">
 
@@ -35,15 +28,11 @@ CONTENT MAY BE OUTDATED OR INCORRECT ♦ HWGTEN COL FAARAN USDAAGT OTH ONTRET</p
 
 					<li>
 
-						<a href="/221/" class="design-name">Mid Century Modern</a> by
-						<a href="http://andrewlohman.com/" class="designer-name">Andrew Lohman</a>
-
+						<a href="index.html" class="design-name">Home</a>
 					</li>
 					<li>
 
-						<a href="/220/" class="design-name">Garments</a> by
-						<a href="http://danielmall.com/" class="designer-name">Dan Mall</a>
-
+						<a href="about.html" class="design-name">About</a>
 					</li>
 					</ul>
 
