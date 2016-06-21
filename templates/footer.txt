@@ -1,8 +1,8 @@
 ﻿<center>
 <hr>
-<h5 align="center">♦ <a href="http://www.libraryofblueink.weebly.com/">Library of Blue Ink</a> ♦ <a href="http://www.hmnbl.weebly.com/">National Bank of Loquntia</a> ♦ <a href="http://www.hmrms.weebly.com/">Royal Marshals Service</a> ♦ <a href="http://www.ul.boards.net/">University of Loquntia</a> ♦<br></h5>
+<h5 align="center">♦ <a href="policy.htm">Privacy Policy</a> ♦ <a href="http://www.hmnbl.weebly.com/"></a> ♦ <a href="mailto:loquntia@gmail.com">Contact</a></h5>
 </center>
-<h6 align="right">Any misrepresentation or plagiarism of this information which does not qualify as Fair Use is a civil offence under the Encouragement of Learning Act.<br> &copy; Copyright 2012-2016 His Majesty King John I, all rights reserved.
+<h6 align="right">&copy; Copyright 2012-2016 His Majesty King John I, all rights reserved.
 </h6>
 
 <a href="/bot-trap/"><img src="images/pixel.gif" border="0" alt=" " width="1" height="1" onload="setLanguage(getParameterByName('lang'))"></a>
