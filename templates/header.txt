@@ -2,10 +2,12 @@
 <text style="font-size:40px;text-shadow: 2px 2px 5px gray;"><br>Kingdom of Loquntia</text>
  </div>
   <hr>
+<!-- This is the "under construction" flag, always enable when it's possible it may be noticeable 
 <center>
 <pre>THIS SITE IS UNDER CONSTRUCTION ♦ CONTENT MAY BE OUTDATED OR INCORRECT</pre>
   </center>
  <hr>
+-->
 
 <aside class="sidebar" role="complementary">
 
