@@ -1,8 +1,8 @@
 ﻿<center>
 <hr>
-<h5 align="center">♦ <a href="policy.html">Privacy Policy</a> ♦ <a href="contact.html">Contact</a> ♦ <a href="credits.html">Acknowledgements</a> ♦ </h5>
+<h5 align="center">♦ <a href="http://www.loquntia.github.io/policy.html">Privacy Policy</a> ♦ <a href="http://www.loquntia.github.io/contact.html">Contact</a> ♦ <a href="credits.html">Acknowledgements</a> ♦ </h5>
 </center>
 <h6 align="right">&copy; Copyright 2012-2016 His Majesty King John I, all rights reserved.
 </h6>
 
-<a href="/bot-trap/"><img src="images/pixel.gif" border="0" alt=" " width="1" height="1" onload="setLanguage(getParameterByName('lang'))"></a>
+<a href="/bot-trap/"><img src="http://www.loquntia.github.io/images/pixel.gif" border="0" alt=" " width="1" height="1" onload="setLanguage(getParameterByName('lang'))"></a>
