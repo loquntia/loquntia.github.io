@@ -22,7 +22,7 @@
 
 					<li>
 
-						<center><a href="http://www.loquntia.github.io/index.html"><img src="http://www.loquntia.github.io/images/flag.png"><br><small><i>"Dieu et mon droit"</i></small></a></center>
+						<center><a href="https://www.loquntia.github.io/index.html"><img src="http://www.loquntia.github.io/images/flag.png"><br><small><i>"Dieu et mon droit"</i></small></a></center>
 					</li>
 					</ul>
 				</nav>
@@ -32,19 +32,19 @@
 
 					<li>
 
-						<a href="http://www.loquntia.github.io/index.html" class="design-name">Home</a>
+						<a href="https://www.loquntia.github.io/index.html" class="design-name">Home</a>
 					</li>
 					<li>
 
-						<a href="http://www.loquntia.github.io/about.html" class="design-name">About</a>
+						<a href="https://www.loquntia.github.io/about.html" class="design-name">About</a>
 					</li>
 					<li>
 
-						<a href="http://www.loquntia.github.io/ul.html" class="design-name">University of Loquntia</a>
+						<a href="https://www.loquntia.github.io/ul.html" class="design-name">University of Loquntia</a>
 					</li>
 					<li>
 
-						<a href="http://www.loquntia.github.io/citizenship.html" class="design-name">Citizenship</a>
+						<a href="https://www.loquntia.github.io/citizenship.html" class="design-name">Citizenship</a>
 					</li>
 					</ul>
 
