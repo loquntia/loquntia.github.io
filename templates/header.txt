@@ -32,19 +32,19 @@
 
 					<li>
 
-						<a href="https://www.loquntia.github.io/index.html" class="design-name">Home</a>
+						<a href="/index.html" class="design-name">Home</a>
 					</li>
 					<li>
 
-						<a href="https://www.loquntia.github.io/about.html" class="design-name">About</a>
+						<a href="/about.html" class="design-name">About</a>
 					</li>
 					<li>
 
-						<a href="https://www.loquntia.github.io/ul.html" class="design-name">University of Loquntia</a>
+						<a href="/ul.html" class="design-name">University of Loquntia</a>
 					</li>
 					<li>
 
-						<a href="https://www.loquntia.github.io/citizenship.html" class="design-name">Citizenship</a>
+						<a href="/citizenship.html" class="design-name">Citizenship</a>
 					</li>
 					</ul>
 
