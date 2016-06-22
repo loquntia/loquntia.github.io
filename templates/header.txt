@@ -1,5 +1,5 @@
 ﻿<div id="title">
-<h3 style="text-shadow: 2px 2px 5px gray;"><br>Kingdom of Loquntia</h3>
+<text style="size:20px;text-shadow: 2px 2px 5px gray;"><br>Kingdom of Loquntia</text>
  </div>
   <hr>
 <center>
