@@ -83,7 +83,7 @@
 					</li>
 					<li>
 
-						<a href="http://scorkl.weebly.com/" class="design-name">Supreme Court of Loquntia</a>
+						<a href="http://rklsupremecourt.weebly.com/" class="design-name">Supreme Court of Loquntia</a>
 					</li>
 					</ul>
 
