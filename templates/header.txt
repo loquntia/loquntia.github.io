@@ -22,7 +22,7 @@
 
 					<li>
 
-						<center><a href="https://www.loquntia.github.io/index.html"><img src="http://www.loquntia.github.io/images/flag.png"><br><small><i>"Dieu et mon droit"</i></small></a></center>
+						<center><a href="/index.html"><img src="/images/flag.png"><br><small><i>"Dieu et mon droit"</i></small></a></center>
 					</li>
 					</ul>
 				</nav>
