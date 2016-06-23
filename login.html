@@ -9,7 +9,7 @@
 
 <script type="text/javascript">
   document.write("Kingdom of Loquntia Restricted Resources<br>");
-  document.write("Your IP is :", userip);
+  document.write("Client :", userip);
 </script>
 
  <!-- the following script loads the IP file using JQuery -->
@@ -21,13 +21,13 @@
 
  <!-- the following script loads the IP file using JQuery -->
  <script language="javascript">
-if (document.getElementByID("auth").innerHTML == "Authorising...")
+if (document.getElementById("auth").innerHTML == "Authorising...")
  {
  window.open("/403.html");window.close();
  }
 else
  {
- window.open(document.getElementByID("auth").innerHTML.substring(0,document.getElementByID("auth").innerHTML.indexOf("\r\n")));window.close();
+ window.open(document.getElementById("auth").innerHTML.substring(0,document.getElementById("auth").innerHTML.indexOf("\r\n")));window.close();
  }
  </script>
 </head>
