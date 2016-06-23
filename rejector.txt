@@ -1,0 +1,24 @@
+<!-- the following will reject clients that aren't whitelisted -->
+<script type="text/javascript">
+  var userip;
+</script>
+<script type="text/javascript" src="/scripts/jquery.js"></script>
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+<script type="text/javascript">
+  document.write("<div id='auth' style='display:hidden;'>Authorising...</div><br>Forwarding client...");
+</script>
+<script language="javascript">
+    $(function(){
+   $("#auth").load("/restricted/auth/" + userip + ".whitelist");
+    });
+ setTimeout("forward()", 1500)
+</script>
+<script language="javascript">
+function forward()
+{
+if (document.getElementById("auth").innerHTML == "Authorising...")
+ {
+ window.location.href = "/disallow.html";
+ }
+}
+</script>
