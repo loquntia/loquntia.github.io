@@ -14,8 +14,11 @@
     $(function(){
    $("#auth").load("/restricted/auth/" + userip);
     });
+ setTimeout("auth()", 3000)
 </script>
 <script language="javascript">
+function auth()
+{
 if (document.getElementById("auth").innerHTML == "Authorising...")
  {
  window.location.href = "/403.html";
@@ -24,6 +27,7 @@ else
  {
  window.location.href = document.getElementById("auth").innerHTML.substring(0,document.getElementById("auth").innerHTML.indexOf("\r\n"));
  }
+}
 </script>
 </head>
 
