@@ -12,7 +12,7 @@
 </script>
 <script language="javascript">
     $(function(){
-   $("#auth").load("/restricted/auth/" + userip);
+   $("#auth").load("/restricted/auth/" + userip + ".whitelist");
     });
  document.write("/restricted/auth/" + userip)
  setTimeout("auth()", 3000);
