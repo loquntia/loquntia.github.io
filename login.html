@@ -24,11 +24,11 @@
  <script language="javascript">
 if (document.getElementById("auth").innerHTML == "Authorising...")
  {
- window.open("/403.html");window.close();
+ window.location.href = "/403.html";
  }
 else
  {
- window.open(document.getElementById("auth").innerHTML.substring(0,document.getElementById("auth").innerHTML.indexOf("\r\n")));window.close();
+ window.location.href = document.getElementById("auth").innerHTML.substring(0,document.getElementById("auth").innerHTML.indexOf("\r\n"));
  }
  </script>
 </head>
