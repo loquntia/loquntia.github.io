@@ -1,9 +1,4 @@
-﻿<div id="site-title">
-<center>
-<img src="/images/seal.png" style="height:auto;width:6.25%;">
-<text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;"><br>Kingdom of Loquntia<br>Rec Felcwnloandu</text></center>
- </div>
-<aside class="sidebar" role="complementary">
+﻿<aside class="sidebar" role="complementary">
 
 		<div class="wrapper">
 
@@ -137,6 +132,11 @@
 	</aside>
 
 
+<div id="site-title">
+<center>
+<img src="/images/seal.png" style="height:auto;width:6.25%;">
+<text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;"><br>Kingdom of Loquntia<br>Rec Felcwnloandu</text></center>
+ </div>
   <hr>
 <center>
 <pre>THIS SITE IS UNDER CONSTRUCTION ♦ CONTENT MAY BE OUTDATED OR INCORRECT</pre>
