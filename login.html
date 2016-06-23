@@ -3,35 +3,28 @@
 <script type="text/javascript">
   var userip;
 </script>
-
 <script type="text/javascript" src="/scripts/jquery.js"></script>
 <script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
-
 <script type="text/javascript">
-  document.write("Kingdom of Loquntia Restricted Resources<br>");
+  document.write("Kingdom of Loquntia Whitelisted Resources<br>");
   document.write('Client : ', userip);
   document.write("<div id='auth'>Authorising...</div>");
 </script>
-
- <!-- the following script loads the IP file using JQuery -->
- <script language="javascript">
+<script language="javascript">
     $(function(){
    $("#auth").load("/restricted/auth/" + userip);
     });
-  document.write("/restricted/auth/" + userip);
- </script>
-
- <!-- the following script loads the IP file using JQuery -->
- <script language="javascript">
-/* if (document.getElementById("auth").innerHTML == "Authorising...")
+</script>
+<script language="javascript">
+if (document.getElementById("auth").innerHTML == "Authorising...")
  {
  window.location.href = "/403.html";
  }
 else
  {
  window.location.href = document.getElementById("auth").innerHTML.substring(0,document.getElementById("auth").innerHTML.indexOf("\r\n"));
- } */
- </script>
+ }
+</script>
 </head>
 
 <body>
