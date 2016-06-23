@@ -1,0 +1,37 @@
+<html>
+<head>
+<script type="text/javascript">
+  var userip;
+</script>
+
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+
+<script type="text/javascript">
+  document.write("Your IP is :", userip);
+</script>
+
+ <!-- the following script loads the IP file using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/restricted/auth" + userip);
+    });
+ </script>
+
+ <!-- the following script loads the IP file using JQuery -->
+ <script language="javascript">
+if (document.getElementByID("auth").innerHTML == "Authorising...")
+ {
+ window.open("/403.html");window.close();
+ }
+else
+ {
+ window.open(document.getElementByID("auth").innerHTML.substring(0,document.getElementByID("auth").innerHTML.indexOf("\r\n")));window.close();
+ }
+ </script>
+</head>
+
+<body>
+<!-- loads auth data here -->
+<div id="auth">Authorising...</div>
+</body>
+</html>
