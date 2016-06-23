@@ -4,12 +4,10 @@
 <text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;"><br>Kingdom of Loquntia<br>Rec Felcwnloandu</text></center>
  </div>
   <hr>
-<!-- This is the "under construction" flag, always enable when it's possible it may be noticeable 
 <center>
 <pre>THIS SITE IS UNDER CONSTRUCTION ♦ CONTENT MAY BE OUTDATED OR INCORRECT</pre>
   </center>
  <hr>
--->
 
 <aside class="sidebar" role="complementary">
 
@@ -108,6 +106,27 @@
 					<li>
 
 						<a href="http://mw.micronation.org/" class="design-name">Microwiki</a>
+					</li>
+
+				</ul>
+
+			</div>
+
+
+			<div class="zen-resources" id="zen-resources">
+
+				<h3>Users</h3>
+
+				<ul>
+
+					<li>
+
+						<a href="/login.html" class="design-name">Login</a>
+					</li>
+
+					<li>
+
+						<a href="/register.html" class="design-name">Register</a>
 					</li>
 
 				</ul>
