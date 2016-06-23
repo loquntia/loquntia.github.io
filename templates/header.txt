@@ -1,7 +1,7 @@
 ﻿<div id="site-title">
 <center>
 <img src="/images/seal.png" style="height:auto;width:6.25%;">
-<text style="font-family:Times New Roman, regular;font-size:24px;text-shadow: 3px 3px 5px gray;"><br>Kingdom of Loquntia</text></center>
+<text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;"><br>Kingdom of Loquntia<br>Rec Felcwnloandu</text></center>
  </div>
   <hr>
 <!-- This is the "under construction" flag, always enable when it's possible it may be noticeable 
