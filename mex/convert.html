@@ -47,7 +47,7 @@ case "eur" :
 	rate2 = 1.13;
 	break;	
  }
-alert("I:" + document.calc.input.value + " R1:" + rate1 + " R2:" + rate2);
+/* alert("I:" + document.calc.input.value + " R1:" + rate1 + " R2:" + rate2); */
 document.calc.output.value = eval(document.calc.input.value / rate1 * rate2);
 }
 </script>
@@ -101,9 +101,6 @@ document.calc.output.value = eval(document.calc.input.value / rate1 * rate2);
 				<option value="gbp">Great Britain Pound Sterling (GBP)</option>
 				<option value="eur">European Union Euro (EUR)</option>
 				</select>
-				</p>
-
-				<p>Input Amount:
 				<input type="text" name="input">
 				</p>
 
@@ -116,10 +113,7 @@ document.calc.output.value = eval(document.calc.input.value / rate1 * rate2);
 				</select></p>
 				<p>
 				<button type="button" onclick="calculate()">Convert</button>
-				</p>
-
-				<p>Output Amount:
-				<input type="text" name="output">
+				<input type="text" name="output" disabled>
 				</p>
 
 			</form>
