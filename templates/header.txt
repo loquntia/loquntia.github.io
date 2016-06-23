@@ -124,9 +124,12 @@
 						<a href="/login.html" class="design-name">Login</a>
 					</li>
 
+					<hr>
 					<li>
 
-						<a href="/register.html" class="design-name">Register</a>
+						<form action="search.html">
+<input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+</form>
 					</li>
 
 				</ul>
