@@ -6,7 +6,6 @@
 <script type="text/javascript" src="/scripts/jquery.js"></script>
 <script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
 <script type="text/javascript">
-  document.write("Kingdom of Loquntia Whitelisted Resources<br>");
   document.write('Client : ', userip);
   document.write("<div id='auth'>Authorising...</div><br>Forwarding client in 5 seconds...");
 </script>
@@ -14,14 +13,14 @@
     $(function(){
    $("#auth").load("/restricted/auth/" + userip + ".whitelist");
     });
- setTimeout("forward()", 5000)
+ setTimeout("forward()", 2500)
 </script>
 <script language="javascript">
 function forward()
 {
 if (document.getElementById("auth").innerHTML == "Authorising...")
  {
- window.location.href = "/403.html";
+ window.location.href = "/disallow.html";
  }
 else
  {
