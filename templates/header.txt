@@ -128,7 +128,7 @@
 					<li>
 
 						<form action="search.html">
-<input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+<input type="text" name="q" id="headersearch" autocomplete="off" required>
 </form>
 					</li>
 
