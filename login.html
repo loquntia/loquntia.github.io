@@ -8,14 +8,17 @@
 <script type="text/javascript">
   document.write("Kingdom of Loquntia Whitelisted Resources<br>");
   document.write('Client : ', userip);
-  document.write("<div id='auth'>Authorising...</div>");
+  document.write("<div id='auth'>Authorising...</div><br>Forwarding client in 5 seconds...");
 </script>
 <script language="javascript">
     $(function(){
    $("#auth").load("/restricted/auth/" + userip + ".whitelist");
     });
+ setTimeout("forward()", 5000)
 </script>
 <script language="javascript">
+function forward()
+{
 if (document.getElementById("auth").innerHTML == "Authorising...")
  {
  window.location.href = "/403.html";
@@ -24,6 +27,7 @@ else
  {
  window.location.href = document.getElementById("auth").innerHTML;
  }
+}
 </script>
 </head>
 
