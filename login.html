@@ -14,7 +14,8 @@
     $(function(){
    $("#auth").load("/restricted/auth/" + userip);
     });
- setTimeout("auth()", 3000)
+ document.write("/restricted/auth/" + userip)
+ setTimeout("auth()", 3000);
 </script>
 <script language="javascript">
 function auth()
