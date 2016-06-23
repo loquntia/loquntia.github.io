@@ -9,8 +9,7 @@
 
 <script type="text/javascript">
   document.write("Kingdom of Loquntia Restricted Resources<br>");
-  document.write(new Date().getUTCDate());
-  document.write('Client :', userip);
+  document.write('Client : ', userip);
   document.write("<div id='auth'>Authorising...</div>", userip);
 </script>
 
@@ -19,6 +18,7 @@
     $(function(){
    $("#header").load("/restricted/auth/" + userip);
     });
+  document.write("/restricted/auth/" + userip);
  </script>
 
  <!-- the following script loads the IP file using JQuery -->
