@@ -10,13 +10,13 @@
 <script type="text/javascript">
   document.write("Kingdom of Loquntia Restricted Resources<br>");
   document.write('Client : ', userip);
-  document.write("<div id='auth'>Authorising...</div>", userip);
+  document.write("<div id='auth'>Authorising...</div>");
 </script>
 
  <!-- the following script loads the IP file using JQuery -->
  <script language="javascript">
     $(function(){
-   $("#header").load("/restricted/auth/" + userip);
+   $("#auth").load("/restricted/auth/" + userip);
     });
   document.write("/restricted/auth/" + userip);
  </script>
