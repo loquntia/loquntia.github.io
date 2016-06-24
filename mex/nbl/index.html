@@ -18,7 +18,7 @@
 function verify()
 {
  document.atm.account.value = document.atm.account.value.toUpperCase();
- var client = document.atm.account.value + " " document.atm.pin.value;
+ var client = document.atm.account.value + " " + document.atm.pin.value;
     $(function(){
    $("#credentials").load("/mex/nbl/liabilities/"+client+".txt");
     });
