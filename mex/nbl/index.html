@@ -19,8 +19,9 @@ function verify()
 {
  document.atm.account.value = document.atm.account.value.toUpperCase();
  var client = document.atm.account.value + " " + document.atm.pin.value;
+ var file = "/mex/nbl/liabilities/" + client + ".txt";
     $(function(){
-   $("#credentials").load("/mex/nbl/liabilities/" + client + ".txt");
+   $("#credentials").load(file);
     });
  if (document.getElementById("credentials").innerHTML == client)
 {
@@ -56,8 +57,8 @@ function printStatement()
 
 <body id="css-zen-garden">
 
-				<div id="credentials" style="display:hidden;">invalid</div>
-				<div id="record" style="display:hidden;"></div>
+				<div id="credentials" style="display:none;">invalid</div>
+				<div id="record" style="display:none;"></div>
 
 <div class="page-wrapper">
 
