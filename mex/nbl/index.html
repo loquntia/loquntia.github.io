@@ -24,12 +24,16 @@ function verify()
     $(function(){
    $("#credentials").load(file);
     });
+ document.getElementById("statement").innerHTML = "LOADING..." + "<br>";setTimeout("analyze()", 2500);
+}
+function analyze()
+{
  if (document.getElementById("credentials").innerHTML == client)
 {
     $(function(){
    $("#record").load("/mex/nbl/record/record.txt");
     });
- document.getElementById("statement").innerHTML += "LOADING..." + "<br>";setTimeout("printStatement()", 2500);
+ printStatement();
 }
 else {
  document.getElementById("statement").innerHTML += "INVALID CREDENTIALS.";
