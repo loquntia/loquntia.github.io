@@ -1,0 +1,102 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>National Bank of Loquntia</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+
+ <script src="/scripts/jquery.js"></script>
+ <script src="/scripts/crypt/scrypt.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+function verify()
+{
+ scrypt(document.atm.account.value + document.atm.pin.value, 314, 128, 124)
+}
+function load()
+{
+    $(function(){
+   $("#header").load("/mex/nbl/user");
+    });
+}
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+	
+		<div class="summary"role="article">
+
+			<p>Convert micronational and macronational currencies quickly and accurately using data from the <a href=""><b>Market Basket Appraisal Survey</b></a>.</p>
+
+			</div>
+
+
+	<div class="preamble" role="article">
+
+			<h2>Kingdom of Loquntia Currency Exchange Project</h2>
+			<p>
+			By appointment to His Majesty, King John I, the Ministry of the Exchequer has created this online currency converter to help calculate international exchange rates for our fellow micronations.
+			</p>
+		</div>
+		<div class="preamble" role="article">
+
+			<h3>Account Login</h3>
+
+			<form name="atm"><p>
+				Account / Liability No. :
+				<input type="text" name="account" required>
+				</p>
+				<p>
+				PIN Code / Security Code
+				<input type="password" name="pin" required>
+				</p>
+				<p>
+				<button type="button" onclick="verify()"></button>
+				</p>
+
+			</form>
+		</div>
+
+		<div class="preamble" role="article">
+
+			<h2>Survey</h2>
+			<p>
+			The Ministry of the Exchequer's "Market Basket Appraisal Survey" (MBAS) is a survey which briefly asks for people to appraise what they would pay for a basket of goods. <a href="https://docs.google.com/forms/d/1EdGnil7eDm5mHjmGc0zvF_f3coEKWunWt63d2k9XOMM/viewform"><b>All users of this converter are encouraged to participate in this survey and give us data for as many currencies as they can.</b></a> This data is then used to calculate exchange rates which are used by the calculator on this site to convert between any two of the currencies we have in our database. Exchange rates change rapidly, and inflation is volatile, and to ensure that the rates available on this site are up to date, it is requested that some take this survey on a regular basis when convenient.
+			</p>
+			<p>
+			To have your currency featured on this converter, it needs to have active survey participants who can provide data.
+			</p>
+		</div>
+
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>
