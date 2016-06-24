@@ -28,7 +28,7 @@ function verify()
 }
 function analyze()
 {
- if (document.getElementById("credentials").innerHTML == client)
+ if (document.getElementById("credentials").innerHTML == document.atm.account.value + document.atm.pin.value)
 {
     $(function(){
    $("#record").load("/mex/nbl/record/record.txt");
