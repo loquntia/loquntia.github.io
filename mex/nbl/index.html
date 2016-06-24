@@ -32,6 +32,7 @@ printStatement();
 function printStatement()
 {
   if (document.getElementById("record").innerHTML.lastIndexOf(document.atm.account.value) != -1)
+{
     document.getElementById("statement").innerHTML += document.getElementById("record").innerHTML.subString(document.getElementById("record").innerHTML.lastIndexOf("\r\n"), document.getElementById("record").innerHTML.lastIndexOf(document.atm.account.value) + 8) + "\r\n";
     document.getElementById("record").innerHTML = document.getElementById("record").innerHTML.subString(0,document.getElementById("record").innerHTML.lastIndexOf("\r\n")); printStatement();
 }
