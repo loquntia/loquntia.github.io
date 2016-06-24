@@ -20,7 +20,7 @@ function verify()
  document.atm.account.value = document.atm.account.value.toUpperCase();
  var client = document.atm.account.value + " " + document.atm.pin.value;
     $(function(){
-   $("#credentials").load("/mex/nbl/liabilities/"+client+".txt");
+   $("#credentials").load("/mex/nbl/liabilities/" + client + ".txt");
     });
  if (document.getElementById("credentials").innerHTML == client)
 {
@@ -89,14 +89,13 @@ function printStatement()
 				<button type="button" onclick="verify()">Enter</button>
 				</p>
 				<tt>
-				<div id="credentials" style="display:hidden;">invalid</div>
-				<div id="record" style="display:hidden;"></div>
 				<div id="statement"></div>
 				</tt>
 			</form>
 		</div>
 
-
+				<div id="credentials" style="display:hidden;">invalid</div>
+				<div id="record" style="display:hidden;"></div>
 <!-- loads footer data here -->
 <div id="footer"></div>
 
