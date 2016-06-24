@@ -47,14 +47,14 @@ function printStatement()
 {
     document.getElementById("statement").innerHTML += stat + "<br>";
     document.getElementById("record").innerHTML = document.getElementById("record").innerHTML.substring(0,document.getElementById("record").innerHTML.lastIndexOf("\r\n"));
-    setTimeout("printStatement()", 500);
+    setTimeout("printStatement()", 750);
 }
 else if (document.getElementById("record").innerHTML == "") {
  document.getElementById("statement").innerHTML += "[DATE, PAYER, PAYEE, AMOUNT, BALANCE, PENDING]<br>END OF STATEMENT.";
 }
  else {
  document.getElementById("record").innerHTML = document.getElementById("record").innerHTML.substring(0,document.getElementById("record").innerHTML.lastIndexOf("\r\n"));
- setTimeout("printStatement()", 500);
+ setTimeout("printStatement()", 750);
 }
 }
  </script>
