@@ -36,8 +36,8 @@ function printStatement()
 {
   if (document.getElementById("record").innerHTML.lastIndexOf(document.atm.account.value) != -1)
 {
-    document.getElementById("statement").innerHTML += document.getElementById("record").innerHTML.subString(document.getElementById("record").innerHTML.lastIndexOf("\r\n"), document.getElementById("record").innerHTML.lastIndexOf(document.atm.account.value) + 8) + "\r\n";
-    document.getElementById("record").innerHTML = document.getElementById("record").innerHTML.subString(0,document.getElementById("record").innerHTML.lastIndexOf("\r\n")); printStatement();
+    document.getElementById("statement").innerHTML += document.getElementById("record").innerHTML.substring(document.getElementById("record").innerHTML.lastIndexOf("\r\n"), document.getElementById("record").innerHTML.lastIndexOf(document.atm.account.value) + 8) + "\r\n";
+    document.getElementById("record").innerHTML = document.getElementById("record").innerHTML.substring(0,document.getElementById("record").innerHTML.lastIndexOf("\r\n")); printStatement();
 }
  else {
  document.getElementById("statement").innerHTML += "END OF STATEMENT."
