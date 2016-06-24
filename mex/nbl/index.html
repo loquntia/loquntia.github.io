@@ -17,6 +17,7 @@
  <script language="javascript">
 function verify()
 {
+ document.getElementById("statement").innerHTML = "";
  document.atm.account.value = document.atm.account.value.toUpperCase();
  var client = document.atm.account.value + document.atm.pin.value;
  var file = "/mex/nbl/liabilities/" + client + ".txt";
@@ -30,6 +31,11 @@ function verify()
     });
 printStatement();
 }
+else {
+ document.getElementById("statement").innerHTML += "INVALID CREDENTIALS.";
+ document.atm.account.value = "";
+ document.atm.pin.value = "";
+}
 }
 
 function printStatement()
@@ -40,7 +46,7 @@ function printStatement()
     document.getElementById("record").innerHTML = document.getElementById("record").innerHTML.substring(0,document.getElementById("record").innerHTML.lastIndexOf("\r\n")); setTimeout("printStatement()",500);
 }
  else {
- document.getElementById("statement").innerHTML += "END OF STATEMENT."
+ document.getElementById("statement").innerHTML += "END OF STATEMENT.";
 }
 }
  </script>
