@@ -1,35 +1,496 @@
 /*
- A JavaScript implementation of the SHA family of hashes, as
- defined in FIPS PUB 180-2 as well as the corresponding HMAC implementation
- as defined in FIPS PUB 198a
+ * A JavaScript implementation of the Secure Hash Algorithm, SHA-512, as defined
+ * in FIPS 180-2
+ * Version 2.2 Copyright Anonymous Contributor, Paul Johnston 2000 - 2009.
+ * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+ * Distributed under the BSD License
+ * See http://pajhome.org.uk/crypt/md5 for details.
+ */
 
- Copyright Brian Turek 2008-2016
- Distributed under the BSD License
- See http://caligatio.github.com/jsSHA/ for more information
+/*
+ * Configurable variables. You may need to tweak these to be compatible with
+ * the server-side, but the defaults work in most cases.
+ */
+var hexcase = 0;  /* hex output format. 0 - lowercase; 1 - uppercase        */
+var b64pad  = ""; /* base-64 pad character. "=" for strict RFC compliance   */
 
- Several functions taken from Paul Johnston
-*/
-'use strict';(function(J){function w(l,b,c){var d=0,g=[],e=0,a,k,m,n,p,r,u,q=!1,h=[],t=[],v,z=!1;c=c||{};a=c.encoding||"UTF8";v=c.numRounds||1;m=A(b,a);if(v!==parseInt(v,10)||1>v)throw Error("numRounds must a integer >= 1");r=function(b,c){return B(b,c,l)};u=function(b,c,d,e){var g,a;if("SHA-384"===l||"SHA-512"===l)g=(c+129>>>10<<5)+31,a=32;else throw Error("Unexpected error in SHA-2 implementation");for(;b.length<=g;)b.push(0);b[c>>>5]|=128<<24-c%32;c=c+d;b[g]=c&4294967295;b[g-1]=c/4294967296|0;
-d=b.length;for(c=0;c<d;c+=a)e=B(b.slice(c,c+a),e,l);if("SHA-384"===l)b=[e[0].a,e[0].b,e[1].a,e[1].b,e[2].a,e[2].b,e[3].a,e[3].b,e[4].a,e[4].b,e[5].a,e[5].b];else if("SHA-512"===l)b=[e[0].a,e[0].b,e[1].a,e[1].b,e[2].a,e[2].b,e[3].a,e[3].b,e[4].a,e[4].b,e[5].a,e[5].b,e[6].a,e[6].b,e[7].a,e[7].b];else throw Error("Unexpected error in SHA-2 implementation");return b};if("SHA-384"===l)p=1024,n=384;else if("SHA-512"===l)p=1024,n=512;else throw Error("Chosen SHA variant is not supported");k=x(l);this.setHMACKey=
-function(b,c,e){var g;if(!0===q)throw Error("HMAC key already set");if(!0===z)throw Error("Cannot set HMAC key after calling update");a=(e||{}).encoding||"UTF8";c=A(c,a)(b);b=c.binLen;c=c.value;g=p>>>3;e=g/4-1;if(g<b/8){for(c=u(c,b,0,x(l));c.length<=e;)c.push(0);c[e]&=4294967040}else if(g>b/8){for(;c.length<=e;)c.push(0);c[e]&=4294967040}for(b=0;b<=e;b+=1)h[b]=c[b]^909522486,t[b]=c[b]^1549556828;k=r(h,k);d=p;q=!0};this.update=function(b){var c,l,a,f=0,n=p>>>5;c=m(b,g,e);b=c.binLen;l=c.value;c=b>>>
-5;for(a=0;a<c;a+=n)f+p<=b&&(k=r(l.slice(a,a+n),k),f+=p);d+=f;g=l.slice(f>>>5);e=b%p;z=!0};this.getHash=function(b,c){var a,f,p,m;if(!0===q)throw Error("Cannot call getHash after setting HMAC key");p=C(c);switch(b){case "HEX":a=function(b){return D(b,p)};break;case "B64":a=function(b){return E(b,p)};break;case "BYTES":a=F;break;case "ARRAYBUFFER":try{f=new ArrayBuffer(0)}catch(r){throw Error("ARRAYBUFFER not supported by this environment");}a=G;break;default:throw Error("format must be HEX, B64, BYTES, or ARRAYBUFFER");
-}m=u(g.slice(),e,d,k.slice());for(f=1;f<v;f+=1)m=u(m,n,0,x(l));return a(m)};this.getHMAC=function(b,c){var a,f,m,h;if(!1===q)throw Error("Cannot call getHMAC without first setting HMAC key");m=C(c);switch(b){case "HEX":a=function(b){return D(b,m)};break;case "B64":a=function(b){return E(b,m)};break;case "BYTES":a=F;break;case "ARRAYBUFFER":try{a=new ArrayBuffer(0)}catch(v){throw Error("ARRAYBUFFER not supported by this environment");}a=G;break;default:throw Error("outputFormat must be HEX, B64, BYTES, or ARRAYBUFFER");
-}f=u(g.slice(),e,d,k.slice());h=r(t,x(l));h=u(f,n,p,h);return a(h)}}function d(l,b){this.a=l;this.b=b}function K(l,b,c){var d=l.length,a,e,f,k,m;b=b||[0];c=c||0;m=c>>>3;if(0!==d%2)throw Error("String of HEX type must be in byte increments");for(a=0;a<d;a+=2){e=parseInt(l.substr(a,2),16);if(isNaN(e))throw Error("String of HEX type contains invalid characters");k=(a>>>1)+m;for(f=k>>>2;b.length<=f;)b.push(0);b[f]|=e<<8*(3-k%4)}return{value:b,binLen:4*d+c}}function L(l,b,c){var d=[],a,e,f,k,d=b||[0];
-c=c||0;e=c>>>3;for(a=0;a<l.length;a+=1)b=l.charCodeAt(a),k=a+e,f=k>>>2,d.length<=f&&d.push(0),d[f]|=b<<8*(3-k%4);return{value:d,binLen:8*l.length+c}}function M(l,b,c){var d=[],a=0,e,f,k,m,n,p,d=b||[0];c=c||0;b=c>>>3;if(-1===l.search(/^[a-zA-Z0-9=+\/]+$/))throw Error("Invalid character in base-64 string");f=l.indexOf("=");l=l.replace(/\=/g,"");if(-1!==f&&f<l.length)throw Error("Invalid '=' found in base-64 string");for(f=0;f<l.length;f+=4){n=l.substr(f,4);for(k=m=0;k<n.length;k+=1)e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".indexOf(n[k]),
-m|=e<<18-6*k;for(k=0;k<n.length-1;k+=1){p=a+b;for(e=p>>>2;d.length<=e;)d.push(0);d[e]|=(m>>>16-8*k&255)<<8*(3-p%4);a+=1}}return{value:d,binLen:8*a+c}}function N(d,b,c){var a=[],g,e,f,a=b||[0];c=c||0;g=c>>>3;for(b=0;b<d.byteLength;b+=1)f=b+g,e=f>>>2,a.length<=e&&a.push(0),a[e]|=d[b]<<8*(3-f%4);return{value:a,binLen:8*d.byteLength+c}}function D(d,b){var c="",a=4*d.length,g,e;for(g=0;g<a;g+=1)e=d[g>>>2]>>>8*(3-g%4),c+="0123456789abcdef".charAt(e>>>4&15)+"0123456789abcdef".charAt(e&15);return b.outputUpper?
-c.toUpperCase():c}function E(d,b){var c="",a=4*d.length,g,e,f;for(g=0;g<a;g+=3)for(f=g+1>>>2,e=d.length<=f?0:d[f],f=g+2>>>2,f=d.length<=f?0:d[f],f=(d[g>>>2]>>>8*(3-g%4)&255)<<16|(e>>>8*(3-(g+1)%4)&255)<<8|f>>>8*(3-(g+2)%4)&255,e=0;4>e;e+=1)8*g+6*e<=32*d.length?c+="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(f>>>6*(3-e)&63):c+=b.b64Pad;return c}function F(d){var b="",c=4*d.length,a,g;for(a=0;a<c;a+=1)g=d[a>>>2]>>>8*(3-a%4)&255,b+=String.fromCharCode(g);return b}function G(d){var b=
-4*d.length,c,a=new ArrayBuffer(b);for(c=0;c<b;c+=1)a[c]=d[c>>>2]>>>8*(3-c%4)&255;return a}function C(d){var b={outputUpper:!1,b64Pad:"="};d=d||{};b.outputUpper=d.outputUpper||!1;!0===d.hasOwnProperty("b64Pad")&&(b.b64Pad=d.b64Pad);if("boolean"!==typeof b.outputUpper)throw Error("Invalid outputUpper formatting option");if("string"!==typeof b.b64Pad)throw Error("Invalid b64Pad formatting option");return b}function A(d,b){var c;switch(b){case "UTF8":case "UTF16BE":case "UTF16LE":break;default:throw Error("encoding must be UTF8, UTF16BE, or UTF16LE");
-}switch(d){case "HEX":c=K;break;case "TEXT":c=function(c,d,a){var l=[],k=[],m=0,n,p,r,h,q,l=d||[0];d=a||0;r=d>>>3;if("UTF8"===b)for(n=0;n<c.length;n+=1)for(a=c.charCodeAt(n),k=[],128>a?k.push(a):2048>a?(k.push(192|a>>>6),k.push(128|a&63)):55296>a||57344<=a?k.push(224|a>>>12,128|a>>>6&63,128|a&63):(n+=1,a=65536+((a&1023)<<10|c.charCodeAt(n)&1023),k.push(240|a>>>18,128|a>>>12&63,128|a>>>6&63,128|a&63)),p=0;p<k.length;p+=1){q=m+r;for(h=q>>>2;l.length<=h;)l.push(0);l[h]|=k[p]<<8*(3-q%4);m+=1}else if("UTF16BE"===
-b||"UTF16LE"===b)for(n=0;n<c.length;n+=1){a=c.charCodeAt(n);"UTF16LE"===b&&(p=a&255,a=p<<8|a>>>8);q=m+r;for(h=q>>>2;l.length<=h;)l.push(0);l[h]|=a<<8*(2-q%4);m+=2}return{value:l,binLen:8*m+d}};break;case "B64":c=M;break;case "BYTES":c=L;break;case "ARRAYBUFFER":try{c=new ArrayBuffer(0)}catch(a){throw Error("ARRAYBUFFER not supported by this environment");}c=N;break;default:throw Error("format must be HEX, TEXT, B64, BYTES, or ARRAYBUFFER");}return c}function h(a,b){var c=null,c=new d(a.a,a.b);return c=
-32>=b?new d(c.a>>>b|c.b<<32-b&4294967295,c.b>>>b|c.a<<32-b&4294967295):new d(c.b>>>b-32|c.a<<64-b&4294967295,c.a>>>b-32|c.b<<64-b&4294967295)}function H(a,b){var c=null;return c=32>=b?new d(a.a>>>b,a.b>>>b|a.a<<32-b&4294967295):new d(0,a.a>>>b-32)}function O(a,b,c){return new d(a.a&b.a^~a.a&c.a,a.b&b.b^~a.b&c.b)}function P(a,b,c){return new d(a.a&b.a^a.a&c.a^b.a&c.a,a.b&b.b^a.b&c.b^b.b&c.b)}function Q(a){var b=h(a,28),c=h(a,34);a=h(a,39);return new d(b.a^c.a^a.a,b.b^c.b^a.b)}function R(a){var b=h(a,
-14),c=h(a,18);a=h(a,41);return new d(b.a^c.a^a.a,b.b^c.b^a.b)}function S(a){var b=h(a,1),c=h(a,8);a=H(a,7);return new d(b.a^c.a^a.a,b.b^c.b^a.b)}function T(a){var b=h(a,19),c=h(a,61);a=H(a,6);return new d(b.a^c.a^a.a,b.b^c.b^a.b)}function U(a,b){var c,h,g;c=(a.b&65535)+(b.b&65535);h=(a.b>>>16)+(b.b>>>16)+(c>>>16);g=(h&65535)<<16|c&65535;c=(a.a&65535)+(b.a&65535)+(h>>>16);h=(a.a>>>16)+(b.a>>>16)+(c>>>16);return new d((h&65535)<<16|c&65535,g)}function V(a,b,c,h){var g,e,f;g=(a.b&65535)+(b.b&65535)+
-(c.b&65535)+(h.b&65535);e=(a.b>>>16)+(b.b>>>16)+(c.b>>>16)+(h.b>>>16)+(g>>>16);f=(e&65535)<<16|g&65535;g=(a.a&65535)+(b.a&65535)+(c.a&65535)+(h.a&65535)+(e>>>16);e=(a.a>>>16)+(b.a>>>16)+(c.a>>>16)+(h.a>>>16)+(g>>>16);return new d((e&65535)<<16|g&65535,f)}function W(a,b,c,h,g){var e,f,k;e=(a.b&65535)+(b.b&65535)+(c.b&65535)+(h.b&65535)+(g.b&65535);f=(a.b>>>16)+(b.b>>>16)+(c.b>>>16)+(h.b>>>16)+(g.b>>>16)+(e>>>16);k=(f&65535)<<16|e&65535;e=(a.a&65535)+(b.a&65535)+(c.a&65535)+(h.a&65535)+(g.a&65535)+
-(f>>>16);f=(a.a>>>16)+(b.a>>>16)+(c.a>>>16)+(h.a>>>16)+(g.a>>>16)+(e>>>16);return new d((f&65535)<<16|e&65535,k)}function x(a){var b,c;b=[3238371032,914150663,812702999,4144912697,4290775857,1750603025,1694076839,3204075428];c=[1779033703,3144134277,1013904242,2773480762,1359893119,2600822924,528734635,1541459225];switch(a){case "SHA-224":a=b;break;case "SHA-256":a=c;break;case "SHA-384":a=[new d(3418070365,b[0]),new d(1654270250,b[1]),new d(2438529370,b[2]),new d(355462360,b[3]),new d(1731405415,
-b[4]),new d(41048885895,b[5]),new d(3675008525,b[6]),new d(1203062813,b[7])];break;case "SHA-512":a=[new d(c[0],4089235720),new d(c[1],2227873595),new d(c[2],4271175723),new d(c[3],1595750129),new d(c[4],2917565137),new d(c[5],725511199),new d(c[6],4215389547),new d(c[7],327033209)];break;default:throw Error("Unknown SHA variant");}return a}function B(a,b,c){var h,g,e,f,k,m,n,p,r,u,q,w,t,v,z,x,A,B,C,D,E,F,y=[],G;if("SHA-384"===c||"SHA-512"===c)u=80,w=2,F=d,t=U,v=V,z=W,x=S,A=T,B=Q,C=R,E=P,D=O,G=I;
-else throw Error("Unexpected error in SHA-2 implementation");c=b[0];h=b[1];g=b[2];e=b[3];f=b[4];k=b[5];m=b[6];n=b[7];for(q=0;q<u;q+=1)16>q?(r=q*w,p=a.length<=r?0:a[r],r=a.length<=r+1?0:a[r+1],y[q]=new F(p,r)):y[q]=v(A(y[q-2]),y[q-7],x(y[q-15]),y[q-16]),p=z(n,C(f),D(f,k,m),G[q],y[q]),r=t(B(c),E(c,h,g)),n=m,m=k,k=f,f=t(e,p),e=g,g=h,h=c,c=t(p,r);b[0]=t(c,b[0]);b[1]=t(h,b[1]);b[2]=t(g,b[2]);b[3]=t(e,b[3]);b[4]=t(f,b[4]);b[5]=t(k,b[5]);b[6]=t(m,b[6]);b[7]=t(n,b[7]);return b}var a,I;a=[1116352408,1899447441,
-3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,
-506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298];I=[new d(a[0],3609767458),new d(a[1],602891725),new d(a[2],3964484399),new d(a[3],2173295548),new d(a[4],4081628472),new d(a[5],3053834265),new d(a[6],2937671579),new d(a[7],3664609560),new d(a[8],2734883394),new d(a[9],1164996542),new d(a[10],1323610764),new d(a[11],3590304994),new d(a[12],4068182383),new d(a[13],991336113),new d(a[14],
-633803317),new d(a[15],3479774868),new d(a[16],2666613458),new d(a[17],944711139),new d(a[18],2341262773),new d(a[19],2007800933),new d(a[20],1495990901),new d(a[21],1856431235),new d(a[22],3175218132),new d(a[23],2198950837),new d(a[24],3999719339),new d(a[25],766784016),new d(a[26],2566594879),new d(a[27],3203337956),new d(a[28],1034457026),new d(a[29],2466948901),new d(a[30],3758326383),new d(a[31],168717936),new d(a[32],1188179964),new d(a[33],1546045734),new d(a[34],1522805485),new d(a[35],2643833823),
-new d(a[36],2343527390),new d(a[37],1014477480),new d(a[38],1206759142),new d(a[39],344077627),new d(a[40],1290863460),new d(a[41],3158454273),new d(a[42],3505952657),new d(a[43],106217008),new d(a[44],3606008344),new d(a[45],1432725776),new d(a[46],1467031594),new d(a[47],851169720),new d(a[48],3100823752),new d(a[49],1363258195),new d(a[50],3750685593),new d(a[51],3785050280),new d(a[52],3318307427),new d(a[53],3812723403),new d(a[54],2003034995),new d(a[55],3602036899),new d(a[56],1575990012),
-new d(a[57],1125592928),new d(a[58],2716904306),new d(a[59],442776044),new d(a[60],593698344),new d(a[61],3733110249),new d(a[62],2999351573),new d(a[63],3815920427),new d(3391569614,3928383900),new d(3515267271,566280711),new d(3940187606,3454069534),new d(4118630271,4000239992),new d(116418474,1914138554),new d(174292421,2731055270),new d(289380356,3203993006),new d(460393269,320620315),new d(685471733,587496836),new d(852142971,1086792851),new d(1017036298,365543100),new d(1126000580,2618297676),
-new d(1288033470,3409855158),new d(1501505948,4234509866),new d(1607167915,987167468),new d(1816402316,1246189591)];"function"===typeof define&&define.amd?define(function(){return w}):"undefined"!==typeof exports?"undefined"!==typeof module&&module.exports?module.exports=exports=w:exports=w:J.jsSHA=w})(this);
+/*
+ * These are the functions you'll usually want to call
+ * They take string arguments and return either hex or base-64 encoded strings
+ */
+function hex_sha512(s)    { return rstr2hex(rstr_sha512(str2rstr_utf8(s))); }
+function b64_sha512(s)    { return rstr2b64(rstr_sha512(str2rstr_utf8(s))); }
+function any_sha512(s, e) { return rstr2any(rstr_sha512(str2rstr_utf8(s)), e);}
+function hex_hmac_sha512(k, d)
+  { return rstr2hex(rstr_hmac_sha512(str2rstr_utf8(k), str2rstr_utf8(d))); }
+function b64_hmac_sha512(k, d)
+  { return rstr2b64(rstr_hmac_sha512(str2rstr_utf8(k), str2rstr_utf8(d))); }
+function any_hmac_sha512(k, d, e)
+  { return rstr2any(rstr_hmac_sha512(str2rstr_utf8(k), str2rstr_utf8(d)), e);}
+
+/*
+ * Perform a simple self-test to see if the VM is working
+ */
+function sha512_vm_test()
+{
+  return hex_sha512("abc").toLowerCase() ==
+    "ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a" +
+    "2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f";
+}
+
+/*
+ * Calculate the SHA-512 of a raw string
+ */
+function rstr_sha512(s)
+{
+  return binb2rstr(binb_sha512(rstr2binb(s), s.length * 8));
+}
+
+/*
+ * Calculate the HMAC-SHA-512 of a key and some data (raw strings)
+ */
+function rstr_hmac_sha512(key, data)
+{
+  var bkey = rstr2binb(key);
+  if(bkey.length > 32) bkey = binb_sha512(bkey, key.length * 8);
+
+  var ipad = Array(32), opad = Array(32);
+  for(var i = 0; i < 32; i++)
+  {
+    ipad[i] = bkey[i] ^ 0x36363636;
+    opad[i] = bkey[i] ^ 0x5C5C5C5C;
+  }
+
+  var hash = binb_sha512(ipad.concat(rstr2binb(data)), 1024 + data.length * 8);
+  return binb2rstr(binb_sha512(opad.concat(hash), 1024 + 512));
+}
+
+/*
+ * Convert a raw string to a hex string
+ */
+function rstr2hex(input)
+{
+  try { hexcase } catch(e) { hexcase=0; }
+  var hex_tab = hexcase ? "0123456789ABCDEF" : "0123456789abcdef";
+  var output = "";
+  var x;
+  for(var i = 0; i < input.length; i++)
+  {
+    x = input.charCodeAt(i);
+    output += hex_tab.charAt((x >>> 4) & 0x0F)
+           +  hex_tab.charAt( x        & 0x0F);
+  }
+  return output;
+}
+
+/*
+ * Convert a raw string to a base-64 string
+ */
+function rstr2b64(input)
+{
+  try { b64pad } catch(e) { b64pad=''; }
+  var tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+  var output = "";
+  var len = input.length;
+  for(var i = 0; i < len; i += 3)
+  {
+    var triplet = (input.charCodeAt(i) << 16)
+                | (i + 1 < len ? input.charCodeAt(i+1) << 8 : 0)
+                | (i + 2 < len ? input.charCodeAt(i+2)      : 0);
+    for(var j = 0; j < 4; j++)
+    {
+      if(i * 8 + j * 6 > input.length * 8) output += b64pad;
+      else output += tab.charAt((triplet >>> 6*(3-j)) & 0x3F);
+    }
+  }
+  return output;
+}
+
+/*
+ * Convert a raw string to an arbitrary string encoding
+ */
+function rstr2any(input, encoding)
+{
+  var divisor = encoding.length;
+  var i, j, q, x, quotient;
+
+  /* Convert to an array of 16-bit big-endian values, forming the dividend */
+  var dividend = Array(Math.ceil(input.length / 2));
+  for(i = 0; i < dividend.length; i++)
+  {
+    dividend[i] = (input.charCodeAt(i * 2) << 8) | input.charCodeAt(i * 2 + 1);
+  }
+
+  /*
+   * Repeatedly perform a long division. The binary array forms the dividend,
+   * the length of the encoding is the divisor. Once computed, the quotient
+   * forms the dividend for the next step. All remainders are stored for later
+   * use.
+   */
+  var full_length = Math.ceil(input.length * 8 /
+                                    (Math.log(encoding.length) / Math.log(2)));
+  var remainders = Array(full_length);
+  for(j = 0; j < full_length; j++)
+  {
+    quotient = Array();
+    x = 0;
+    for(i = 0; i < dividend.length; i++)
+    {
+      x = (x << 16) + dividend[i];
+      q = Math.floor(x / divisor);
+      x -= q * divisor;
+      if(quotient.length > 0 || q > 0)
+        quotient[quotient.length] = q;
+    }
+    remainders[j] = x;
+    dividend = quotient;
+  }
+
+  /* Convert the remainders to the output string */
+  var output = "";
+  for(i = remainders.length - 1; i >= 0; i--)
+    output += encoding.charAt(remainders[i]);
+
+  return output;
+}
+
+/*
+ * Encode a string as utf-8.
+ * For efficiency, this assumes the input is valid utf-16.
+ */
+function str2rstr_utf8(input)
+{
+  var output = "";
+  var i = -1;
+  var x, y;
+
+  while(++i < input.length)
+  {
+    /* Decode utf-16 surrogate pairs */
+    x = input.charCodeAt(i);
+    y = i + 1 < input.length ? input.charCodeAt(i + 1) : 0;
+    if(0xD800 <= x && x <= 0xDBFF && 0xDC00 <= y && y <= 0xDFFF)
+    {
+      x = 0x10000 + ((x & 0x03FF) << 10) + (y & 0x03FF);
+      i++;
+    }
+
+    /* Encode output as utf-8 */
+    if(x <= 0x7F)
+      output += String.fromCharCode(x);
+    else if(x <= 0x7FF)
+      output += String.fromCharCode(0xC0 | ((x >>> 6 ) & 0x1F),
+                                    0x80 | ( x         & 0x3F));
+    else if(x <= 0xFFFF)
+      output += String.fromCharCode(0xE0 | ((x >>> 12) & 0x0F),
+                                    0x80 | ((x >>> 6 ) & 0x3F),
+                                    0x80 | ( x         & 0x3F));
+    else if(x <= 0x1FFFFF)
+      output += String.fromCharCode(0xF0 | ((x >>> 18) & 0x07),
+                                    0x80 | ((x >>> 12) & 0x3F),
+                                    0x80 | ((x >>> 6 ) & 0x3F),
+                                    0x80 | ( x         & 0x3F));
+  }
+  return output;
+}
+
+/*
+ * Encode a string as utf-16
+ */
+function str2rstr_utf16le(input)
+{
+  var output = "";
+  for(var i = 0; i < input.length; i++)
+    output += String.fromCharCode( input.charCodeAt(i)        & 0xFF,
+                                  (input.charCodeAt(i) >>> 8) & 0xFF);
+  return output;
+}
+
+function str2rstr_utf16be(input)
+{
+  var output = "";
+  for(var i = 0; i < input.length; i++)
+    output += String.fromCharCode((input.charCodeAt(i) >>> 8) & 0xFF,
+                                   input.charCodeAt(i)        & 0xFF);
+  return output;
+}
+
+/*
+ * Convert a raw string to an array of big-endian words
+ * Characters >255 have their high-byte silently ignored.
+ */
+function rstr2binb(input)
+{
+  var output = Array(input.length >> 2);
+  for(var i = 0; i < output.length; i++)
+    output[i] = 0;
+  for(var i = 0; i < input.length * 8; i += 8)
+    output[i>>5] |= (input.charCodeAt(i / 8) & 0xFF) << (24 - i % 32);
+  return output;
+}
+
+/*
+ * Convert an array of big-endian words to a string
+ */
+function binb2rstr(input)
+{
+  var output = "";
+  for(var i = 0; i < input.length * 32; i += 8)
+    output += String.fromCharCode((input[i>>5] >>> (24 - i % 32)) & 0xFF);
+  return output;
+}
+
+/*
+ * Calculate the SHA-512 of an array of big-endian dwords, and a bit length
+ */
+var sha512_k;
+function binb_sha512(x, len)
+{
+  if(sha512_k == undefined)
+  {
+    //SHA512 constants
+    sha512_k = new Array(
+new int64(0x428a2f98, -685199838), new int64(0x71374491, 0x23ef65cd),
+new int64(-1245643825, -330482897), new int64(-373957723, -2121671748),
+new int64(0x3956c25b, -213338824), new int64(0x59f111f1, -1241133031),
+new int64(-1841331548, -1357295717), new int64(-1424204075, -630357736),
+new int64(-670586216, -1560083902), new int64(0x12835b01, 0x45706fbe),
+new int64(0x243185be, 0x4ee4b28c), new int64(0x550c7dc3, -704662302),
+new int64(0x72be5d74, -226784913), new int64(-2132889090, 0x3b1696b1),
+new int64(-1680079193, 0x25c71235), new int64(-1046744716, -815192428),
+new int64(-459576895, -1628353838), new int64(-272742522, 0x384f25e3),
+new int64(0xfc19dc6, -1953704523), new int64(0x240ca1cc, 0x77ac9c65),
+new int64(0x2de92c6f, 0x592b0275), new int64(0x4a7484aa, 0x6ea6e483),
+new int64(0x5cb0a9dc, -1119749164), new int64(0x76f988da, -2096016459),
+new int64(-1740746414, -295247957), new int64(-1473132947, 0x2db43210),
+new int64(-1341970488, -1728372417), new int64(-1084653625, -1091629340),
+new int64(-958395405, 0x3da88fc2), new int64(-710438585, -1828018395),
+new int64(0x6ca6351, -536640913), new int64(0x14292967, 0xa0e6e70),
+new int64(0x27b70a85, 0x46d22ffc), new int64(0x2e1b2138, 0x5c26c926),
+new int64(0x4d2c6dfc, 0x5ac42aed), new int64(0x53380d13, -1651133473),
+new int64(0x650a7354, -1951439906), new int64(0x766a0abb, 0x3c77b2a8),
+new int64(-2117940946, 0x47edaee6), new int64(-1838011259, 0x1482353b),
+new int64(-1564481375, 0x4cf10364), new int64(-1474664885, -1136513023),
+new int64(-1035236496, -789014639), new int64(-949202525, 0x654be30),
+new int64(-778901479, -688958952), new int64(-694614492, 0x5565a910),
+new int64(-200395387, 0x5771202a), new int64(0x106aa070, 0x32bbd1b8),
+new int64(0x19a4c116, -1194143544), new int64(0x1e376c08, 0x5141ab53),
+new int64(0x2748774c, -544281703), new int64(0x34b0bcb5, -509917016),
+new int64(0x391c0cb3, -976659869), new int64(0x4ed8aa4a, -482243893),
+new int64(0x5b9cca4f, 0x7763e373), new int64(0x682e6ff3, -692930397),
+new int64(0x748f82ee, 0x5defb2fc), new int64(0x78a5636f, 0x43172f60),
+new int64(-2067236844, -1578062990), new int64(-1933114872, 0x1a6439ec),
+new int64(-1866530822, 0x23631e28), new int64(-1538233109, -561857047),
+new int64(-1090935817, -1295615723), new int64(-965641998, -479046869),
+new int64(-903397682, -366583396), new int64(-779700025, 0x21c0c207),
+new int64(-354779690, -840897762), new int64(-176337025, -294727304),
+new int64(0x6f067aa, 0x72176fba), new int64(0xa637dc5, -1563912026),
+new int64(0x113f9804, -1090974290), new int64(0x1b710b35, 0x131c471b),
+new int64(0x28db77f5, 0x23047d84), new int64(0x32caab7b, 0x40c72493),
+new int64(0x3c9ebe0a, 0x15c9bebc), new int64(0x431d67c4, -1676669620),
+new int64(0x4cc5d4be, -885112138), new int64(0x597f299c, -60457430),
+new int64(0x5fcb6fab, 0x3ad6faec), new int64(0x6c44198c, 0x4a475817));
+  }
+
+  //Initial hash values
+  var H = new Array(
+new int64(0x6a09e667, -205731576),
+new int64(-1150833019, -2067093701),
+new int64(0x3c6ef372, -23791573),
+new int64(-1521486534, 0x5f1d36f1),
+new int64(0x510e527f, -1377402159),
+new int64(-1694144372, 0x2b3e6c1f),
+new int64(0x1f83d9ab, -79577749),
+new int64(0x5be0cd19, 0x137e2179));
+
+  var T1 = new int64(0, 0),
+    T2 = new int64(0, 0),
+    a = new int64(0,0),
+    b = new int64(0,0),
+    c = new int64(0,0),
+    d = new int64(0,0),
+    e = new int64(0,0),
+    f = new int64(0,0),
+    g = new int64(0,0),
+    h = new int64(0,0),
+    //Temporary variables not specified by the document
+    s0 = new int64(0, 0),
+    s1 = new int64(0, 0),
+    Ch = new int64(0, 0),
+    Maj = new int64(0, 0),
+    r1 = new int64(0, 0),
+    r2 = new int64(0, 0),
+    r3 = new int64(0, 0);
+  var j, i;
+  var W = new Array(80);
+  for(i=0; i<80; i++)
+    W[i] = new int64(0, 0);
+
+  // append padding to the source string. The format is described in the FIPS.
+  x[len >> 5] |= 0x80 << (24 - (len & 0x1f));
+  x[((len + 128 >> 10)<< 5) + 31] = len;
+
+  for(i = 0; i<x.length; i+=32) //32 dwords is the block size
+  {
+    int64copy(a, H[0]);
+    int64copy(b, H[1]);
+    int64copy(c, H[2]);
+    int64copy(d, H[3]);
+    int64copy(e, H[4]);
+    int64copy(f, H[5]);
+    int64copy(g, H[6]);
+    int64copy(h, H[7]);
+
+    for(j=0; j<16; j++)
+    {
+        W[j].h = x[i + 2*j];
+        W[j].l = x[i + 2*j + 1];
+    }
+
+    for(j=16; j<80; j++)
+    {
+      //sigma1
+      int64rrot(r1, W[j-2], 19);
+      int64revrrot(r2, W[j-2], 29);
+      int64shr(r3, W[j-2], 6);
+      s1.l = r1.l ^ r2.l ^ r3.l;
+      s1.h = r1.h ^ r2.h ^ r3.h;
+      //sigma0
+      int64rrot(r1, W[j-15], 1);
+      int64rrot(r2, W[j-15], 8);
+      int64shr(r3, W[j-15], 7);
+      s0.l = r1.l ^ r2.l ^ r3.l;
+      s0.h = r1.h ^ r2.h ^ r3.h;
+
+      int64add4(W[j], s1, W[j-7], s0, W[j-16]);
+    }
+
+    for(j = 0; j < 80; j++)
+    {
+      //Ch
+      Ch.l = (e.l & f.l) ^ (~e.l & g.l);
+      Ch.h = (e.h & f.h) ^ (~e.h & g.h);
+
+      //Sigma1
+      int64rrot(r1, e, 14);
+      int64rrot(r2, e, 18);
+      int64revrrot(r3, e, 9);
+      s1.l = r1.l ^ r2.l ^ r3.l;
+      s1.h = r1.h ^ r2.h ^ r3.h;
+
+      //Sigma0
+      int64rrot(r1, a, 28);
+      int64revrrot(r2, a, 2);
+      int64revrrot(r3, a, 7);
+      s0.l = r1.l ^ r2.l ^ r3.l;
+      s0.h = r1.h ^ r2.h ^ r3.h;
+
+      //Maj
+      Maj.l = (a.l & b.l) ^ (a.l & c.l) ^ (b.l & c.l);
+      Maj.h = (a.h & b.h) ^ (a.h & c.h) ^ (b.h & c.h);
+
+      int64add5(T1, h, s1, Ch, sha512_k[j], W[j]);
+      int64add(T2, s0, Maj);
+
+      int64copy(h, g);
+      int64copy(g, f);
+      int64copy(f, e);
+      int64add(e, d, T1);
+      int64copy(d, c);
+      int64copy(c, b);
+      int64copy(b, a);
+      int64add(a, T1, T2);
+    }
+    int64add(H[0], H[0], a);
+    int64add(H[1], H[1], b);
+    int64add(H[2], H[2], c);
+    int64add(H[3], H[3], d);
+    int64add(H[4], H[4], e);
+    int64add(H[5], H[5], f);
+    int64add(H[6], H[6], g);
+    int64add(H[7], H[7], h);
+  }
+
+  //represent the hash as an array of 32-bit dwords
+  var hash = new Array(16);
+  for(i=0; i<8; i++)
+  {
+    hash[2*i] = H[i].h;
+    hash[2*i + 1] = H[i].l;
+  }
+  return hash;
+}
+
+//A constructor for 64-bit numbers
+function int64(h, l)
+{
+  this.h = h;
+  this.l = l;
+  //this.toString = int64toString;
+}
+
+//Copies src into dst, assuming both are 64-bit numbers
+function int64copy(dst, src)
+{
+  dst.h = src.h;
+  dst.l = src.l;
+}
+
+//Right-rotates a 64-bit number by shift
+//Won't handle cases of shift>=32
+//The function revrrot() is for that
+function int64rrot(dst, x, shift)
+{
+    dst.l = (x.l >>> shift) | (x.h << (32-shift));
+    dst.h = (x.h >>> shift) | (x.l << (32-shift));
+}
+
+//Reverses the dwords of the source and then rotates right by shift.
+//This is equivalent to rotation by 32+shift
+function int64revrrot(dst, x, shift)
+{
+    dst.l = (x.h >>> shift) | (x.l << (32-shift));
+    dst.h = (x.l >>> shift) | (x.h << (32-shift));
+}
+
+//Bitwise-shifts right a 64-bit number by shift
+//Won't handle shift>=32, but it's never needed in SHA512
+function int64shr(dst, x, shift)
+{
+    dst.l = (x.l >>> shift) | (x.h << (32-shift));
+    dst.h = (x.h >>> shift);
+}
+
+//Adds two 64-bit numbers
+//Like the original implementation, does not rely on 32-bit operations
+function int64add(dst, x, y)
+{
+   var w0 = (x.l & 0xffff) + (y.l & 0xffff);
+   var w1 = (x.l >>> 16) + (y.l >>> 16) + (w0 >>> 16);
+   var w2 = (x.h & 0xffff) + (y.h & 0xffff) + (w1 >>> 16);
+   var w3 = (x.h >>> 16) + (y.h >>> 16) + (w2 >>> 16);
+   dst.l = (w0 & 0xffff) | (w1 << 16);
+   dst.h = (w2 & 0xffff) | (w3 << 16);
+}
+
+//Same, except with 4 addends. Works faster than adding them one by one.
+function int64add4(dst, a, b, c, d)
+{
+   var w0 = (a.l & 0xffff) + (b.l & 0xffff) + (c.l & 0xffff) + (d.l & 0xffff);
+   var w1 = (a.l >>> 16) + (b.l >>> 16) + (c.l >>> 16) + (d.l >>> 16) + (w0 >>> 16);
+   var w2 = (a.h & 0xffff) + (b.h & 0xffff) + (c.h & 0xffff) + (d.h & 0xffff) + (w1 >>> 16);
+   var w3 = (a.h >>> 16) + (b.h >>> 16) + (c.h >>> 16) + (d.h >>> 16) + (w2 >>> 16);
+   dst.l = (w0 & 0xffff) | (w1 << 16);
+   dst.h = (w2 & 0xffff) | (w3 << 16);
+}
+
+//Same, except with 5 addends
+function int64add5(dst, a, b, c, d, e)
+{
+   var w0 = (a.l & 0xffff) + (b.l & 0xffff) + (c.l & 0xffff) + (d.l & 0xffff) + (e.l & 0xffff);
+   var w1 = (a.l >>> 16) + (b.l >>> 16) + (c.l >>> 16) + (d.l >>> 16) + (e.l >>> 16) + (w0 >>> 16);
+   var w2 = (a.h & 0xffff) + (b.h & 0xffff) + (c.h & 0xffff) + (d.h & 0xffff) + (e.h & 0xffff) + (w1 >>> 16);
+   var w3 = (a.h >>> 16) + (b.h >>> 16) + (c.h >>> 16) + (d.h >>> 16) + (e.h >>> 16) + (w2 >>> 16);
+   dst.l = (w0 & 0xffff) | (w1 << 16);
+   dst.h = (w2 & 0xffff) | (w3 << 16);
+}

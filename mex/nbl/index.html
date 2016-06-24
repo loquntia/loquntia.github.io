@@ -13,19 +13,31 @@
  <script language="javascript" src="/scripts/standard.js"></script>
 
  <script src="/scripts/jquery.js"></script>
- <script src="/scripts/crypto/scrypt.js"></script>
-
  <!-- the following script loads the header and footer using JQuery -->
  <script language="javascript">
 function verify()
 {
- scrypt(document.atm.account.value + document.atm.pin.value, 314, 128, 124)
-}
-function load()
+ document.atm.account.value = document.atm.account.value.toUpperCase();
+ var client = document.atm.account.value + " " document.atm.pin.value;
+    $(function(){
+   $("#credentials").load("/mex/nbl/liabilities/"+client+".txt");
+    });
+ if (document.getElementById("credentials").innerHTML == client)
 {
     $(function(){
-   $("#header").load("/mex/nbl/user");
+   $("#record").load("/mex/nbl/record/record.txt");
     });
+printStatement();
+}
+function printStatement()
+{
+  if (document.getElementById("record").innerHTML.lastIndexOf(document.atm.account.value) != -1)
+    document.getElementById("statement").innerHTML += document.getElementById("record").innerHTML.subString(document.getElementById("record").innerHTML.lastIndexOf("\r\n"), document.getElementById("record").innerHTML.lastIndexOf(document.atm.account.value) + 8) + "\r\n";
+    document.getElementById("record").innerHTML = document.getElementById("record").innerHTML.subString(0,document.getElementById("record").innerHTML.lastIndexOf("\r\n")); printStatement();
+}
+ else {
+ document.getElementById("statement").innerHTML += "END OF STATEMENT."
+}
 }
  </script>
  
@@ -53,19 +65,12 @@ function load()
 	
 		<div class="summary"role="article">
 
-			<p>Convert micronational and macronational currencies quickly and accurately using data from the <a href=""><b>Market Basket Appraisal Survey</b></a>.</p>
+			<p>Access your NBL account to view you current balance and all previous transactions.</p>
 
 			</div>
 
 
 	<div class="preamble" role="article">
-
-			<h2>Kingdom of Loquntia Currency Exchange Project</h2>
-			<p>
-			By appointment to His Majesty, King John I, the Ministry of the Exchequer has created this online currency converter to help calculate international exchange rates for our fellow micronations.
-			</p>
-		</div>
-		<div class="preamble" role="article">
 
 			<h3>Account Login</h3>
 
@@ -74,13 +79,17 @@ function load()
 				<input type="text" name="account" required>
 				</p>
 				<p>
-				PIN Code / Security Code
+				PIN Code / Security Code :
 				<input type="password" name="pin" required>
 				</p>
 				<p>
 				<button type="button" onclick="verify()"></button>
 				</p>
-
+				<tt>
+				<div id="credentials" style="display:hidden;">invalid</div>
+				<div id="record" style="display:hidden;"></div>
+				<div id="statement">invalid</div>
+				</tt>
 			</form>
 		</div>
 
