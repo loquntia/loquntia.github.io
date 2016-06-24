@@ -29,7 +29,7 @@ function verify()
     $(function(){
    $("#record").load("/mex/nbl/record/record.txt");
     });
-printStatement();
+ document.getElementById("statement").innerHTML += "LOADING..." + "<br>";setTimeout("printStatement()", 2500);
 }
 else {
  document.getElementById("statement").innerHTML += "INVALID CREDENTIALS.";
@@ -42,7 +42,7 @@ function printStatement()
 {
   if (document.getElementById("record").innerHTML.lastIndexOf(document.atm.account.value) != -1)
 {
-    document.getElementById("statement").innerHTML += document.getElementById("record").innerHTML.substring(document.getElementById("record").innerHTML.lastIndexOf("\r\n"), document.getElementById("record").innerHTML.lastIndexOf(document.atm.account.value) + 9) + "\r\n";
+    document.getElementById("statement").innerHTML += document.getElementById("record").innerHTML.substring(document.getElementById("record").innerHTML.lastIndexOf("\r\n"), document.getElementById("record").innerHTML.lastIndexOf(document.atm.account.value) + 9) + "<br>";
     document.getElementById("record").innerHTML = document.getElementById("record").innerHTML.substring(0,document.getElementById("record").innerHTML.lastIndexOf("\r\n")); setTimeout("printStatement()", 500);
 }
  else {
