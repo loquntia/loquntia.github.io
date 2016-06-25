@@ -1,0 +1,119 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>International Records</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+<script language="javascript">
+function query()
+{
+document.getElementById("output").innerHTML = "";
+search();
+}
+function search()
+{
+document.query.entry.value = eval(document.query.entry.value + "+ 1");
+if (document.getElementById("n"+document.query.entry.value).innerHTML == "END")
+{
+document.getElementById("output").innerHTML += "<br>END OF SEARCH RESULTS.";setTimeout("search", 500);
+}
+else if (document.getElementById("n"+document.query.entry.value).innerHTML.indexOf(document.query.input.value) != -1)
+{
+document.getElementById("output").innerHTML += "<br>" + document.getElementById("n"+document.query.entry.value).innerHTML;setTimeout("search", 500);
+}
+else {
+setTimeout("search", 500);
+}
+}
+</script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt"); $("#record").load("/rms/record.txt");
+    });
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+<div id="record" style="display:none;"></div>
+	
+		<div class="summary"role="article">
+
+			<p>Convert micronational and macronational currencies quickly and accurately using data from the <a href=""><b>Market Basket Appraisal Survey</b></a>.</p>
+
+			</div>
+
+
+	<div class="preamble" role="article">
+
+			<h2>Kingdom of Loquntia Currency Exchange Project</h2>
+			<p>
+			By appointment to His Majesty, King John I, the Ministry of the Exchequer has created this online currency converter to help calculate international exchange rates for our fellow micronations.
+			</p>
+		</div>
+		<div id="disclaimer">
+		<input type="checkbox" onclick="document.getElementById('disclaimer').style.display='none';document.getElementById('query').style.display='';">
+		&emsp; I, the party accessing this online database, hereby swear or affirm under threat of perjury that I will abide by all terms and conditions associated with this online database.
+		</div>
+		<div id="query" style="display:none;">
+
+			<h3>Converter</h3>
+
+			<form name="query">
+				<input type="hidden" name="entry" value="0">
+				<p>Enter a search query.</p>
+				<p>
+				<input type="text" name="input">&emsp;<button type="button" onclick="query()">Search</button>
+				</p>
+
+				<p>
+				<div id="output"></div>
+				</p>
+
+			</form>
+		</div>
+
+		<div class="preamble" role="article">
+
+			<h2>Survey</h2>
+			<p>
+			The Ministry of the Exchequer's "Market Basket Appraisal Survey" (MBAS) is a survey which briefly asks for people to appraise what they would pay for a basket of goods. <a href="https://docs.google.com/forms/d/1EdGnil7eDm5mHjmGc0zvF_f3coEKWunWt63d2k9XOMM/viewform"><b>All users of this converter are encouraged to participate in this survey and give us data for as many currencies as they can.</b></a> This data is then used to calculate exchange rates which are used by the calculator on this site to convert between any two of the currencies we have in our database. Exchange rates change rapidly, and inflation is volatile, and to ensure that the rates available on this site are up to date, it is requested that some take this survey on a regular basis when convenient.
+			</p>
+			<p>
+			To have your currency featured on this converter, it needs to have active survey participants who can provide data.
+			</p>
+		</div>
+
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>
