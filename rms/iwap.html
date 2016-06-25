@@ -12,24 +12,24 @@
  <!-- load scripts -->
  <script language="javascript" src="/scripts/standard.js"></script>
 <script language="javascript">
-function query()
+function searchDatabase()
 {
 document.getElementById("output").innerHTML = "";
-search();
+searchLoop();
 }
-function search()
+function searchLoop()
 {
 document.query.entry.value = eval(document.query.entry.value + "+ 1");
 if (document.getElementById("n"+document.query.entry.value).innerHTML == "END")
 {
-document.getElementById("output").innerHTML += "<br>END OF SEARCH RESULTS.";setTimeout("search", 500);
+document.getElementById("output").innerHTML += "<br>END OF SEARCH RESULTS.";
 }
 else if (document.getElementById("n"+document.query.entry.value).innerHTML.indexOf(document.query.input.value) != -1)
 {
-document.getElementById("output").innerHTML += "<br>" + document.getElementById("n"+document.query.entry.value).innerHTML;setTimeout("search", 500);
+document.getElementById("output").innerHTML += "<br>" + document.getElementById("n"+document.query.entry.value).innerHTML;setTimeout("searchLoop()", 500);
 }
 else {
-setTimeout("search", 500);
+setTimeout("searchLoop()", 500);
 }
 }
 </script>
@@ -87,11 +87,11 @@ setTimeout("search", 500);
 
 			<h3>Converter</h3>
 
-			<form name="query">
+			<form name="query">
 				<input type="hidden" name="entry" value="0">
 				<p>Enter a search query.</p>
 				<p>
-				<input type="text" name="input">&emsp;<button type="button" onclick="query()">Search</button>
+				<input type="text" name="input">&emsp;<button type="button" onclick="searchDatabase()">Search</button>
 				</p>
 
 				<p>
