@@ -14,7 +14,7 @@
 <script language="javascript">
 function searchDatabase()
 {
-document.getElementById("output").innerHTML = "";
+document.getElementById("output").innerHTML = "SEARCHING DATABASE...<br>";
 document.dataBaseSearch.entry.value = "0";
 searchLoop();
 }
@@ -23,7 +23,7 @@ function searchLoop()
 document.dataBaseSearch.entry.value = eval(document.dataBaseSearch.entry.value + "+ 1");
 if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML == "END")
 {
-document.getElementById("output").innerHTML += "<br>END OF SEARCH RESULTS.";
+document.getElementById("output").innerHTML += "<p>END OF SEARCH RESULTS.</p>";
 }
 else if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML.indexOf(document.dataBaseSearch.input.value.toUpperCase()) != -1)
 {
@@ -114,9 +114,9 @@ setTimeout("searchLoop()", 500);
 				Query: <input type="text" name="input">&emsp;<button type="button" onclick="searchDatabase()">Search</button>
 				</p>
 
-				<p>
+				<p><tt>
 				<div id="output"></div>
-				</p>
+				</tt></p>
 
 			</form>
 		</div>
