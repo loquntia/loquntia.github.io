@@ -99,7 +99,7 @@ setTimeout("searchLoop()", 500);
 
 			<h3>Search Database</h3>
 
-			<form name="dataBaseSearch" action="searchDatabase()">
+			<form name="dataBaseSearch" action="javascript:searchDatabase()">
 				<input type="hidden" name="entry" value="0">
 				<p>
 				For more refined results, try the following:
@@ -115,7 +115,7 @@ setTimeout("searchLoop()", 500);
 				If you have any reason to believe information on this database to be false or incorrect, or you would like to know how to eliminate a warrant, please contact <a href="mailto:loquntia@gmail.com">loquntia@gmail.com</a>.
 				</p>
 				<p>
-				<center>Search: <input type="text" name="input">&emsp;<button type="button" onclick="searchDatabase()">Search</button></center>
+				<center><input type="text" name="input" placeholder="Search Database"><input type="submit" style="width:0px; height:0px; opacity:0;">&emsp;<button type="button" onclick="searchDatabase()">Search</button></center>
 				</p>
 
 
