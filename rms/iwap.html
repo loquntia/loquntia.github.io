@@ -15,19 +15,19 @@
 function searchDatabase()
 {
 document.getElementById("output").innerHTML = "";
-document.dataBaseSearch.entry.value = "0";
+document.dataBaseSearch.entry.value.toUpperCase() = "0";
 searchLoop();
 }
 function searchLoop()
 {
-document.dataBaseSearch.entry.value = eval(document.dataBaseSearch.entry.value + "+ 1");
-if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML == "END")
+document.dataBaseSearch.entry.value.toUpperCase() = eval(document.dataBaseSearch.entry.value.toUpperCase() + "+ 1");
+if (document.getElementById("n"+document.dataBaseSearch.entry.value.toUpperCase()).innerHTML == "END")
 {
 document.getElementById("output").innerHTML += "<br>END OF SEARCH RESULTS.";
 }
-else if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML.indexOf(document.dataBaseSearch.input.value) != -1)
+else if (document.getElementById("n"+document.dataBaseSearch.entry.value.toUpperCase()).innerHTML.indexOf(document.dataBaseSearch.input.value) != -1)
 {
-document.getElementById("output").innerHTML += "<br>" + document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML;setTimeout("searchLoop()", 500);
+document.getElementById("output").innerHTML += "<p>" + document.getElementById("n"+document.dataBaseSearch.entry.value.toUpperCase()).innerHTML + "</p>";setTimeout("searchLoop()", 500);
 }
 else {
 setTimeout("searchLoop()", 500);
@@ -68,19 +68,22 @@ setTimeout("searchLoop()", 500);
 	
 		<div class="summary"role="article">
 
-			<p>Convert micronational and macronational currencies quickly and accurately using data from the <a href=""><b>Market Basket Appraisal Survey</b></a>.</p>
+			<p>Access an international database of persons who have</p>
 
 			</div>
 
 
 	<div class="preamble" role="article">
 
-			<h2>Kingdom of Loquntia Currency Exchange Project</h2>
+			<h2>International Warrants, Arrests, and Prosecutions Record (IWAPS)</h2>
 			<p>
-			By appointment to His Majesty, King John I, the Ministry of the Exchequer has created this online currency converter to help calculate international exchange rates for our fellow micronations.
+			The Royal Marshals Service has made this online database to help the international effort of fighting crime,
 			</p>
 		</div>
 		<div id="disclaimer">
+		<p>
+		NOTICE: This online resource is privileged and confidential. By using this online resource you agree that you will not use it for malicious purposes.
+		</p>
 		<input type="checkbox" onclick="document.getElementById('disclaimer').style.display='none';document.getElementById('query').style.display='';">
 		&emsp; I, the party accessing this online database, hereby swear or affirm under threat of perjury that I will abide by all terms and conditions associated with this online database.
 		</div>
@@ -90,7 +93,22 @@ setTimeout("searchLoop()", 500);
 
 			<form name="dataBaseSearch">
 				<input type="hidden" name="entry" value="0">
-				<p>Enter a search query.</p>
+				<p>
+				Enter a search query.
+				</p>
+				<p>
+				For more refined results, try the following:
+				<ul>
+				<li>To search for a person with outstanding warrants, place an asterisk ("*") before their last name</li>
+				<li>Names are listed in the format [last name], [first name and middle name] (e.g. DOE, JOHN QUINTON)</li>
+				<li>Dates are listed in the format [DD MON YYYY] (e.g. 08 FEB 2014)</li>
+				<li>Pending arrests, warrants, or prosecutions will have an asterisk ("*") before the data</li>
+				<li>Arrests, warrants, indictments, and convictions will have an "A:", "W:", "I:", or "C:" in front of them, respectively</li>
+				</ul>
+				</p>
+				<p>
+				If you have any reason to believe information on this database to be false or incorrect, or you would like to know how to eliminate a warrant, please contact <a href="mailto:loquntia@gmail.com">loquntia@gmail.com</a>.
+				</p>
 				<p>
 				<input type="text" name="input">&emsp;<button type="button" onclick="searchDatabase()">Search</button>
 				</p>
@@ -102,16 +120,6 @@ setTimeout("searchLoop()", 500);
 			</form>
 		</div>
 
-		<div class="preamble" role="article">
-
-			<h2>Survey</h2>
-			<p>
-			The Ministry of the Exchequer's "Market Basket Appraisal Survey" (MBAS) is a survey which briefly asks for people to appraise what they would pay for a basket of goods. <a href="https://docs.google.com/forms/d/1EdGnil7eDm5mHjmGc0zvF_f3coEKWunWt63d2k9XOMM/viewform"><b>All users of this converter are encouraged to participate in this survey and give us data for as many currencies as they can.</b></a> This data is then used to calculate exchange rates which are used by the calculator on this site to convert between any two of the currencies we have in our database. Exchange rates change rapidly, and inflation is volatile, and to ensure that the rates available on this site are up to date, it is requested that some take this survey on a regular basis when convenient.
-			</p>
-			<p>
-			To have your currency featured on this converter, it needs to have active survey participants who can provide data.
-			</p>
-		</div>
 
 <!-- loads footer data here -->
 <div id="footer"></div>
