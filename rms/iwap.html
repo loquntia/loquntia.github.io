@@ -14,9 +14,16 @@
 <script language="javascript">
 function searchDatabase()
 {
+if (document.dataBaseSearch.input.value.toUpperCase().length <= 2)
+{
+document.getElementById("output").innerHTML = "SEARCH ERROR: QUERY MUST BE AT LEAST 3 CHARACTERS LONG.<br>";
+}
+else
+{
 document.getElementById("output").innerHTML = "SEARCHING DATABASE...<br>";
 document.dataBaseSearch.entry.value = "0";
 searchLoop();
+}
 }
 function searchLoop()
 {
@@ -92,7 +99,7 @@ setTimeout("searchLoop()", 500);
 
 			<h3>Search Database</h3>
 
-			<form name="dataBaseSearch">
+			<form name="dataBaseSearch" action="searchDatabase()">
 				<input type="hidden" name="entry" value="0">
 				<p>
 				Enter a search query.
@@ -111,7 +118,7 @@ setTimeout("searchLoop()", 500);
 				If you have any reason to believe information on this database to be false or incorrect, or you would like to know how to eliminate a warrant, please contact <a href="mailto:loquntia@gmail.com">loquntia@gmail.com</a>.
 				</p>
 				<p>
-				Query: <input type="text" name="input">&emsp;<button type="button" onclick="searchDatabase()">Search</button>
+				<center>Search: <input type="text" name="input">&emsp;<button type="button" onclick="searchDatabase()">Search</button></center>
 				</p>
 
 
