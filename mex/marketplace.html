@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <head>
  <!-- metadata about page -->
- <title>Currency Converter</title>
+ <title>World Marketplace</title>
  <meta charset="Unicode">
  <meta http-equiv="Content-Style-Type" content="text/css">
  <meta name="description" content="Kingdom of Loquntia">
@@ -12,6 +12,31 @@
  <!-- load scripts -->
  <script language="javascript" src="/scripts/standard.js"></script>
  <script src="/scripts/jquery.js"></script>
+ <script language="javascript">
+function startMarquee()
+{
+if (document.getElementById("stocks").innerHTML != "") 
+{
+document.marquee1.text.value=document.getElementById("stocks").innerHTML;
+scrollMarquee();
+}
+else
+{
+scrollMarquee();
+}
+}
+function scrollMarquee()
+{
+var msg = document.marquee1.text.value;
+var scrollChars = 1;
+document.marquee1.text.value =
+msg.substring(scrollChars) +
+msg.substring(0,scrollChars);
+document.getElementById("ticker").innerHTML = "" + document.marquee1.text.value + "";
+var scrollSpeed = 100;
+setTimeout('scrollMarquee()',scrollSpeed);
+}
+</script>
 
  <!-- the following script loads the header and footer using JQuery -->
  <script language="javascript">
@@ -30,7 +55,7 @@
 
 
 
-<body id="css-zen-garden">
+<body id="css-zen-garden" onload="startMarquee()">
 <div class="page-wrapper">
 
 
@@ -43,50 +68,26 @@
 <!-- body content -->
 
 
-<CENTER> 
+<center> 
 <form name="marquee1"> 
 <input type="hidden" name="text" value=" :: Loquntian Marketplace Stock Ticker :: Offline"> 
 </form>
 <div id="ticker">Loading Stock Ticker...</div>
 <div id="stocks" style="display:none;"></div>
 </center>
-<script language="javascript">
-function scrollMarquee()
-{
-var msg = document.marquee1.text.value;
-var scrollChars = 1;
-document.marquee1.text.value =
-msg.substring(scrollChars) +
-msg.substring(0,scrollChars);
-document.getElementById("ticker").innerHTML = "" + document.marquee1.text.value + "";
-var scrollSpeed = 100;
-setTimeout('scrollMarquee()',scrollSpeed);
-}
-</script>
-<script language="javascript">
-if (document.getElementById("stocks").innerHTML != "") 
-{
-document.marquee1.text.value=document.getElementById("stocks").innerHTML;
-scrollMarquee();
-}
-else
-{
-scrollMarquee();
-}
-<script>
 	
 		<div class="summary"role="article">
 
-			<p>Convert micronational and macronational currencies quickly and accurately using data from the <a href=""><b>Market Basket Appraisal Survey</b></a>.</p>
+			<p>Participate in trade on a global scale without regulation, and without paying corporate income tax.</p>
 
 			</div>
 
 
 	<div class="preamble" role="article">
 
-			<h2>Kingdom of Loquntia Currency Exchange Project</h2>
+			<h2>Kingdom of Loquntia World Marketplace</h2>
 			<p>
-			By appointment to His Majesty, King John I, the Ministry of the Exchequer has created this online currency converter to help calculate international exchange rates for our fellow micronations.
+			This page is where corporations from all over the world can 
 			</p>
 			
 		</div>
