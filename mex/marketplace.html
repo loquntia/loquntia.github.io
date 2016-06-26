@@ -33,7 +33,7 @@ document.marquee1.text.value =
 msg.substring(scrollChars) +
 msg.substring(0,scrollChars);
 document.getElementById("ticker").innerHTML = "" + document.marquee1.text.value + "";
-var scrollSpeed = 100;
+var scrollSpeed = 500;
 setTimeout('scrollMarquee()',scrollSpeed);
 }
 </script>
@@ -74,6 +74,7 @@ setTimeout('scrollMarquee()',scrollSpeed);
 </form>
 <tt><div id="ticker">Loading Stock Ticker...</div></tt>
 <div id="stocks" style="display:none;"></div>
+<hr>
 </center>
 	
 		<div class="summary"role="article">
