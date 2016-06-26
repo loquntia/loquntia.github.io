@@ -32,7 +32,7 @@ var scrollChars = 1;
 document.marquee1.text.value =
 msg.substring(scrollChars) +
 msg.substring(0,scrollChars);
-document.getElementById("ticker").innerHTML = "" + document.marquee1.text.value + "";
+document.getElementById("ticker").innerHTML = "" + document.marquee1.text.value.substring(0,50) + "";
 var scrollSpeed = 500;
 setTimeout('scrollMarquee()',scrollSpeed);
 }
@@ -70,7 +70,7 @@ setTimeout('scrollMarquee()',scrollSpeed);
 
 <center> 
 <form name="marquee1"> 
-<input type="hidden" name="text" length="25" value=" :: Loquntian Marketplace Stock Ticker :: Offline"> 
+<input type="hidden" name="text" length="25" value=" Ticker Offline -"> 
 </form>
 <tt><div id="ticker">Loading Stock Ticker...</div></tt>
 <div id="stocks" style="display:none;"></div>
@@ -79,7 +79,7 @@ setTimeout('scrollMarquee()',scrollSpeed);
 	
 		<div class="summary"role="article">
 
-			<p>Engage in trade on a global scale without regulation, and without paying corporate income tax.</p>
+			<p>Engage in trade on a global scale without regulation, and without paying corporate income tax</p>
 
 			</div>
 
