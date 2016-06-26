@@ -1,0 +1,98 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>Currency Converter</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt"); $("#stocks").load("/mex/stocks.txt");
+    });
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+
+
+<CENTER> 
+<form name="marquee1"> 
+<input type="hidden" name="text" value=" :: Loquntian Marketplace Stock Ticker :: Offline"> 
+</form>
+<div id="ticker">Loading Stock Ticker...</div>
+<div id="stocks" style="display:none;"></div>
+</center>
+<script language="javascript">
+function scrollMarquee()
+{
+var msg = document.marquee1.text.value;
+var scrollChars = 1;
+document.marquee1.text.value =
+msg.substring(scrollChars) +
+msg.substring(0,scrollChars);
+document.getElementById("ticker").innerHTML = "" + document.marquee1.text.value + "";
+var scrollSpeed = 100;
+setTimeout('scrollMarquee()',scrollSpeed);
+}
+</script>
+<script language="javascript">
+if (document.getElementById("stocks").innerHTML != "") 
+{
+document.marquee1.text.value=document.getElementById("stocks").innerHTML;
+scrollMarquee();
+}
+else
+{
+scrollMarquee();
+}
+<script>
+	
+		<div class="summary"role="article">
+
+			<p>Convert micronational and macronational currencies quickly and accurately using data from the <a href=""><b>Market Basket Appraisal Survey</b></a>.</p>
+
+			</div>
+
+
+	<div class="preamble" role="article">
+
+			<h2>Kingdom of Loquntia Currency Exchange Project</h2>
+			<p>
+			By appointment to His Majesty, King John I, the Ministry of the Exchequer has created this online currency converter to help calculate international exchange rates for our fellow micronations.
+			</p>
+			
+		</div>
+
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>
