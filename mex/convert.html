@@ -29,16 +29,25 @@ case "usd" :
 	rate1 = 26.575;
 	break;
 case "gbp" :
-	rate1 = 17.86;
+	rate1 = 32.95;
 	break;
 case "eur" :
-	rate1 = 23.36;
+	rate1 = 23.90;
 	break;
 case "esf" :
 	rate1 = 378.79;
 	break;
 case "std" :
 	rate1 = 24.78;
+	break;
+case "zcr" :
+	rate1 = 0.60576601657;
+	break;
+case "lip" :
+	rate1 = 98650;
+	break;
+case "lcr" :
+	rate1 = 3.83;
 	break;
  }
 
@@ -51,10 +60,10 @@ case "usd" :
 	rate2 = 26.575;
 	break;
 case "gbp" :
-	rate2 = 17.86;
+	rate2 = 32.95;
 	break;
 case "eur" :
-	rate2 = 23.36;
+	rate2 = 23.90;
 	break;
 case "esf" :
 	rate2 = 378.79;
@@ -62,9 +71,18 @@ case "esf" :
 case "std" :
 	rate2 = 24.78;
 	break;
+case "zcr" :
+	rate2 = 0.60576601657;
+	break;
+case "lip" :
+	rate2 = 98650;
+	break;
+case "lcr" :
+	rate2 = 3.83;
+	break;
  }
 /* alert("I:" + document.calc.input.value + " R1:" + rate1 + " R2:" + rate2); */
-document.calc.output.value = eval(document.calc.input.value * rate1 / rate2);
+document.calc.output.value = eval(document.calc.input.value / rate1 * rate2);
 }
 </script>
  <script src="/scripts/jquery.js"></script>
@@ -111,6 +129,9 @@ document.calc.output.value = eval(document.calc.input.value * rate1 / rate2);
 			<p>
 			By appointment to His Majesty, King John I, the Ministry of the Exchequer has created this online currency converter to help calculate international exchange rates for our fellow micronations.
 			</p>
+			<p>
+			All conversions represent data from micronational markets and may not resemble de facto international exchange rates.
+			</p>
 		</div>
 		<div class="preamble" role="article">
 
@@ -121,21 +142,27 @@ document.calc.output.value = eval(document.calc.input.value * rate1 / rate2);
 				<input type="text" name="input">
 				<select name="currency1">
 				<option value="m$">Micronational Dollar (M$)</option>
-				<option value="usd">United States Dollar (USD)</option>
-				<option value="gbp">Great Britain Pound Sterling (GBP)</option>
-				<option value="eur">European Union Euro (EUR)</option>
+				<option value="lcr">Loquntian Silver Crown (LCR)</option>
+				<option value="zcr">Zenraxian Crown (ZCR)</option>
+				<option value="lip">Lundenwic Imperial Crown (LIP)</option>
 				<option value="esf">Elsanoran Silver Francs (ESF)</option>
 				<option value="std">Star Dollar (STD)</option>
+				<option value="gbp">Great Britain Pound Sterling (GBP)</option>
+				<option value="usd">United States Dollar (USD)</option>
+				<option value="eur">European Union Euro (EUR)</option>
 				</select>
 				&emsp;to&emsp;
 				<input type="text" name="output" disabled>
 				<select name="currency2">
 				<option value="m$">Micronational Dollar (M$)</option>
-				<option value="usd">United States Dollar (USD)</option>
-				<option value="gbp">Great Britain Pound Sterling (GBP)</option>
-				<option value="eur">European Union Euro (EUR)</option>
+				<option value="lcr">Loquntian Silver Crown (LCR)</option>
+				<option value="zcr">Zenraxian Crown (ZCR)</option>
+				<option value="lip">Lundenwic Imperial Crown (LIP)</option>
 				<option value="esf">Elsanoran Silver Francs (ESF)</option>
 				<option value="std">Star Dollar (STD)</option>
+				<option value="gbp">Great Britain Pound Sterling (GBP)</option>
+				<option value="usd">United States Dollar (USD)</option>
+				<option value="eur">European Union Euro (EUR)</option>
 				</select>
 				</p>
 
