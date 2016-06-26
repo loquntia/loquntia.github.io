@@ -37,7 +37,7 @@
 					</li>
 					<li>
 
-						<a href="/mex/converter.html" class="design-name">Converter</a>
+						<a href="/mex/convert.html" class="design-name">Converter</a>
 					</li>
 
 					<li>
