@@ -20,41 +20,21 @@ function verify()
  document.getElementById("statement").innerHTML = "";
  document.atm.account.value = document.atm.account.value.toUpperCase();
  var client = document.atm.account.value + document.atm.pin.value;
- var file = "/mex/nbl/liabilities/" + client + ".txt";
+ var file = "https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/" + client + ".txt";
     $(function(){
    $("#credentials").load(file);
     });
- document.getElementById("statement").innerHTML = "LOADING..." + "<br>";setTimeout("analyze()", 2500);
-}
-function analyze()
-{
- if (document.getElementById("credentials").innerHTML == document.atm.account.value + document.atm.pin.value)
-{
- printStatement();
-}
-else {
- document.getElementById("statement").innerHTML += "INVALID CREDENTIALS.";
- document.atm.account.value = "";
- document.atm.pin.value = "";
-}
+ document.getElementById("statement").innerHTML = "LOADING..." + "<br>";setTimeout("printStatement()", 2500);
 }
 
 function printStatement()
 {
-
- var stat=document.getElementById("record").innerHTML.substring(document.getElementById("record").innerHTML.lastIndexOf("\r\n"), document.getElementById("record").innerHTML.length);
-  if (stat.indexOf(document.atm.account.value) != -1)
+  if (document.getElementById("credentials").innerHTML != "invalid")
 {
-    document.getElementById("statement").innerHTML += stat + "<br>";
-    document.getElementById("record").innerHTML = document.getElementById("record").innerHTML.substring(0,document.getElementById("record").innerHTML.lastIndexOf("\r\n")-1);
-    setTimeout("printStatement()", 1000);
-}
-else if (document.getElementById("record").innerHTML == "") {
- document.getElementById("statement").innerHTML += "[DATE, PAYER, PAYEE, AMOUNT, BALANCE, PENDING]<br>END OF STATEMENT.";
+    document.getElementById("statement").innerHTML += "<br>Remaining Balance: " + document.getElementById("credentials").innerHTML;
 }
  else {
- document.getElementById("record").innerHTML = document.getElementById("record").innerHTML.substring(0,document.getElementById("record").innerHTML.lastIndexOf("\r\n")-1);
- setTimeout("printStatement()", 1000);
+ document.getElementById("record").innerHTML += "Invalid Credentials.";
 }
 }
  </script>
@@ -72,29 +52,6 @@ else if (document.getElementById("record").innerHTML == "") {
 <body id="css-zen-garden">
 
 				<div id="credentials" style="display:none;">invalid</div>
-				<div id="record">20160313, CA-H4ECRR, CA-H4ECRR , 0.00, 0.00, FALSE
-20160315, SA-53VDTT, SA-53VDTT, 0.00, 0.00, FALSE
-20160315, SA-53VDTT, SA-53VDTT, 40.00, 0.00, FALSE
-20160316, GA-DR4L90, GA-DR4L90, 0.00, 0.00, FALSE
-20160316, MD-000035, GA-DR4L90, 10.00, 10.00, FALSE
-20160319, GA-DR4L90, MD-000035, 5.00, 5.00, FALSE
-20160323, GA-2JQIY3, GA-2JQIY3, 0.00, 0.00, FALSE
-20160411, GA-DK4G80, GA-DK4G80, 0.00, 0.00, FALSE
-20160419, GA-EXCHQR, GA-DR4L90, 0.10, 5.10, FALSE
-20160419, ST-024105, GA-EXCHQR, 100.00, 100.00, FALSE
-20160426, MD-000068, GA-DK4G80, 8.00, 8.00, FALSE
-20160503, GA-EXCHQR, GA-DR4L90, 0.10, 5.20, FALSE
-20160607, GA-EXCHQR, GA-DK4G80, 0.16, 8.16, FALSE
-20160607, GA-EXCHQR, GA-DK4G80, 0.16, 8.32, FALSE
-20160607, GA-EXCHQR, GA-DK4G80, 0.17, 8.49, FALSE
-20160607, GA-EXCHQR, GA-DR4L90, 0.10, 5.30, FALSE
-20160607, GA-EXCHQR, GA-DR4L90, 0.10, 5.40, FALSE
-20160608, CR-TE6OI2, CR-TE6OI2, 0.00, 0.00, FALSE
-20160614, GA-13GJZV, GA-13GJZV, 0.00, 0.00, FALSE</div>
-
-<div class="page-wrapper">
-
-
 <!-- official title of page here (will become window/tab title)-->
 
 
@@ -105,7 +62,7 @@ else if (document.getElementById("record").innerHTML == "") {
 	
 		<div class="summary"role="article">
 
-			<p>Access your NBL account to view you current balance and all previous transactions.</p>
+			<p>Access your NBL account to view your current balance</p>
 
 			</div>
 

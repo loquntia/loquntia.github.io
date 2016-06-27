@@ -34,6 +34,11 @@
 
 					<li>
 
+						<a href="/mex/convert.html" class="design-name">Convert Currencies</a>
+					</li>
+
+					<li>
+
 						<a href="/ul.html" class="design-name">University of Loquntia</a>
 					</li>
 					<li>
@@ -42,17 +47,12 @@
 					</li>
 					<li>
 
-						<a href="/mex/convert.html" class="design-name">Converter</a>
-					</li>
-
-					<li>
-
 						<a href="/rms/iwap.html" class="design-name">Criminal Records</a>
 					</li>
 
 					<li>
 
-						<a href="/login.html" class="design-name">Login</a>
+						<a href="/login.html" class="design-name">User Login</a>
 					</li>
 
 					</ul>
