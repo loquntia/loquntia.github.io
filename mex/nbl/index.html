@@ -42,7 +42,7 @@ function printStatement()
     document.getElementById("statement").innerHTML = "<br>Remaining Balance: " + document.getElementById("credentials").innerHTML;
 }
  else {
- document.getElementById("record").innerHTML += "Invalid Credentials.";
+ document.getElementById("statement").innerHTML += "Invalid Credentials.";
 }
 }
  </script>
@@ -80,19 +80,19 @@ function printStatement()
 			<legend>Account Details</legend>
 			<form name="atm"><fieldset>
 				<label for="account">Account / Liability No. :</label>
-				<input type="text" name="account" required>
+				<input type="text" name="account" placeholder="GA-123ABC">
 				</p>
 				<p>
 				<label for="pin">PIN Code / Security Code :</label>
-				<input type="password" name="pin" required>
+				<input type="password" name="pin" placeholder="1234">
 				</p>
 				<p>
 				<button type="button" onclick="verify()">Enter</button>
 				</fieldset>
+			</form>
 				<tt>
 				<div id="statement"></div>
 				</tt>
-			</form>
 		</div>
 
 <!-- loads footer data here -->
