@@ -128,7 +128,7 @@
 					<hr>
 					<li>
 
-						<form action="search.html">
+						<form action="/search.html">
 <input type="text" name="q" id="headersearch" autocomplete="off" placeholder="Search">
 </form>
 					</li>

@@ -1,36 +1,94 @@
 <html>
+<!DOCTYPE html>
 <head>
-<script type="text/javascript">
-  var userip;
-</script>
-<script type="text/javascript" src="/scripts/jquery.js"></script>
-<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
-<script type="text/javascript">
-  document.write('Client : ', userip);
-  document.write("<div id='auth'>Authorising...</div><br>Forwarding client...");
-</script>
-<script language="javascript">
+ <!-- metadata about page -->
+ <title>National Bank of Loquntia</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
     $(function(){
-   $("#auth").load("/restricted/auth/" + userip + ".whitelist");
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
     });
- setTimeout("forward()", 1500)
-</script>
-<script language="javascript">
-function forward()
+ </script>
+
+ <script language="javascript">
+function verify()
 {
-if (document.getElementById("auth").innerHTML == "Authorising...")
- {
- window.location.href = "/disallow.html";
- }
-else
- {
- window.location.href = document.getElementById("auth").innerHTML;
- }
+ document.getElementById("credentials").innerHTML = "invalid";
+ var client = document.login.username.value + document.login.password.value;
+ var file = "https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/login/" + client + ".txt";
+    $(function(){
+   $("#credentials").load(file);
+    });
+ document.getElementById("status").innerHTML = "Authorising..." + "<br>";setTimeout("login()", 2500);
 }
-</script>
+
+function login()
+{
+  if (document.getElementById("credentials").innerHTML != "invalid")
+{
+    document.cookie = "username=" + document.login.username.value + "; password=" + document.login.password.value
+}
+ else {
+ document.login.password.value=""; document.getElementById("status").innerHTML += "<p color="red">Username or password incorrect.</p>";
+}
+}
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
 </head>
 
-<body>
 
+
+<body id="css-zen-garden"><div class="page-wrapper">
+
+				<div id="credentials" style="display:none;"></div>
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+	
+		<div class="summary"role="article">
+
+			<p>Create an account to access privileged and confidential information</p>
+
+			</div>
+
+
+	<div class="preamble" role="article">
+
+			<form name="login">
+			<legend><b>Login</b></legend>
+				<input type="text" name="username" placeholder="Username">
+				</p>
+				<p>
+				<input type="password" name="password" placeholder="Password">
+				<small><div id="status">Not registered? <a href="https://docs.google.com/forms/d/1k9w0O3yTa57adjydSRvn_Izkljie0rzsRTGSbtJyY4I/viewform">Create an account</a></div></small>
+				</p>
+				<p>
+				<button type="button" onclick="verify()">Enter</button>
+			</form>
+			</div>
+<!-- loads footer data here -->
+<div id="footer"></div>
+</div>
 </body>
 </html>
