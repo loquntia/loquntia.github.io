@@ -52,7 +52,8 @@
 
 					<li>
 
-						<a href="/login.html" class="design-name">User Login</a>
+						<div onload="if(document.cookie==''){this.style.display='none'}"><a href="/login.html" class="design-name">User Login</a></div>
+						<div onload="if(document.cookie!=''){this.style.display='inline';document.cookie=''}"><a href="#" class="design-name">Log Out</a></div>
 					</li>
 
 					</ul>
