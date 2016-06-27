@@ -19,7 +19,7 @@ function verifyLogin()
  var file = "https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/login/" + client + ".txt";
     $(function(){
    $("#credentials").load(file);
-    });
+    }); 
 setTimeout("protect()", 2500);
 }
 
@@ -36,7 +36,7 @@ function protect()
  <!-- the following script loads the header and footer using JQuery -->
  <script language="javascript">
     $(function(){
-   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt"); $("#record").load("/rms/record.txt");
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
     });
  </script>
  
