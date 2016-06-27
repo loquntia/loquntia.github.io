@@ -13,25 +13,33 @@
  <script language="javascript" src="/scripts/standard.js"></script>
 
  <script src="/scripts/jquery.js"></script>
+
  <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt"); $("#record").load("/rms/record.txt");
+    });
+ </script>
+
  <script language="javascript">
 function verify()
 {
  document.getElementById("statement").innerHTML = "";
+ document.getElementById("credentials").innerHTML = "invalid";
  document.atm.account.value = document.atm.account.value.toUpperCase();
  var client = document.atm.account.value + document.atm.pin.value;
  var file = "https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/" + client + ".txt";
     $(function(){
    $("#credentials").load(file);
     });
- document.getElementById("statement").innerHTML = "LOADING..." + "<br>";setTimeout("printStatement()", 2500);
+ document.getElementById("statement").innerHTML = "Authorising..." + "<br>";setTimeout("printStatement()", 2500);
 }
 
 function printStatement()
 {
   if (document.getElementById("credentials").innerHTML != "invalid")
 {
-    document.getElementById("statement").innerHTML += "<br>Remaining Balance: " + document.getElementById("credentials").innerHTML;
+    document.getElementById("statement").innerHTML = "<br>Remaining Balance: " + document.getElementById("credentials").innerHTML;
 }
  else {
  document.getElementById("record").innerHTML += "Invalid Credentials.";
@@ -51,7 +59,7 @@ function printStatement()
 
 <body id="css-zen-garden">
 
-				<div id="credentials" style="display:none;">invalid</div>
+				<div id="credentials" style="display:none;"></div>
 <!-- official title of page here (will become window/tab title)-->
 
 
@@ -62,26 +70,25 @@ function printStatement()
 	
 		<div class="summary"role="article">
 
-			<p>Access your NBL account to view your current balance</p>
+			<p>Access your NBL checking, savings, or commerce account to view your current balance; or access your credit account, or loans to see their remaining balance</p>
 
 			</div>
 
 
 	<div class="preamble" role="article">
 
-			<h3>Account Login</h3>
-
-			<form name="atm"><p>
-				Account / Liability No. :
+			<legend>Account Details</legend>
+			<form name="atm"><fieldset>
+				<label for="account">Account / Liability No. :</label>
 				<input type="text" name="account" required>
 				</p>
 				<p>
-				PIN Code / Security Code :
+				<label for="pin">PIN Code / Security Code :</label>
 				<input type="password" name="pin" required>
 				</p>
 				<p>
 				<button type="button" onclick="verify()">Enter</button>
-				</p>
+				</fieldset>
 				<tt>
 				<div id="statement"></div>
 				</tt>
