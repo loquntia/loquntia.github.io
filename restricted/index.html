@@ -15,12 +15,18 @@
 function verifyLogin()
 {
  document.getElementById("credentials").innerHTML = "invalid";
+if (document.cookie == "cert=")
+{
+    window.location.href="/login.html";
+}
+else {
  var client = window.atob(document.cookie.substring(5,document.cookie.length));
  var file = "https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/login/" + client + ".txt";
     $(function(){
    $("#credentials").load(file);
     }); 
 setTimeout("protect()", 2500);
+}
 }
 
 function protect()
