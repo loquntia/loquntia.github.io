@@ -30,14 +30,14 @@ function verify()
     $(function(){
    $("#credentials").load(file);
     });
- document.getElementById("status").innerHTML = "Please Wait.." + "<br>";setTimeout("login()", 2500);
+ document.getElementById("status").innerHTML = "Please Wait..." + "<br>";setTimeout("login()", 2500);
 }
 
 function login()
 {
   if (document.getElementById("credentials").innerHTML != "invalid")
 {
-    document.cookie = "cert=" + window.btoa(document.login.username.value + document.login.password.value); window.href="/restricted"
+    document.cookie = "cert=" + window.btoa(document.login.username.value + document.login.password.value); window.location.href="/restricted";
 }
  else {
  document.login.password.value=""; document.getElementById("status").innerHTML = "Username or password incorrect.";
