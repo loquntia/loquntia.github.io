@@ -40,7 +40,7 @@ function login()
     document.cookie = "cert=" + window.btoa(document.login.username.value + document.login.password.value); window.href="/restricted"
 }
  else {
- document.login.password.value=""; document.getElementById("status").innerHTML = "<small color='red'>Username or password incorrect.</small>";
+ document.login.password.value=""; document.getElementById("status").innerHTML = "Username or password incorrect.";
 }
 }
  </script>
@@ -75,17 +75,15 @@ function login()
 
 	<div class="preamble" role="article">
 
-			<center><form name="login">
+			<form name="login">
+			<center>
 			<legend><b>Login</b></legend>
 				<input type="text" name="username" placeholder="Username">
-				</p>
-				<p>
 				<input type="password" name="password" placeholder="Password">
 				<small><div id="status">Not registered? <a href="https://docs.google.com/forms/d/1k9w0O3yTa57adjydSRvn_Izkljie0rzsRTGSbtJyY4I/viewform">Create an account</a></div></small>
-				</p>
-				<p>
-				<button type="button" onclick="verify()">Enter</button>
-			</form></center>
+				<button type="button" onclick="verify()">Login</button>
+			</center>
+			</form>
 			</div>
 <!-- loads footer data here -->
 <div id="footer"></div>
