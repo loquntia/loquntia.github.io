@@ -46,7 +46,7 @@ if (document.getElementById("entry").innerHTML == "")
 document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " results found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>(Hash: " + Math.abs(document.getElementById("found").innerHTML.hashCode()) + ")</p>";
 }
 else {
-document.getElementById("found").innerHTML += "<textarea>" + document.getElementById("entry").innerHTML + "</textarea><br>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
+document.getElementById("found").innerHTML += "<p><textarea style='height:auto;width:auto;'>" + document.getElementById("entry").innerHTML + "</textarea></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
 }
 }
 String.prototype.hashCode = function(){
