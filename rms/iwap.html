@@ -26,17 +26,17 @@ else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 }
 else
 {
-document.getElementById("output").innerHTML = "Searching database...<br>";
+document.getElementById("output").innerHTML = "Searching database, this might take some time...<br>";
 document.dataBaseSearch.entry.value = "0";
 searchLoop();
 }
 }
 function searchLoop()
 {
-document.dataBaseSearch.entry.value = eval(document.dataBaseSearch.entry.value + "+ 1");
+document.dataBaseSearch.entry.value = document.dataBaseSearch.entry.value + 1;
 if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML == "END")
 {
-document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " results found in " + eval((Date.now() - document.dataBaseSearch.start.value) * 1000) + " seconds.<br>Hash: " + Math.abs(document.getElementById("found").innerHTML.hashCode()) + "</p>";
+document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " results found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>(Hash: " + Math.abs(document.getElementById("found").innerHTML.hashCode()) + ")</p>";
 }
 else if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML.indexOf(document.dataBaseSearch.input.value.toUpperCase()) != -1)
 {
