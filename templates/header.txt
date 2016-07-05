@@ -50,12 +50,6 @@
 						<a href="/rms/iwap.html" class="design-name">Criminal Records</a>
 					</li>
 
-					<li>
-
-						<div onload="if(document.cookie!=''){this.style.display='none'}"><a href="/login.html" class="design-name">User Login</a></div>
-						<div onload="if(document.cookie=='cert='){this.style.display='none'}"><a href="javascript:document.cookie='cert=';window.location.href=window.location.href;" class="design-name">Log Out</a></div>
-					</li>
-
 					</ul>
 
 				</nav>
@@ -147,7 +141,7 @@
 <center>
 <br>
 <img src="/images/seal.png" style="height:auto;width:6.25%;">
-<text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;"><br>Kingdom of Loquntia<br>Rec Felcwnloandu</text></center>
+<text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;"><br>Kingdom of Loquntia<br>Rek Welkuunlôndu</text></center>
  </div>
   <hr>
 <!-- <center>

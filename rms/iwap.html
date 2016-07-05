@@ -14,9 +14,13 @@
 <script language="javascript">
 function searchDatabase()
 {
-if (document.dataBaseSearch.input.value.toUpperCase().length <= 2)
+if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
 {
-document.getElementById("output").innerHTML = "SEARCH ERROR: QUERY MUST BE AT LEAST 3 CHARACTERS LONG.<br>";
+document.getElementById("output").innerHTML = "SEARCH ERROR: QUERY MUST BE AT LEAST 2 CHARACTERS LONG.<br>";
+}
+else if (document.dataBaseSearch.input.value.toUpperCase() == "")
+{
+
 }
 else
 {
@@ -30,7 +34,7 @@ function searchLoop()
 document.dataBaseSearch.entry.value = eval(document.dataBaseSearch.entry.value + "+ 1");
 if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML == "END")
 {
-document.getElementById("output").innerHTML += "<p>END OF SEARCH RESULTS.</p>";
+document.getElementById("output").innerHTML += "<p>END OF SEARCH RESULTS.</p><p>SEARCH HASH: " + document.getElementById("output").innerHTML.hashCode();
 }
 else if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML.indexOf(document.dataBaseSearch.input.value.toUpperCase()) != -1)
 {
@@ -40,6 +44,26 @@ else {
 setTimeout("searchLoop()", 500);
 }
 }
+String.prototype.hashCode = function(){
+
+  var hash = 0;
+
+  if (this.length == 0) return hash;
+
+  for (i = 0; i < this.length; i++) {
+
+      char = this.charCodeAt(i);
+
+      hash = ((hash<<5)-hash)+char;
+
+      hash = hash & hash; // Convert to 32bit integer
+
+  }
+
+    return hash;
+
+}
+
 </script>
  <script src="/scripts/jquery.js"></script>
 
