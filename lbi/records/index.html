@@ -28,7 +28,7 @@ else
 {
 document.getElementById("output").innerHTML = "Searching database, this might take some time...<br>";
 document.dataBaseSearch.entry.value = "1";
-setTimeout("searchLoop()", 500);
+searchLoop();
 }
 }
 function searchLoop()
@@ -37,12 +37,17 @@ document.getElementById("entry").innerHTML="";
     $(function(){
    $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "-" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
     });
+setTimeout("searchLoop()", 250);
+}
+
+function checkHits()
+{
 if (document.getElementById("entry").innerHTML == "")
 {
 document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " results found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>(Hash: " + Math.abs(document.getElementById("found").innerHTML.hashCode()) + ")</p>";
 }
 else {
-document.getElementById("found").innerHTML += "<p>" + document.getElementById("entry").innerHTML + "</p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");setTimeout("searchLoop()", 250);
+document.getElementById("found").innerHTML += "<textarea>" + document.getElementById("entry").innerHTML + "</textarea><br>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");searchLoop();
 }
 }
 String.prototype.hashCode = function(){
