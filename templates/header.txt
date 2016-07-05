@@ -27,6 +27,10 @@
 
 						<a href="/about.html" class="design-name">About</a>
 					</li>
+                                        <li>
+
+						<a href="/news.html" class="design-name">International News</a>
+					</li>
 					<li>
 
 						<a href="/mex/marketplace.html" class="design-name">World Marketplace</a>
@@ -36,7 +40,6 @@
 
 						<a href="/mex/convert.html" class="design-name">Convert Currencies</a>
 					</li>
-
 					<li>
 
 						<a href="/ul.html" class="design-name">University of Loquntia</a>
