@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <head>
  <!-- metadata about page -->
- <title>International Records</title>
+ <title>LBI Records Search</title>
  <meta charset="Unicode">
  <meta http-equiv="Content-Style-Type" content="text/css">
  <meta name="description" content="Kingdom of Loquntia">
@@ -27,23 +27,22 @@ else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 else
 {
 document.getElementById("output").innerHTML = "Searching database, this might take some time...<br>";
-document.dataBaseSearch.entry.value = "0";
+document.dataBaseSearch.entry.value = "1";
 searchLoop();
 }
 }
 function searchLoop()
 {
-document.dataBaseSearch.entry.value = eval(document.dataBaseSearch.entry.value + "+ 1");
-if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML == "END")
+document.getElementById("entry").innerHTML="";
+    $(function(){
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "-" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
+    });
+if (document.getElementById("entry").innerHTML == "")
 {
 document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " results found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>(Hash: " + Math.abs(document.getElementById("found").innerHTML.hashCode()) + ")</p>";
 }
-else if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML.indexOf(document.dataBaseSearch.input.value.toUpperCase()) != -1)
-{
-document.getElementById("found").innerHTML += "<p>" + document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML + "</p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");setTimeout("searchLoop()", 250);
-}
 else {
-setTimeout("searchLoop()", 250);
+document.getElementById("found").innerHTML += "<p>" + document.getElementById("entry").innerHTML + "</p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");setTimeout("searchLoop()", 250);
 }
 }
 String.prototype.hashCode = function(){
@@ -72,7 +71,7 @@ String.prototype.hashCode = function(){
  <!-- the following script loads the header and footer using JQuery -->
  <script language="javascript">
     $(function(){
-   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt"); $("#record").load("/rms/record.txt");
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
     });
  </script>
  
@@ -102,56 +101,30 @@ String.prototype.hashCode = function(){
 	
 		<div class="summary"role="article">
 
-			<p>Access an international database of persons who have criminal records or outstanding warrants in Loquntia and cooperative Micronations.</p>
+			<p>Search all national government records from 2011 until the present day, including military, court, and citizenship records</p>
 
 			</div>
 
-
-	<div class="preamble" role="article">
-
-			<h2>International Warrants, Arrests, and Prosecutions Record (IWAPS)</h2>
-			<p>
-			The Royal Marshals Service has made this online database to help the international effort of fighting crime, and to assist micronations with identifying serial offenders who commit international crimes. If you are a government agency and you would like to contribute to this database, fill out <a href="https://docs.google.com/forms/d/1gb4ON5NqK8JXHIDkflzZHaGAxWaoHUl_eD9vxKbfH8M/viewform">this form</a>.
-			</p>
-		</div>
-		<div id="disclaimer">
-		<h3>Privileged and Confidential Agreement</h3>
-		<p>
-		NOTICE: This online resource is privileged and confidential. By using this online resource you agree that you will not use it for malicious purposes.
-		</p>
-		<input type="checkbox" onclick="document.getElementById('disclaimer').style.display='none';document.getElementById('query').style.display='';">
-		&emsp; I, the party accessing this online database, hereby swear or affirm under threat of perjury that I will abide by all terms and conditions associated with this online database.
-		</div>
-		<div id="query" style="display:none;">
+		<div id="query">
 
 			<h3>Search Database</h3>
-
 			<form name="dataBaseSearch" action="javascript:searchDatabase()">
 				<input type="hidden" name="entry" value="0">
 				<input type="hidden" name="hits" value="0">
 				<input type="hidden" name="start" value="">
-				<p>
-				For more refined results, try the following:
-				<ul>
-				<li>To search for a person with outstanding warrants, place an asterisk ("*") before their last name</li>
-				<li>Names are listed in the format [last name], [first name and middle name] (e.g. DOE, JOHN QUINTON)</li>
-				<li>Dates are listed in the format [DD MON YYYY] (e.g. 08 FEB 2014)</li>
-				<li>Pending arrests, warrants, or prosecutions will have an asterisk ("*") before the data</li>
-				<li>Arrests, warrants, indictments, and convictions will have an "A:", "W:", "I:", or "C:" in front of them, respectively</li>
-				</ul>
-				</p>
-				<p>
-				If you have any reason to believe information in this database to be false or incorrect, or you would like to know how to eliminate a warrant, please contact <a href="mailto:loquntia@gmail.com">loquntia@gmail.com</a>.
-				</p>
-				<p>
-				<center><input type="text" name="input" placeholder="Search Database"><input type="submit" style="width:0px; height:0px; opacity:0;">&emsp;<button type="button" onclick="searchDatabase()">Search</button></center>
-				</p>
-
-
+				<center>
+                                Search records held by: <select name="agency">
+                                <option value="100">Supreme Court of Loquntia</option>
+				<option value="m">Ministry of Defence / Royal Military</option>
+				<option value="mex">Ministry of the Exchequer</option>
+				<option value="mfa">Ministry of Foreign Affairs</option>
+				<option value="cr">Crown Vital Records</option>
+				<option value="rms">Royal Marshals Service</option>
+				</select><br>
+				<input type="text" name="input" placeholder="Search Query"><input type="submit" style="width:0px; height:0px; opacity:0;">&emsp;<button type="button" onclick="searchDatabase()">Search</button>
+				</center>
 			</form>
 		</div>
-
-
 				<tt>
 				<div id="output"></div>
 				</tt>
