@@ -34,7 +34,7 @@ function searchLoop()
 document.dataBaseSearch.entry.value = eval(document.dataBaseSearch.entry.value + "+ 1");
 if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML == "END")
 {
-document.getElementById("output").innerHTML += "<p>END OF SEARCH RESULTS.</p><p>SEARCH HASH: " + document.getElementById("output").innerHTML.hashCode();
+document.getElementById("output").innerHTML += "<p>END OF SEARCH RESULTS.</p><p>SEARCH HASH: " + Math.abs(document.getElementById("output").innerHTML.hashCode());
 }
 else if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML.indexOf(document.dataBaseSearch.input.value.toUpperCase()) != -1)
 {
