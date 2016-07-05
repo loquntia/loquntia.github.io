@@ -27,7 +27,7 @@ else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 }
 else
 {
-document.getElementById("output").innerHTML = "Searching database, this might take some time...<br>";
+document.getElementById("output").innerHTML = "Searching LBI database...<br>";
 document.dataBaseSearch.entry.value = "1";
 searchLoop();
 }
@@ -37,7 +37,7 @@ function searchLoop()
     $(function(){
    $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
     });
-setTimeout("checkHits()", 1000);
+setTimeout("checkHits()", 1500);
 }
 
 function checkHits()
@@ -106,7 +106,7 @@ String.prototype.hashCode = function(){
 	
 		<div class="summary" role="article">
 
-			<p>Search all national government records from 2011 until the present day, including military, court, and citizenship records</p>
+			<p>Search all national government records from 2011 until the present day, including military, court, and citizenship records by TPSN or case number</p>
 
 			</div>
 
@@ -119,9 +119,9 @@ String.prototype.hashCode = function(){
 				<input type="hidden" name="start" value="">
 				<center>
                                 Search records held by: <select name="agency">
-                                <option value="100">Supreme Court of Loquntia</option>
-				<option value="m">Ministry of Defence / Royal Military</option>
-				<option value="mex">Ministry of the Exchequer</option>
+                                <option value="100">Supreme Court Records (Case Number)</option>
+				<option value="m">Royal Military (TPSN)</option>
+				<option value="mex">Ministry of the Exchequer (TPSN)</option>
 				<option value="mfa">Ministry of Foreign Affairs</option>
 				<option value="cr">Crown Vital Records</option>
 				<option value="rms">Royal Marshals Service</option>
