@@ -14,9 +14,11 @@
 <script language="javascript">
 function searchDatabase()
 {
+document.dataBaseSearch.hits.value = "0";
+document.dataBaseSearch.start.value = Date.now(); 
 if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
 {
-document.getElementById("output").innerHTML = "SEARCH ERROR: QUERY MUST BE AT LEAST 2 CHARACTERS LONG.<br>";
+document.getElementById("output").innerHTML = "Search query must be at least two characters long.<br>";
 }
 else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 {
@@ -24,7 +26,7 @@ else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 }
 else
 {
-document.getElementById("output").innerHTML = "SEARCHING DATABASE...<br>";
+document.getElementById("output").innerHTML = "Searching database...<br>";
 document.dataBaseSearch.entry.value = "0";
 searchLoop();
 }
@@ -34,14 +36,14 @@ function searchLoop()
 document.dataBaseSearch.entry.value = eval(document.dataBaseSearch.entry.value + "+ 1");
 if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML == "END")
 {
-document.getElementById("output").innerHTML += "<p>END OF SEARCH RESULTS.</p><p>SEARCH HASH: " + Math.abs(document.getElementById("output").innerHTML.hashCode());
+document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " results found in" + eval(document.dataBaseSearch.start.value - Data.now()) +".<br>Hash: " + Math.abs(document.getElementById("found").innerHTML.hashCode()) + "</p>";
 }
 else if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML.indexOf(document.dataBaseSearch.input.value.toUpperCase()) != -1)
 {
-document.getElementById("output").innerHTML += "<p>" + document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML + "</p>";setTimeout("searchLoop()", 500);
+document.getElementById("found").innerHTML += "<p>" + document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML + "</p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + 1);setTimeout("searchLoop()", 250);
 }
 else {
-setTimeout("searchLoop()", 500);
+setTimeout("searchLoop()", 250);
 }
 }
 String.prototype.hashCode = function(){
@@ -96,6 +98,7 @@ String.prototype.hashCode = function(){
 
 <!-- body content -->
 <div id="record" style="display:none;"></div>
+<div id="found" style="display:none;"></div>
 	
 		<div class="summary"role="article">
 
@@ -125,6 +128,8 @@ String.prototype.hashCode = function(){
 
 			<form name="dataBaseSearch" action="javascript:searchDatabase()">
 				<input type="hidden" name="entry" value="0">
+				<input type="hidden" name="hits" value="0">
+				<input type="hidden" name="start" value="">
 				<p>
 				For more refined results, try the following:
 				<ul>
