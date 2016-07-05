@@ -14,6 +14,7 @@
 <script language="javascript">
 function searchDatabase()
 {
+document.getElementById("found").innerHTML = "";
 document.dataBaseSearch.hits.value = "0";
 document.dataBaseSearch.start.value = Date.now(); 
 if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
@@ -46,7 +47,7 @@ if (document.getElementById("entry").innerHTML == "")
 document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>(Hash: " + Math.abs(document.getElementById("found").innerHTML.hashCode()) + ")</p>";
 }
 else {
-document.getElementById("found").innerHTML += "<p><table><td style='background-color:cccccc;'><pre>" + document.getElementById("entry").innerHTML + "</pre></td></table></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
+document.getElementById("found").innerHTML += "<p><table><td border="1" style='background:url('/images/bg.png');'><pre>" + document.getElementById("entry").innerHTML + "</pre></td></table></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
 }
 }
 String.prototype.hashCode = function(){
