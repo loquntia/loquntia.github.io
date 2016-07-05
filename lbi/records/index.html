@@ -27,13 +27,13 @@ else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 else
 {
 document.getElementById("output").innerHTML = "Searching database, this might take some time...<br>";
-document.getElementById("entry").innerHTML="";
 document.dataBaseSearch.entry.value = "1";
 searchLoop();
 }
 }
 function searchLoop()
 {
+document.getElementById("entry").innerHTML="";
     $(function(){
    $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "-" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
     });
