@@ -28,7 +28,7 @@ else
 {
 document.getElementById("output").innerHTML = "Searching database, this might take some time...<br>";
 document.dataBaseSearch.entry.value = "1";
-searchLoop();
+setTimeout("searchLoop()", 500);
 }
 }
 function searchLoop()
