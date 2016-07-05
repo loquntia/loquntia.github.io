@@ -46,7 +46,7 @@ if (document.getElementById("entry").innerHTML == "")
 document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>(Hash: " + Math.abs(document.getElementById("found").innerHTML.hashCode()) + ")</p>";
 }
 else {
-document.getElementById("found").innerHTML += "<p><table><td><pre style='background-color:cccccc;'>" + document.getElementById("entry").innerHTML + "</pre></td></table></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
+document.getElementById("found").innerHTML += "<p><table><td style='background-color:cccccc;'><pre>" + document.getElementById("entry").innerHTML + "</pre></td></table></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
 }
 }
 String.prototype.hashCode = function(){
@@ -112,7 +112,7 @@ String.prototype.hashCode = function(){
 		<div id="query">
 
 			<h3>Search Database</h3>
-			<form name="dataBaseSearch" action="javascript:searchDatabase()">
+			<form name="dataBaseSearch" action="javascript:searchDatabase()" autocomplete="off">
 				<input type="hidden" name="entry" value="0">
 				<input type="hidden" name="hits" value="0">
 				<input type="hidden" name="start" value="">
