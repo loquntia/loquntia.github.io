@@ -40,7 +40,7 @@ document.getElementById("output").innerHTML = document.getElementById("found").i
 }
 else if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML.indexOf(document.dataBaseSearch.input.value.toUpperCase()) != -1)
 {
-document.getElementById("found").innerHTML += "<p>" + document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML + "</p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");setTimeout("searchLoop()", 250);
+document.getElementById("found").innerHTML += "<p><div class='searchResult'>" + document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML + "</div></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");setTimeout("searchLoop()", 250);
 }
 else {
 setTimeout("searchLoop()", 250);
