@@ -47,7 +47,7 @@ if (document.getElementById("entry").innerHTML == "")
 document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
 }
 else {
-document.getElementById("found").innerHTML += "<p style='background-color:#CCCCCC;opacity:0.5;box-shadow:3px 3px 5px gray;border-left-style:solid;border-color:#000000;'>" + document.getElementById("entry").innerHTML + "</p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
+document.getElementById("found").innerHTML += "<div style='background-color:#CCCCCC;opacity:0.5;'><p style='padding-left:10;opacity:1.0;box-shadow:3px 3px 5px gray;border-left-style:solid;border-color:#000000;'><pre>" + document.getElementById("entry").innerHTML + "</pre></p></div>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
 }
 }
 String.prototype.hashCode = function(){
