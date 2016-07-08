@@ -33,10 +33,10 @@ document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found")
 document.dataBaseSearch.start.value = Date.now();
 document.dataBaseSearch.agency.value="100";searchDatabase();
 document.getElementById('output').innerHTML += '1 Minute Remaining...<br>';
-document.dataBaseSearch.agency.value="m";setTimeout("searchDatabaseLast();document.getElementById('output').innerHTML += '50 Seconds Remaining...<br>';", 10000);
-document.dataBaseSearch.agency.value="mex";setTimeout("searchDatabaseLast();document.getElementById('output').innerHTML += '40 Seconds Remaining...<br>';", 20000);
-document.dataBaseSearch.agency.value="mfa";setTimeout("searchDatabaseLast();document.getElementById('output').innerHTML += '30 Seconds Remaining...<br>';", 30000);
-document.dataBaseSearch.agency.value="cr";setTimeout("searchDatabaseLast();document.getElementById('output').innerHTML += '20 Seconds Remaining...<br>';", 40000);
+document.dataBaseSearch.agency.value="m";setTimeout("searchDatabase();document.getElementById('output').innerHTML += '50 Seconds Remaining...<br>';", 10000);
+document.dataBaseSearch.agency.value="mex";setTimeout("searchDatabase();document.getElementById('output').innerHTML += '40 Seconds Remaining...<br>';", 20000);
+document.dataBaseSearch.agency.value="mfa";setTimeout("searchDatabase();document.getElementById('output').innerHTML += '30 Seconds Remaining...<br>';", 30000);
+document.dataBaseSearch.agency.value="cr";setTimeout("searchDatabase();document.getElementById('output').innerHTML += '20 Seconds Remaining...<br>';", 40000);
 document.dataBaseSearch.agency.value="rms";setTimeout("searchDatabaseLast();document.getElementById('output').innerHTML += '10 Seconds Remaining...<br>';", 50000);
 document.dataBaseSearch.submitBtn.disabled=false;
 }
