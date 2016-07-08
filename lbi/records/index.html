@@ -16,7 +16,7 @@ function search()
 {
     if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.searchAll.checked == false)
     {
-    document.dataBaseSearch.submitBtn.disabled=true;searchDatabase();document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";document.dataBaseSearch.submitBtn.disabled=false;
+    document.dataBaseSearch.submitBtn.disabled=true;searchDatabase();document.dataBaseSearch.submitBtn.disabled=false;
     }
     else if(document.dataBaseSearch.searchAll.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
     {
@@ -24,7 +24,7 @@ function search()
     }
     else
     {
-    document.getElementById("output").innerHTML = "You must select a search a single method<br>";
+    document.getElementById("output").innerHTML = "You must select a single search method<br>";
     }
 }
 function searchAll()
@@ -68,12 +68,11 @@ function checkHits()
 {
 if (document.getElementById("entry").innerHTML == "")
 {
-return;
+document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
 }
 else {
 document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
 }
-return;
 }
 String.prototype.hashCode = function(){
 
@@ -146,7 +145,8 @@ String.prototype.hashCode = function(){
                 </ul>
                 
 			<form name="dataBaseSearch" action="javascript:search()" autocomplete="off">
-			<h3>Search Index</h3>
+			<fieldset>
+			<legend><h3>Search Index</h3></legend>
                                 <p>
 				<input type="hidden" name="entry" value="0">
 				<input type="hidden" name="hits" value="0">
@@ -169,6 +169,7 @@ String.prototype.hashCode = function(){
 				<p>
 				<input type="text" name="input" placeholder="Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Search">&ensp;
 				</p>
+                        </fieldset>
 			</form>
 				<div id="output"></div>
 
