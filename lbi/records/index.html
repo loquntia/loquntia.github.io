@@ -16,15 +16,17 @@ function search()
 {
     if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.searchAll.checked == false)
     {
-    document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";searchDatabase();document.dataBaseSearch.submitBtn.disabled=false;document.getElementById("output").innerHTML = document.getElementById("searchingAll").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
+    document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
+document.dataBaseSearch.start.value = Date.now(); searchDatabase();done();
     }
     else if(document.dataBaseSearch.searchAll.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
     {
-    document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";searchAll();document.dataBaseSearch.submitBtn.disabled=false;document.getElementById("output").innerHTML = document.getElementById("searchingAll").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
+    document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
+document.dataBaseSearch.start.value = Date.now(); searchAll();document.dataBaseSearch.submitBtn.disabled=false;
     }
     else
     {
-    document.getElementById("output").innerHTML = "You must select a single search method<br>";
+    break;
     }
 }
 function searchAll()
@@ -35,11 +37,15 @@ document.dataBaseSearch.agency.value="mex";searchDatabase();
 document.dataBaseSearch.agency.value="mfa";searchDatabase();
 document.dataBaseSearch.agency.value="cr";searchDatabase();
 document.dataBaseSearch.agency.value="rms";searchDatabase();
+done();
+}
+function done()
+{
+document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
 }
 function searchDatabase()
 {
 document.dataBaseSearch.hits.value = "0";
-document.dataBaseSearch.start.value = Date.now(); 
 if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
 {
 document.getElementById("output").innerHTML = "Search query must be at least two characters long.<br>";
