@@ -73,7 +73,7 @@ function searchLoop()
     $(function(){
    $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
     });
-setTimeout("checkHits()", 1500);
+setTimeout("checkHits()", 3000);
 }
 
 function checkHits()
@@ -83,42 +83,7 @@ if (document.getElementById("entry").innerHTML != "")
 document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
 }
 }
-function searchDatabase()
-{
-document.dataBaseSearch.hits.value = "0";
-if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
-{
-document.getElementById("output").innerHTML = "Search query must be at least two characters long.<br>";
-}
-else if (document.dataBaseSearch.input.value.toUpperCase() == "")
-{
 
-}
-else
-{
-document.getElementById("output").innerHTML = "Searching LBI database...<br>";
-document.dataBaseSearch.entry.value = "1";
-searchLoop();
-}
-}
-function searchLoop()
-{
-    $(function(){
-   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
-    });
-setTimeout("checkHits()", 1500);
-}
-function checkHits()
-{
-if (document.getElementById("entry").innerHTML != "")
-{
-document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
-}
-else
-{
-window.location.href="javascript:done()";
-}
-}
 
 function searchDatabaseLast()
 {
@@ -143,7 +108,7 @@ function searchLoopLast()
     $(function(){
    $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
     });
-setTimeout("checkHitsLast()", 1500);
+setTimeout("checkHitsLast()", 3000);
 }
 
 function checkHitsLast()
@@ -154,7 +119,7 @@ document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + 
 }
 else
 {
-window.location.href="javascript:done()";
+done();
 }
 }
 
