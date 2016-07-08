@@ -32,11 +32,17 @@ function searchAll()
 document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
 document.dataBaseSearch.start.value = Date.now();
 document.dataBaseSearch.agency.value="100";searchDatabase();
-document.dataBaseSearch.agency.value="m";searchDatabase();
-document.dataBaseSearch.agency.value="mex";searchDatabase();
-document.dataBaseSearch.agency.value="mfa";searchDatabase();
-document.dataBaseSearch.agency.value="cr";searchDatabase();
-document.dataBaseSearch.agency.value="rms";searchDatabaseLast();
+document.getElementById("output").innerHTML += "1 Minute Remaining...<br>";
+document.dataBaseSearch.agency.value="m";setTimeout('searchDatabaseLast();', 10000);
+document.getElementById("output").innerHTML += "50 Seconds Remaining...<br>";
+document.dataBaseSearch.agency.value="mex";setTimeout('searchDatabaseLast();', 20000);
+document.getElementById("output").innerHTML += "40 Seconds Remaining...<br>";
+document.dataBaseSearch.agency.value="mfa";setTimeout('searchDatabaseLast();', 30000);
+document.getElementById("output").innerHTML += "30 Seconds Remaining...<br>";
+document.dataBaseSearch.agency.value="cr";setTimeout('searchDatabaseLast();', 40000);
+document.getElementById("output").innerHTML += "20 Seconds Remaining...<br>";
+document.dataBaseSearch.agency.value="rms";setTimeout('searchDatabaseLast();', 50000);
+document.getElementById("output").innerHTML += "10 Seconds Remaining...<br>";
 document.dataBaseSearch.submitBtn.disabled=false;
 }
 function searchSpecific()
@@ -98,7 +104,7 @@ else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 }
 else
 {
-document.getElementById("output").innerHTML = "Searching LBI database...<br>";
+document.getElementById("output").innerHTML = "Searching LBI database...<br>Almost done...";
 document.dataBaseSearch.entry.value = "1";
 searchLoopLast();
 }
