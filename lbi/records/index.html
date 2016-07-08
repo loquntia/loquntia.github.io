@@ -84,7 +84,7 @@ document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + 
 }
 else
 {
-document.getElementById("output").innerHTML += "<div onload='done()'></div>"
+window.location.href="javascript:done()";
 }
 }
 String.prototype.hashCode = function(){
