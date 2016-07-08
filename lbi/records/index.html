@@ -16,11 +16,11 @@ function search()
 {
     if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.searchAll.checked == false)
     {
-    document.dataBaseSearch.field.disabled=true;searchDatabase();document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";document.dataBaseSearch.field.disabled=false;
+    document.dataBaseSearch.submitBtn.disabled=true;searchDatabase();document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";document.dataBaseSearch.submitBtn.disabled=false;
     }
     else if(document.dataBaseSearch.searchAll.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
     {
-    document.dataBaseSearch.field.disabled=true;searchAll();document.getElementById("output").innerHTML = document.getElementById("searchingAll").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";document.dataBaseSearch.field.disabled=false;
+    document.dataBaseSearch.submitBtn.disabled=true;searchAll();document.getElementById("output").innerHTML = document.getElementById("searchingAll").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";document.dataBaseSearch.submitBtn.disabled=false;
     }
     else
     {
@@ -148,8 +148,7 @@ String.prototype.hashCode = function(){
 		<div id="query">
 
 			<form name="dataBaseSearch" action="javascript:search()" autocomplete="off">
-			<fieldset name="field">
-			<legend>Search Index</legend>
+			<h3>Search Index</h3>
 				<input type="hidden" name="entry" value="0">
 				<input type="hidden" name="hits" value="0">
 				<input type="hidden" name="start" value="">
@@ -163,8 +162,7 @@ String.prototype.hashCode = function(){
 				<br/>
 				<input type="checkbox" name="searchAll" onclick="document.dataBaseSearch.searchSpecific.checked=false"> Search all government records. (This will take a while)
 				<br/>
-				<input type="text" name="input" placeholder=" Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" value="Search Selected Records">&ensp;
-                        </fieldset>
+				<input type="text" name="input" placeholder="Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Search">&ensp;
 			</form>
 		</div>
 				<div id="output"></div>
