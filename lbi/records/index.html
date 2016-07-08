@@ -36,7 +36,8 @@ document.dataBaseSearch.agency.value="m";searchDatabase();
 document.dataBaseSearch.agency.value="mex";searchDatabase();
 document.dataBaseSearch.agency.value="mfa";searchDatabase();
 document.dataBaseSearch.agency.value="cr";searchDatabase();
-document.dataBaseSearch.agency.value="rms";searchDatabase();
+document.dataBaseSearch.agency.value="rms";searchDatabase(function() {
+window.location.href="javascript:done()";});
 document.dataBaseSearch.submitBtn.disabled=false;
 }
 function searchSpecific(callback)
@@ -50,7 +51,7 @@ function done()
 {
 document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
 }
-function searchDatabase()
+function searchDatabase(callback)
 {
 document.dataBaseSearch.hits.value = "0";
 if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
@@ -65,18 +66,18 @@ else
 {
 document.getElementById("output").innerHTML = "Searching LBI database...<br>";
 document.dataBaseSearch.entry.value = "1";
-searchLoop();
+searchLoop(callback);
 }
 }
-function searchLoop()
+function searchLoop(callback)
 {
     $(function(){
    $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
     });
-setTimeout("checkHits()", 1500);
+setTimeout("checkHits(callback)", 1500);
 }
 
-function checkHits()
+function checkHits(callback)
 {
 if (document.getElementById("entry").innerHTML != "")
 {
@@ -84,7 +85,7 @@ document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + 
 }
 else
 {
-window.location.href="javascript:done()";
+callback();
 }
 }
 String.prototype.hashCode = function(){
