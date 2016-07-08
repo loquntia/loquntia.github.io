@@ -12,6 +12,31 @@
  <!-- load scripts -->
  <script language="javascript" src="/scripts/standard.js"></script>
 <script language="javascript">
+function search()
+{
+    if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.searchAll.checked == false)
+    {
+    document.dataBaseSearch.field.disabled=true;searchDatabase();document.dataBaseSearch.field.disabled=false;
+    }
+    else if(document.dataBaseSearch.searchAll.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
+    {
+    document.dataBaseSearch.field.disabled=true;searchAll();document.dataBaseSearch.field.disabled=false;
+    }
+    else
+    {
+    document.getElementById("output").innerHTML = "You must select a search a single method<br>";
+    }
+}
+function searchAll()
+{
+document.dataBaseSearch.agency.value="100";searchDatabase();document.getElementById("searchingAll").innerHTML = document.getElementById("found").innerHTML;
+document.dataBaseSearch.agency.value="m";searchDatabase();document.getElementById("searchingAll").innerHTML = document.getElementById("found").innerHTML;
+document.dataBaseSearch.agency.value="mex";searchDatabase();document.getElementById("searchingAll").innerHTML = document.getElementById("found").innerHTML;
+document.dataBaseSearch.agency.value="mfa";searchDatabase();document.getElementById("searchingAll").innerHTML = document.getElementById("found").innerHTML;
+document.dataBaseSearch.agency.value="cr";searchDatabase();document.getElementById("searchingAll").innerHTML = document.getElementById("found").innerHTML;
+document.dataBaseSearch.agency.value="rms";searchDatabase();document.getElementById("searchingAll").innerHTML = document.getElementById("found").innerHTML;
+document.getElementById("output").innerHTML = document.getElementById("searchingAll").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
+}
 function searchDatabase()
 {
 document.getElementById("found").innerHTML = "";
@@ -37,7 +62,7 @@ function searchLoop()
     $(function(){
    $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
     });
-setTimeout("checkHits()", 1500);
+setTimeout("checkHits()", 800);
 }
 
 function checkHits()
@@ -103,29 +128,55 @@ String.prototype.hashCode = function(){
 <!-- body content -->
 <div id="entry" style="display:none;"></div>
 <div id="found" style="display:none;"></div>
+<div class="summary" role="article">
 
+			<p>Search through an index of all paper and digital records held by the Loquntian Government.</p>
+
+			</div>
+			
+                <div class="preamble" role="article">
+                This index allows you to search all government documents held by the Loquntian Government. Each agency stores records using a different numbering system, outlined below.
+                <ul>
+                <li>
+                    <b>Supreme Court of Loquntia</b><br>
+                    <p>Records are sorted by case number, starting with the year, and then a unique 2 digit number. (e.g. 2015-03, 2014-09F)</p>
+                </li>
+                </ul>
+                
 		<div id="query">
 
 			<h3>Search Database</h3>
-			<form name="dataBaseSearch" action="javascript:searchDatabase()" autocomplete="off">
+			<form name="dataBaseSearch" action="javascript:search()" autocomplete="off">
+			<fieldset name="field">
 				<input type="hidden" name="entry" value="0">
 				<input type="hidden" name="hits" value="0">
 				<input type="hidden" name="start" value="">
 				<center>
-                                Search records held by: <select name="agency">
-                                <option value="100">Supreme Court Records (Case Number)</option>
-				<option value="m">Royal Military (TPSN)</option>
-				<option value="mex">Ministry of the Exchequer (TPSN)</option>
-				<option value="mfa">Ministry of Foreign Affairs</option>
-				<option value="cr">Crown Vital Records</option>
+				
+				<p>
+                                <input type="checkbox" name="searchSpecific" onclick="document.dataBaseSearch.searchAll.checked=false" checked> Search the following agency's records:&ensp;<select name="agency" required>
+                                <option value="100">Supreme Court of Loquntia</option>
+				<option value="m">HM Royal Military</option>
+				<option value="mex">HM Ministry of the Exchequer</option>
+				<option value="mfa">HM Ministry of Foreign Affairs</option>
+				<option value="cr">Crown Vital Records Office</option>
 				<option value="rms">Royal Marshals Service</option>
-				</select><br>
-				<input type="text" name="input" placeholder="Search Query"><input type="submit" style="width:0px; height:0px; opacity:0;">&emsp;<input type="submit" value="Search">
+				</p>
+				
+                                <p>
+				<input type="checkbox" name="searchAll" onclick="document.dataBaseSearch.searchSpecific.checked=false"> Search all government records. (This will take a while)
+				</p>
+				
+				<p>
+				<input type="text" name="input" placeholder=" Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" value="Search Selected Records">&ensp;
 				</center>
+				</p>
+                        </fieldset>
 			</form>
 		</div>
 				<div id="output"></div>
 
+                </div>
 <!-- loads footer data here -->
 <div id="footer"></div>
 
