@@ -16,13 +16,11 @@ function search()
 {
     if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.searchAll.checked == false)
     {
-    document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
-document.dataBaseSearch.start.value = Date.now(); searchDatabase();done();
+    searchSpecific();
     }
     else if(document.dataBaseSearch.searchAll.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
     {
-    document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
-document.dataBaseSearch.start.value = Date.now(); searchAll();document.dataBaseSearch.submitBtn.disabled=false;
+    searchAll();
     }
     else
     {
@@ -31,12 +29,23 @@ document.dataBaseSearch.start.value = Date.now(); searchAll();document.dataBaseS
 }
 function searchAll()
 {
+document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
+document.dataBaseSearch.start.value = Date.now();
 document.dataBaseSearch.agency.value="100";searchDatabase();
 document.dataBaseSearch.agency.value="m";searchDatabase();
 document.dataBaseSearch.agency.value="mex";searchDatabase();
 document.dataBaseSearch.agency.value="mfa";searchDatabase();
 document.dataBaseSearch.agency.value="cr";searchDatabase();
 document.dataBaseSearch.agency.value="rms";searchDatabase();
+document.dataBaseSearch.submitBtn.disabled=false;
+done();
+}
+function searchSpecific()
+{
+document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
+document.dataBaseSearch.start.value = Date.now();
+searchDatabase();
+document.dataBaseSearch.submitBtn.disabled=false;
 done();
 }
 function done()
