@@ -16,11 +16,11 @@ function search()
 {
     if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.searchAll.checked == false)
     {
-    document.dataBaseSearch.field.disabled=true;searchDatabase();document.dataBaseSearch.field.disabled=false;
+    document.dataBaseSearch.field.disabled=true;searchDatabase();document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";document.dataBaseSearch.field.disabled=false;
     }
     else if(document.dataBaseSearch.searchAll.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
     {
-    document.dataBaseSearch.field.disabled=true;searchAll();document.dataBaseSearch.field.disabled=false;
+    document.dataBaseSearch.field.disabled=true;searchAll();document.getElementById("output").innerHTML = document.getElementById("searchingAll").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";document.dataBaseSearch.field.disabled=false;
     }
     else
     {
@@ -35,7 +35,6 @@ document.dataBaseSearch.agency.value="mex";searchDatabase();document.getElementB
 document.dataBaseSearch.agency.value="mfa";searchDatabase();document.getElementById("searchingAll").innerHTML = document.getElementById("found").innerHTML;
 document.dataBaseSearch.agency.value="cr";searchDatabase();document.getElementById("searchingAll").innerHTML = document.getElementById("found").innerHTML;
 document.dataBaseSearch.agency.value="rms";searchDatabase();document.getElementById("searchingAll").innerHTML = document.getElementById("found").innerHTML;
-document.getElementById("output").innerHTML = document.getElementById("searchingAll").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
 }
 function searchDatabase()
 {
@@ -62,14 +61,14 @@ function searchLoop()
     $(function(){
    $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
     });
-setTimeout("checkHits()", 800);
+setTimeout("checkHits()", 1500);
 }
 
 function checkHits()
 {
 if (document.getElementById("entry").innerHTML == "")
 {
-document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
+return;
 }
 else {
 document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
@@ -137,6 +136,7 @@ String.prototype.hashCode = function(){
 			</div>
 			
                 <div class="preamble" role="article">
+                <h3>Government Records Database</h3>
                 This index allows you to search all government documents held by the Loquntian Government. Each agency stores records using a different numbering system, outlined below.
                 <ul>
                 <li>
@@ -147,13 +147,12 @@ String.prototype.hashCode = function(){
                 
 		<div id="query">
 
-			<h3>Search Database</h3>
 			<form name="dataBaseSearch" action="javascript:search()" autocomplete="off">
 			<fieldset name="field">
+			<legend>Search Index</legend>
 				<input type="hidden" name="entry" value="0">
 				<input type="hidden" name="hits" value="0">
 				<input type="hidden" name="start" value="">
-				<center>
                                 <input type="checkbox" name="searchSpecific" onclick="document.dataBaseSearch.searchAll.checked=false" checked> Search the following agency's records:&ensp;<select name="agency" required>
                                 <option value="100">Supreme Court of Loquntia</option>
 				<option value="m">HM Royal Military</option>
@@ -165,7 +164,6 @@ String.prototype.hashCode = function(){
 				<input type="checkbox" name="searchAll" onclick="document.dataBaseSearch.searchSpecific.checked=false"> Search all government records. (This will take a while)
 				<br>
 				<input type="text" name="input" placeholder=" Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" value="Search Selected Records">&ensp;
-				</center>
                         </fieldset>
 			</form>
 		</div>
