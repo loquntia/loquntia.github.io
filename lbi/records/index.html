@@ -145,10 +145,9 @@ String.prototype.hashCode = function(){
                 </li>
                 </ul>
                 
-		<div id="query">
-
 			<form name="dataBaseSearch" action="javascript:search()" autocomplete="off">
 			<h3>Search Index</h3>
+                                <p>
 				<input type="hidden" name="entry" value="0">
 				<input type="hidden" name="hits" value="0">
 				<input type="hidden" name="start" value="">
@@ -159,12 +158,16 @@ String.prototype.hashCode = function(){
 				<option value="mfa">HM Ministry of Foreign Affairs</option>
 				<option value="cr">Crown Vital Records Office</option>
 				<option value="rms">Royal Marshals Service</option>
-				<br/>
+				</p>
+				
+				<p>
 				<input type="checkbox" name="searchAll" onclick="document.dataBaseSearch.searchSpecific.checked=false"> Search all government records. (This will take a while)
-				<br/>
+				</p>
+				
+				<p>
 				<input type="text" name="input" placeholder="Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Search">&ensp;
+				</p>
 			</form>
-		</div>
 				<div id="output"></div>
 
                 </div>
