@@ -16,11 +16,11 @@ function search()
 {
     if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.searchAll.checked == false)
     {
-    searchSpecific(function() {done()});
+    searchSpecific();
     }
     else if(document.dataBaseSearch.searchAll.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
     {
-    searchAll(function() {done()});
+    searchAll();
     }
     else
     {
@@ -38,7 +38,6 @@ document.dataBaseSearch.agency.value="mfa";searchDatabase();
 document.dataBaseSearch.agency.value="cr";searchDatabase();
 document.dataBaseSearch.agency.value="rms";searchDatabase();
 document.dataBaseSearch.submitBtn.disabled=false;
-callback();
 }
 function searchSpecific(callback)
 {
@@ -46,7 +45,6 @@ document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found")
 document.dataBaseSearch.start.value = Date.now();
 searchDatabase();
 document.dataBaseSearch.submitBtn.disabled=false;
-callback();
 }
 function done()
 {
@@ -82,7 +80,7 @@ function checkHits()
 {
 if (document.getElementById("entry").innerHTML != "")
 {
-document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
+document.getElementById("found").innerHTML += "<p><pre class='searchResult' onload='done()'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
 }
 }
 String.prototype.hashCode = function(){
