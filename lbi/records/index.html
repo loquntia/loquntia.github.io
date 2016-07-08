@@ -74,6 +74,7 @@ document.getElementById("output").innerHTML = document.getElementById("found").i
 else {
 document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
 }
+return;
 }
 String.prototype.hashCode = function(){
 
