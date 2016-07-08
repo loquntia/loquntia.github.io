@@ -16,18 +16,18 @@ function search()
 {
     if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.searchAll.checked == false)
     {
-    searchSpecific();
+    searchSpecific(function() {done()});
     }
     else if(document.dataBaseSearch.searchAll.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
     {
-    searchAll();
+    searchAll(function() {done()});
     }
     else
     {
     document.getElementById("output").innerHTML = "You must select where to search.<br>";
     }
 }
-function searchAll()
+function searchAll(callback)
 {
 document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
 document.dataBaseSearch.start.value = Date.now();
@@ -38,15 +38,15 @@ document.dataBaseSearch.agency.value="mfa";searchDatabase();
 document.dataBaseSearch.agency.value="cr";searchDatabase();
 document.dataBaseSearch.agency.value="rms";searchDatabase();
 document.dataBaseSearch.submitBtn.disabled=false;
-done();
+callback();
 }
-function searchSpecific()
+function searchSpecific(callback)
 {
 document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
 document.dataBaseSearch.start.value = Date.now();
 searchDatabase();
 document.dataBaseSearch.submitBtn.disabled=false;
-done();
+callback();
 }
 function done()
 {
