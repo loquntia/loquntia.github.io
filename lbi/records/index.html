@@ -80,7 +80,11 @@ function checkHits()
 {
 if (document.getElementById("entry").innerHTML != "")
 {
-document.getElementById("found").innerHTML += "<p><pre class='searchResult' onload='done()'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
+document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
+}
+else
+{
+document.getElementById("output").innerHTML += "<div onload='done()'></div>"
 }
 }
 String.prototype.hashCode = function(){
