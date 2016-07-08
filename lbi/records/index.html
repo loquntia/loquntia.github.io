@@ -27,7 +27,7 @@ function search()
     document.getElementById("output").innerHTML = "You must select where to search.<br>";
     }
 }
-function searchAll(callback)
+function searchAll()
 {
 document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
 document.dataBaseSearch.start.value = Date.now();
@@ -36,21 +36,21 @@ document.dataBaseSearch.agency.value="m";searchDatabase();
 document.dataBaseSearch.agency.value="mex";searchDatabase();
 document.dataBaseSearch.agency.value="mfa";searchDatabase();
 document.dataBaseSearch.agency.value="cr";searchDatabase();
-document.dataBaseSearch.agency.value="rms";searchDatabase();
+document.dataBaseSearch.agency.value="rms";searchDatabaseLast();
 document.dataBaseSearch.submitBtn.disabled=false;
 }
-function searchSpecific(callback)
+function searchSpecific()
 {
 document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
 document.dataBaseSearch.start.value = Date.now();
-searchDatabase();
+searchDatabaseLast();
 document.dataBaseSearch.submitBtn.disabled=false;
 }
 function done()
 {
 document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
 }
-function searchDatabase(callback)
+function searchDatabase()
 {
 document.dataBaseSearch.hits.value = "0";
 if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
@@ -82,11 +82,82 @@ if (document.getElementById("entry").innerHTML != "")
 {
 document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
 }
+}
+function searchDatabase()
+{
+document.dataBaseSearch.hits.value = "0";
+if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
+{
+document.getElementById("output").innerHTML = "Search query must be at least two characters long.<br>";
+}
+else if (document.dataBaseSearch.input.value.toUpperCase() == "")
+{
+
+}
+else
+{
+document.getElementById("output").innerHTML = "Searching LBI database...<br>";
+document.dataBaseSearch.entry.value = "1";
+searchLoop();
+}
+}
+function searchLoop()
+{
+    $(function(){
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
+    });
+setTimeout("checkHits()", 1500);
+}
+function checkHits()
+{
+if (document.getElementById("entry").innerHTML != "")
+{
+document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
+}
 else
 {
 window.location.href="javascript:done()";
 }
 }
+
+function searchDatabaseLast()
+{
+document.dataBaseSearch.hits.value = "0";
+if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
+{
+document.getElementById("output").innerHTML = "Search query must be at least two characters long.<br>";
+}
+else if (document.dataBaseSearch.input.value.toUpperCase() == "")
+{
+
+}
+else
+{
+document.getElementById("output").innerHTML = "Searching LBI database...<br>";
+document.dataBaseSearch.entry.value = "1";
+searchLoopLast();
+}
+}
+function searchLoopLast()
+{
+    $(function(){
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
+    });
+setTimeout("checkHitsLast()", 1500);
+}
+
+function checkHitsLast()
+{
+if (document.getElementById("entry").innerHTML != "")
+{
+document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoopLast();
+}
+else
+{
+window.location.href="javascript:done()";
+}
+}
+
 String.prototype.hashCode = function(){
 
   var hash = 0;
