@@ -128,6 +128,7 @@ String.prototype.hashCode = function(){
 
 <!-- body content -->
 <div id="entry" style="display:none;"></div>
+<div id="searchingAll" style="display:none;"></div>
 <div id="found" style="display:none;"></div>
 <div class="summary" role="article">
 
@@ -153,8 +154,6 @@ String.prototype.hashCode = function(){
 				<input type="hidden" name="hits" value="0">
 				<input type="hidden" name="start" value="">
 				<center>
-				
-				<p>
                                 <input type="checkbox" name="searchSpecific" onclick="document.dataBaseSearch.searchAll.checked=false" checked> Search the following agency's records:&ensp;<select name="agency" required>
                                 <option value="100">Supreme Court of Loquntia</option>
 				<option value="m">HM Royal Military</option>
@@ -162,16 +161,11 @@ String.prototype.hashCode = function(){
 				<option value="mfa">HM Ministry of Foreign Affairs</option>
 				<option value="cr">Crown Vital Records Office</option>
 				<option value="rms">Royal Marshals Service</option>
-				</p>
-				
-                                <p>
+				<br>
 				<input type="checkbox" name="searchAll" onclick="document.dataBaseSearch.searchSpecific.checked=false"> Search all government records. (This will take a while)
-				</p>
-				
-				<p>
+				<br>
 				<input type="text" name="input" placeholder=" Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" value="Search Selected Records">&ensp;
 				</center>
-				</p>
                         </fieldset>
 			</form>
 		</div>
