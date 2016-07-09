@@ -28,7 +28,6 @@ scrollMarquee();
 function updateMarquee()
 {
 document.marquee1.text.value= "     Breaking News     " + document.getElementById("breaking").innerHTML;
-setTimeout("updateMarquee()",60000);
 }
 function scrollMarquee()
 {
@@ -38,7 +37,7 @@ document.marquee1.text.value =
 msg.substring(scrollChars) +
 msg.substring(0,scrollChars);
 document.getElementById("ticker").innerHTML = "" + document.marquee1.text.value.substring(0,50) + "";
-var scrollSpeed = 350;
+var scrollSpeed = 200;
 setTimeout('scrollMarquee()',scrollSpeed);
 }
 </script>
