@@ -52,7 +52,7 @@ else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 }
 else
 {
-document.getElementById("output").innerHTML = "Searching LBI database...<br>";
+document.getElementById("output").innerHTML = "Searching LBI database, this may take several seconds...<br>";
 document.dataBaseSearch.entry.value = "1";
 searchLoop();
 }
@@ -91,7 +91,7 @@ else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 }
 else
 {
-document.getElementById("output").innerHTML = "Downloading document <tt>" + document.dataBaseSearch.input.value + "</tt>...<br>";
+document.getElementById("output").innerHTML = "Locating document <tt>" + document.dataBaseSearch.input.value + "</tt>...<br>";
 document.dataBaseSearch.entry.value = "1";
 downloadDocument();
 }
@@ -172,7 +172,7 @@ String.prototype.hashCode = function(){
 <div id="found" style="display:none;"></div>
 <div class="summary" role="article">
 
-			<p>Search through an index of all paper and digital records held by the Loquntian Government and request to see digital copies.</p>
+			<p>Search through an index of all paper and digital records held by the Loquntian Government and request to see digital copies</p>
 
 			</div>
 			
@@ -210,6 +210,8 @@ String.prototype.hashCode = function(){
                 </li>
                 </ul>
                 
+                For records that may be harder to find, you can file a Q37 request using <a href="https://docs.google.com/forms/d/1omo2E9dAk82RaANAfohOOt0UFdRhvENuFVgMZJt_6sQ/viewform">this form</a>.
+                
 			<form name="dataBaseSearch" action="javascript:search()" autocomplete="off">
 			<fieldset name="field">
 			<legend><h3>Search Index</h3></legend>
@@ -227,7 +229,7 @@ String.prototype.hashCode = function(){
 				<option value="cr">Crown Vital Records Office</option>
 				<option value="rms">Royal Marshals Service</option>
 				</select>
-				<br>Do not include agency prefixes or a hyphen and a number at the end of your search query. (e.g. "101352", <b>NOT</b>CFC-101352-1)
+				<br>Do not include agency prefixes or a hyphen and a number at the end of your search query. (e.g. "101352", <b>NOT</b> CFC-101352-1)
 				</p>
 				
 				<p>
@@ -235,7 +237,7 @@ String.prototype.hashCode = function(){
 				</p>
 				
 				<p>
-				<input type="text" name="input" placeholder="Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Search">&ensp;
+				<input type="text" name="input" placeholder="Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Go">&ensp;
 				</p>
                         </fieldset>
 			</form>
