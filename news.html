@@ -16,9 +16,32 @@
  <!-- the following script loads the header and footer using JQuery -->
  <script language="javascript">
     $(function(){
-   $("#header").load("templates/header.txt"); $("#footer").load("templates/footer.txt");  $("#hodiny").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/news/hodiny_news.txt");  $("#loquntia").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/news/loquntia_news.txt");
+   $("#header").load("templates/header.txt"); $("#footer").load("templates/footer.txt");  $("#hodiny").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/news/hodiny_news.txt");  $("#loquntia").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/news/loquntia_news.txt");  $("#breaking").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/news/breaking.txt");
     });
  </script>
+  <script language="javascript">
+function startMarquee()
+{
+updateMarquee();
+scrollMarquee();
+}
+function updateMarquee()
+{
+document.marquee1.text.value= "     Breaking News     " + document.getElementById("breaking").innerHTML;
+setTimeout("updateMarquee()",60000);
+}
+function scrollMarquee()
+{
+var msg = document.marquee1.text.value;
+var scrollChars = 1;
+document.marquee1.text.value =
+msg.substring(scrollChars) +
+msg.substring(0,scrollChars);
+document.getElementById("ticker").innerHTML = "" + document.marquee1.text.value.substring(0,50) + "";
+var scrollSpeed = 350;
+setTimeout('scrollMarquee()',scrollSpeed);
+}
+</script>
  
  <!-- load stylesheet and favicons -->
  <link rel="stylesheet" type="text/css" href="scripts/standard.css" />
@@ -30,7 +53,7 @@
 
 
 
-<body id="css-zen-garden">
+<body id="css-zen-garden" onload="setTimeout('startMarquee()',2500)">
 <div class="page-wrapper">
 
 
@@ -39,6 +62,12 @@
 
 <!-- loads header data here -->
 <div id="header"></div>
+
+<form name="marquee1"> 
+<input type="hidden" name="text" length="30" value=" Loading..."> 
+</form>
+<tt><div id="ticker">Loading...</div></tt>
+<div id="breaking" style="display:none;">Loading...</div>
 
 <!-- body content -->
 <div class="summary" role="article">
@@ -53,6 +82,7 @@
 		
         <div id="hodiny" class="preamble" role="article">
 		</div>
+
 
 <!-- loads footer data here -->
 <div id="footer"></div>
