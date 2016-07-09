@@ -31,7 +31,7 @@ function searchSpecific(agency)
 {
 document.dataBaseSearch.field.disabled=true;document.getElementById("found").innerHTML="";
 document.dataBaseSearch.start.value = Date.now();
-searchDatabaseLast(agency);
+searchDatabase(agency);
 }
 function done()
 {
@@ -104,7 +104,7 @@ function downloadDocument()
 setTimeout("checkDocument()", 10000);
 }
 
-function checkHitsLast()
+function checkDocument()
 {
 if (document.getElementById("entry").innerHTML != "")
 {
