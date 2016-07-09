@@ -101,14 +101,14 @@ function downloadDocument()
     $(function(){
    $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + "ordered" + "/" + document.dataBaseSearch.input.value.toLowerCase() + ".txt"); 
     });
-setTimeout("checkDocument()", 10000);
+setTimeout("checkDocument()", 5000);
 }
 
 function checkDocument()
 {
 if (document.getElementById("entry").innerHTML != "")
 {
-document.getElementById("found").innerHTML += "<p><div class='searchResult'><a href='" + document.getElementById("entry").innerHTML + "'>" + "View Document: " + document.dataBaseSearch.input.value + "</a></div></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";
+document.getElementById("found").innerHTML += "<p><div class='searchResult'><a href='" + document.getElementById("entry").innerHTML + "'>" + "View Document: " + document.dataBaseSearch.input.value + "</a></div></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("output").innerHTML = document.getElementById("found").innerHTML;document.document.getElementById("entry").innerHTML="";
 }
 else
 {
