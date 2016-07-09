@@ -16,7 +16,7 @@ function search()
 {
     if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.searchAll.checked == false)
     {
-    searchSpecific();
+    searchSpecific(document.dataBaseSearch.agency.value);
     }
     else if(document.dataBaseSearch.searchAll.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
     {
@@ -33,25 +33,26 @@ document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found")
 document.dataBaseSearch.start.value = Date.now();
 document.dataBaseSearch.agency.value="100";searchDatabase();
 document.getElementById('output').innerHTML += '1 Minute Remaining...<br>';
-document.dataBaseSearch.agency.value="m";setTimeout("searchDatabase();document.getElementById('output').innerHTML += '50 Seconds Remaining...<br>';", 10000);
-document.dataBaseSearch.agency.value="mex";setTimeout("searchDatabase();document.getElementById('output').innerHTML += '40 Seconds Remaining...<br>';", 20000);
-document.dataBaseSearch.agency.value="mfa";setTimeout("searchDatabase();document.getElementById('output').innerHTML += '30 Seconds Remaining...<br>';", 30000);
-document.dataBaseSearch.agency.value="cr";setTimeout("searchDatabase();document.getElementById('output').innerHTML += '20 Seconds Remaining...<br>';", 40000);
-document.dataBaseSearch.agency.value="rms";setTimeout("searchDatabaseLast();document.getElementById('output').innerHTML += '10 Seconds Remaining...<br>';", 50000);
+setTimeout("document.dataBaseSearch.agency.value='m';searchDatabase();document.getElementById('output').innerHTML += '50 Seconds Remaining...<br>';", 10000);
+setTimeout("document.dataBaseSearch.agency.value='mex';searchDatabase();document.getElementById('output').innerHTML += '40 Seconds Remaining...<br>';", 20000);
+setTimeout("document.dataBaseSearch.agency.value='mfa';searchDatabase();document.getElementById('output').innerHTML += '30 Seconds Remaining...<br>';", 30000);
+setTimeout("document.dataBaseSearch.agency.value='cr';searchDatabase();document.getElementById('output').innerHTML += '20 Seconds Remaining...<br>';", 40000);
+setTimeout("document.dataBaseSearch.agency.value='rms';searchDatabaseLast();document.getElementById('output').innerHTML += '10 Seconds Remaining...<br>';", 50000);
 document.dataBaseSearch.submitBtn.disabled=false;
 }
-function searchSpecific()
+function searchSpecific(agency)
 {
 document.dataBaseSearch.submitBtn.disabled=true;document.getElementById("found").innerHTML="";
 document.dataBaseSearch.start.value = Date.now();
-searchDatabaseLast();
+searchDatabaseLast(agency);
 document.dataBaseSearch.submitBtn.disabled=false;
 }
 function done()
 {
 document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
 }
-function searchDatabase()
+
+function searchDatabase(agency)
 {
 document.dataBaseSearch.hits.value = "0";
 if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
@@ -66,15 +67,15 @@ else
 {
 document.getElementById("output").innerHTML = "Searching LBI database...<br>";
 document.dataBaseSearch.entry.value = "1";
-searchLoop();
+searchLoop(agency);
 }
 }
-function searchLoop()
+function searchLoop(agency)
 {
     $(function(){
-   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + agency + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
     });
-setTimeout("checkHits()", 3000);
+setTimeout("checkHits();",2000)
 }
 
 function checkHits()
@@ -86,7 +87,7 @@ document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + 
 }
 
 
-function searchDatabaseLast()
+function searchDatabaseLast(agency)
 {
 document.dataBaseSearch.hits.value = "0";
 if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
@@ -101,13 +102,13 @@ else
 {
 document.getElementById("output").innerHTML = "Searching LBI database...<br>";
 document.dataBaseSearch.entry.value = "1";
-searchLoopLast();
+searchLoopLast(agency);
 }
 }
-function searchLoopLast()
+function searchLoopLast(agency)
 {
     $(function(){
-   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + agency + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
     });
 setTimeout("checkHitsLast()", 3000);
 }
@@ -120,7 +121,7 @@ document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + 
 }
 else
 {
-done();
+done();document.dataBaseSearch.agency.value="100";
 }
 }
 
@@ -209,6 +210,7 @@ String.prototype.hashCode = function(){
 				<option value="mfa">HM Ministry of Foreign Affairs</option>
 				<option value="cr">Crown Vital Records Office</option>
 				<option value="rms">Royal Marshals Service</option>
+				<option value="cfc">Department of Collections, Forfeiture and Compensations</option>
 				</select>
 				</p>
 				
