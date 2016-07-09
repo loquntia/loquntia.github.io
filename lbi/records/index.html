@@ -108,7 +108,7 @@ function checkDocument()
 {
 if (document.getElementById("entry").innerHTML != "")
 {
-document.getElementById("found").innerHTML += "<p><div class='searchResult'><a href='" + document.getElementById("entry").innerHTML + "'>" + "View Document: " + document.dataBaseSearch.input.value + "</a></div></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("output").innerHTML = document.getElementById("found").innerHTML;document.document.getElementById("entry").innerHTML="";
+document.getElementById("found").innerHTML += "<p><div class='searchResult'><a href='" + document.getElementById("entry").innerHTML + "'>" + "Click to View Document: <tt>" + document.dataBaseSearch.input.value + "</tt></a></div></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("output").innerHTML = document.getElementById("found").innerHTML;document.document.getElementById("entry").innerHTML="";document.dataBaseSearch.field.disabled=false;
 }
 else
 {
