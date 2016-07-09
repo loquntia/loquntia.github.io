@@ -172,17 +172,41 @@ String.prototype.hashCode = function(){
 <div id="found" style="display:none;"></div>
 <div class="summary" role="article">
 
-			<p>Search through an index of all paper and digital records held by the Loquntian Government.</p>
+			<p>Search through an index of all paper and digital records held by the Loquntian Government and request to see digital copies.</p>
 
 			</div>
 			
                 <div class="preamble" role="article">
                 <h3>Government Records Database</h3>
-                This index allows you to search all government documents held by the Loquntian Government. Each agency stores records using a different numbering system, outlined below.
+                This index allows you to search all government documents held by the Loquntian Government. Each agency stores records using a different numbering system, outlined below. Records which have been filed, but have since been removed (such as documentary court evidence) will have an "unfiled" date. A brief description of all filed documents (number, title, filing date) is available in this index, but documents filed under seal are not available to members of the public to check out.
                 <ul>
                 <li>
                     <b>Supreme Court of Loquntia</b><br>
-                    <p>Records are sorted by case number, starting with the year, and then a unique 2 digit number. (e.g. 2015-03, 2014-09F)</p>
+                    <p>Records are sorted by case number, starting with the year, and then a unique 2 digit number, followed by a unique document number. Filings that have had their numbers changed end in "F". (e.g. 100-2015-03-1, 100-2014-09F-4)</p>
+                </li>
+                <li>
+                    <b>Royal Military</b><br>
+                    <p>Military records are sorted by TPSN-M with the letter "M" omitted, followed by a unique document number. (e.g. M-041802-1, <b>NOT</b> M-M041802-1))</p>
+                </li>
+                <li>
+                    <b>Ministry of the Exchequer</b><br>
+                    <p>Tax records are sorted by year, then the TPSN with the letter in front of the number omitted, followed by a unique document number. (e.g. MEX-2014-990363-1, <b>NOT</b> MEX-2014-S990363-1)</p>
+                </li>
+                <li>
+                    <b>CFC Department</b><br>
+                    <p>CFC Collections Reports are sorted by TPSN with the letter in front of the number omitted, followed by a unique document number. (e.g. CFC-101352-1, <b>NOT</b> CFC-C101352-1)</p>
+                </li>
+                <li>
+                    <b>Ministry of Foreign Affairs</b><br>
+                    <p>Documents filed with the Ministry of Foreign Affairs are filed with an 8 digit date code (YYYYMMDD), followed by a unique document number. (e.g. MFA-20150112-2)</p>
+                </li>
+                <li>
+                    <b>Crown Vital Records</b><br>
+                    <p>The LBI's Crown Vital Records division files birth, death, and marriage certificates by a unique certificate number. (e.g. CR-103-1)</p>
+                </li>
+                <li>
+                    <b>Royal Marshals</b><br>
+                    <p>Police reports and complaints are filed by an 8 digit date code (YYYYMMDD),  followed by a unique document number. (e.g. RMS-20160502-12)</p>
                 </li>
                 </ul>
                 
@@ -196,17 +220,18 @@ String.prototype.hashCode = function(){
                                 <input type="checkbox" name="searchSpecific" onclick="if(this.checked==true){document.dataBaseSearch.viewDoc.checked=false;document.dataBaseSearch.input.placeholder='Search Query';}else{this.checked=true;}" checked> Search the following agency's records:&ensp;
                                 <select name="agency" required>
                                 <option value="100">Supreme Court of Loquntia</option>
-				<option value="m">HM Royal Military</option>
-				<option value="mex">HM Ministry of the Exchequer</option>
-				<option value="mfa">HM Ministry of Foreign Affairs</option>
+				<option value="m">Ministry of Defence</option>
+				<option value="mex">Ministry of the Exchequer</option>
+				<option value="cfc">Dept. of Collections, Forfeiture and Compensations</option>
+				<option value="mfa">Ministry of Foreign Affairs</option>
 				<option value="cr">Crown Vital Records Office</option>
 				<option value="rms">Royal Marshals Service</option>
-				<option value="cfc">Department of Collections, Forfeiture and Compensations</option>
 				</select>
+				<br>Do not include agency prefixes or a hyphen and a number at the end of your search query. (e.g. "101352", <b>NOT</b>CFC-101352-1)
 				</p>
 				
 				<p>
-				<input type="checkbox" name="viewDoc" onclick="if(this.checked==true){document.dataBaseSearch.searchSpecific.checked=false;document.dataBaseSearch.input.placeholder='Document Code';}else{this.checked=true;}"> View a digital document you have checked out.<br>Click here to check out a document you have searched, be sure to specify the number it is filed under.
+				<input type="checkbox" name="viewDoc" onclick="if(this.checked==true){document.dataBaseSearch.searchSpecific.checked=false;document.dataBaseSearch.input.placeholder='Document Code';}else{this.checked=true;}"> View a digital document you have checked out.<br><a href="https://docs.google.com/forms/d/1omo2E9dAk82RaANAfohOOt0UFdRhvENuFVgMZJt_6sQ/viewform">Click here</a> to check out a document you have searched, be sure to specify the number it is filed under.
 				</p>
 				
 				<p>
