@@ -45,11 +45,11 @@
 					</li>
 					<li>
 
-						<a href="/rms/iwap.html" class="design-name">Criminal Records</a>
+						<a href="/rms/iwap.html" class="design-name">RMS Criminal Records</a>
 					</li>
                                         <li>
 
-						<a href="/lbi/records/index.html" class="design-name">Search Records</a>
+						<a href="/lbi/records/index.html" class="design-name">LBI Records Department</a>
 					</li>
 
 					</ul>
