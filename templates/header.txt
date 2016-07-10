@@ -140,10 +140,9 @@
 
 
 <div id="site-title">
-<center>
 <br>
 <img src="/images/seal.png" style="height:auto;width:6.25%;">
-<text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;"><br>Kingdom of Loquntia<br>Rek Welkuunlôndu</text></center>
+<text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;">Rek Welkuunlôndu<br>Regno di Loqueria</text>
  </div>
   <hr>
 <!-- <center>

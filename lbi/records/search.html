@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <head>
  <!-- metadata about page -->
- <title>Dept. of Records</title>
+ <title>Records Search</title>
  <meta charset="Unicode">
  <meta http-equiv="Content-Style-Type" content="text/css">
  <meta name="description" content="Kingdom of Loquntia">
@@ -172,19 +172,60 @@ String.prototype.hashCode = function(){
 <div id="found" style="display:none;"></div>
 <div class="summary" role="article">
 
-			<p>Search through an index of all paper and digital records held by the Loquntian Government and request to see digital copies</p>
+			<p>Browse through government records by filing number and check them out to view them online</p>
 
 			</div>
 			
                 <div class="preamble" role="article">
-                <h3>Department of Records</h3>
-                New services are coming online to allow be to view and search government records online, currently you are only able to search through records by filing number.
+                <h3>Government Records Database</h3>
+                This index allows you to search all government documents held by the Loquntian Government. Each agency stores records using a different numbering system, outlined below. Records which have been filed, but have since been removed (such as documentary court evidence) will have an "unfiled" date. A brief description of all filed documents (number, title, filing date) is available in this index, but documents filed under seal are not available to members of the public to check out.
+                <ul>
+                <li>
+                    <b>Supreme Court of Loquntia</b><br>
+                    <p>Records are sorted by case number, starting with the year, and then a unique 2 digit number, followed by a unique document number. Filings that have had their numbers changed end in "F". (e.g. 100-2015-03-1, 100-2014-09F-4)</p>
+                </li>
+                <li>
+                    <b>Ministry of Defence</b><br>
+                    <p>Military records are sorted by TPSN-M with the letter "M" omitted, followed by a unique document number. (e.g. M-041802-1, <b>NOT</b> M-M041802-1))</p>
+                </li>
+                <li>
+                    <b>CFC Department</b><br>
+                    <p>CFC Collections Reports are sorted by TPSN with the letter in front of the number omitted, followed by a unique document number. (e.g. CFC-101352-1, <b>NOT</b> CFC-C101352-1)</p>
+                </li>
+                <li>
+                    <b>Crown Vital Records</b><br>
+                    <p>The LBI's Crown Vital Records division files birth, death, and marriage certificates by a unique certificate number. (e.g. CR-103-1)</p>
+                </li>
+                </ul>
                 
-                <h3>Departmento di Recorde</h3>
-                Nove servicie s New services are coming online to allow be to view and search government records online, currently you are only able to search through records by filing number.Documente estarà intreescríte
+                For records that may be harder to find, you can file a Q37 request using <a href="https://docs.google.com/forms/d/1omo2E9dAk82RaANAfohOOt0UFdRhvENuFVgMZJt_6sQ/viewform">this form</a>.
                 
-                <a href="search.html"><button type="button">Search By Filing Number.</button></a>
-               
+			<form name="dataBaseSearch" action="javascript:search()" autocomplete="off">
+			<fieldset name="field">
+			<legend><h3>Search Index</h3></legend>
+                                <p>
+				<input type="hidden" name="entry" value="0">
+				<input type="hidden" name="hits" value="0">
+				<input type="hidden" name="start" value="">
+                                <input type="checkbox" name="searchSpecific" onclick="if(this.checked==true){document.dataBaseSearch.viewDoc.checked=false;document.dataBaseSearch.input.placeholder='Search Query';}else{this.checked=true;}" checked> Search the following agency's records:&ensp;
+                                <select name="agency" required>
+                                <option value="100">Supreme Court of Loquntia</option>
+				<option value="m">Ministry of Defence</option>
+				<option value="cfc">Dept. of Collections, Forfeiture and Compensations</option>
+				<option value="cr">Crown Vital Records Office</option>
+				</select>
+				<br>Do not include agency prefixes or a hyphen and a number at the end of your search query. (e.g. "101352", <b>NOT</b> CFC-101352-1)
+				</p>
+				
+				<p>
+				<input type="checkbox" name="viewDoc" onclick="if(this.checked==true){document.dataBaseSearch.searchSpecific.checked=false;document.dataBaseSearch.input.placeholder='Document Code';}else{this.checked=true;}"> View a digital document you have checked out.<br><a href="https://docs.google.com/forms/d/1omo2E9dAk82RaANAfohOOt0UFdRhvENuFVgMZJt_6sQ/viewform">Click here</a> to check out a document you have searched, be sure to specify the number it is filed under.
+				</p>
+				
+				<p>
+				<input type="text" name="input" placeholder="Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Go">&ensp;
+				</p>
+                        </fieldset>
+			</form>
 				<div id="output"></div>
 
                 </div>
