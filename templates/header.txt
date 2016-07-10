@@ -144,7 +144,6 @@
 <img src="/images/logo.png" style="height:auto;width:25%;">
 <text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;"><br>Rek Welkuunlôndu ♦ Regno di Loqueria</text>
  </div>
-  <hr>
 <!-- <center>
 <pre>THIS SITE IS UNDER CONSTRUCTION ♦ CONTENT MAY BE OUTDATED OR INCORRECT</pre>
   </center>
