@@ -141,8 +141,8 @@
 
 <div id="site-title">
 <br>
-<img src="/images/seal.png" style="height:auto;width:6.25%;">
-<text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;">Rek Welkuunlôndu<br>Regno di Loqueria</text>
+<img src="/images/logo.png">
+<text style="font-family:Times New Roman, regular;font-size:16px;text-shadow: 3px 3px 5px gray;"><br>Rek Welkuunlôndu<br>Regno di Loqueria</text>
  </div>
   <hr>
 <!-- <center>
