@@ -1,0 +1,158 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>UCC Lookup</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+<script language="javascript">
+function search()
+{
+    searchSpecific();
+}
+function searchSpecific()
+{
+document.dataBaseSearch.field.disabled=true;document.getElementById("found").innerHTML="";
+document.dataBaseSearch.start.value = Date.now();
+searchDatabase();
+}
+function done()
+{
+document.getElementById("output").innerHTML = "Credentials Found:" + document.getElementById("found").innerHTML;
+document.dataBaseSearch.field.disabled=false;
+}
+
+function searchDatabase()
+{
+document.dataBaseSearch.hits.value = "0";
+if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
+{
+document.getElementById("output").innerHTML = "Search query must be at least two characters long.<br>";
+}
+else if (document.dataBaseSearch.input.value.toUpperCase() == "")
+{
+
+}
+else
+{
+document.getElementById("output").innerHTML = "Searching LBI database, this may take several seconds...<br>";
+document.dataBaseSearch.entry.value = "1";
+searchLoop();
+}
+}
+function searchLoop()
+{
+    $(function(){
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/ucc/" + document.dataBaseSearch.input.value.hashCode() + ".txt"); 
+    });
+setTimeout("checkHits();",3000)
+}
+
+function checkHits()
+{
+if (document.getElementById("entry").innerHTML != "")
+{
+document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";done();
+}
+else
+{
+document.getElementById("output").innerHTML = "Credentials not found or invalid for UCC code " + document.dataBaseSearch.input.value;
+document.dataBaseSearch.field.disabled=false;
+}
+}
+
+String.prototype.hashCode = function(){
+
+  var hash = 0;
+
+  if (this.length == 0) return hash;
+
+  for (i = 0; i < this.length; i++) {
+
+      char = this.charCodeAt(i);
+
+      hash = ((hash<<5)-hash)+char;
+
+      hash = hash & hash; // Convert to 32bit integer
+
+  }
+
+    return hash;
+
+}
+
+</script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
+    });
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+<div id="entry" style="display:none;"></div>
+<div id="searchingAll" style="display:none;"></div>
+<div id="found" style="display:none;"></div>
+<div class="summary" role="article">
+
+			<p>Verify the identity of a registered agent of the Loquntian Government</p>
+
+			</div>
+			
+                <div class="preamble" role="article">
+                <h3>Government Credentials Database</h3>
+                Below you can search verify the identity and credentials of Loquntian government agents, consular officers, and liaisons.
+                
+                For records that may be harder to find, you can file a Q37 request using <a href="https://docs.google.com/forms/d/1omo2E9dAk82RaANAfohOOt0UFdRhvENuFVgMZJt_6sQ/viewform">this form</a>.
+                
+			<form name="dataBaseSearch" action="javascript:search()" autocomplete="off">
+			<fieldset name="field">
+			<legend><h3>Verify Credentials</h3></legend>
+                                <p>
+				<input type="hidden" name="entry" value="0">
+				<input type="hidden" name="hits" value="0">
+				<input type="hidden" name="start" value="">
+				<br>Do not include agency prefixes or a hyphen and a number at the end of your search query. (e.g. "101352", <b>NOT</b> CFC-101352-1)
+				</p>
+				
+				<p>
+				<input type="text" name="input" placeholder="UCC Number" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Go">&ensp;
+				</p>
+                        </fieldset>
+			</form>
+				<div id="output"></div>
+
+                </div>
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>
