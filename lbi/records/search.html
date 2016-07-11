@@ -45,6 +45,7 @@ document.dataBaseSearch.hits.value = "0";
 if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
 {
 document.getElementById("output").innerHTML = "Search query must be at least two characters long.<br>";
+document.dataBaseSearch.field.disabled=false;
 }
 else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 {
