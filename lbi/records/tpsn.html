@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <head>
  <!-- metadata about page -->
- <title>UCC Lookup</title>
+ <title>TPSN Lookup</title>
  <meta charset="Unicode">
  <meta http-equiv="Content-Style-Type" content="text/css">
  <meta name="description" content="Kingdom of Loquntia">
@@ -33,7 +33,7 @@ function searchDatabase()
 document.dataBaseSearch.hits.value = "0";
 if (document.dataBaseSearch.input.value.toUpperCase().length != 6)
 {
-document.getElementById("output").innerHTML = "This is not a valid Uniform Credentials Code.<br>";
+document.getElementById("output").innerHTML = "This is not a valid Taxable Person's Serial Number.<br>";
 }
 else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 {
@@ -49,7 +49,7 @@ searchLoop();
 function searchLoop()
 {
     $(function(){
-   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/ucc/" + document.dataBaseSearch.input.value + ".txt"); 
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/tpsn/" + document.dataBaseSearch.tpsntype.value + document.dataBaseSearch.input.value + ".txt"); 
     });
 setTimeout("checkHits();",3000)
 }
@@ -102,25 +102,35 @@ document.dataBaseSearch.field.disabled=false;
 <div id="found" style="display:none;"></div>
 <div class="summary" role="article">
 
-			<p>Verify the identity of a registered agent of the Loquntian Government</p>
+			<p>Verify the identity of a Loquntian citizen, resident, corporation, or other taxable person</p>
 
 			</div>
 			
                 <div class="preamble" role="article">
-                <h3>Government Credentials Database</h3>
-                Below you can search verify the identity and credentials of Loquntian government agents, consular officers, and liaisons.
+                <h3>Taxable Person's Serial Number Database</h3>
+                A TPSN is a number used by all Loquntian citizens and corporations to use government services online and in person. Below you can verify the identity of registered Loquntian parties.
                 
                 For records that may be harder to find, you can file a Q37 request using <a href="https://docs.google.com/forms/d/1omo2E9dAk82RaANAfohOOt0UFdRhvENuFVgMZJt_6sQ/viewform">this form</a>.
                 
 			<form name="dataBaseSearch" action="javascript:search()" autocomplete="off">
 			<fieldset name="field">
-			<legend><h3>Verify Credentials</h3></legend>
+			<legend><h3>Verify a Taxable Person's Serial Number</h3></legend>
+                                <p>
 				<input type="hidden" name="entry" value="0">
 				<input type="hidden" name="hits" value="0">
 				<input type="hidden" name="start" value="">
+				TPSN Type:&ensp;<select name="tpsntype">
+				<option value="S">Standard (S)</option>
+				<option value="M">Military (M)</option>
+				<option value="T">Student (T)</option>
+				<option value="C">Corporation (C)</option>
+				<option value="C">Corporation (C)</option>
+				</select>
+				<br>
+				</p>
 				
 				<p>
-				<input type="text" name="input" placeholder="UCC Number" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Go">&ensp;
+				<input type="text" name="input" placeholder="TPSN Number" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Go">&ensp;
 				</p>
                         </fieldset>
 			</form>
