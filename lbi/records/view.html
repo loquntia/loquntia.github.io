@@ -24,7 +24,7 @@ function getParameterByName(name, url) {
 function fetchDocument()
 {
     $(function(){
-   $("#output").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + getParameterByName('file') + document.dataBaseSearch.input.value.toLowerCase() + ".txt"); 
+   $("#output").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + getParameterByName('file') + ".txt"); 
     });
 setTimeout("checkDocument()", 5000);
 }
