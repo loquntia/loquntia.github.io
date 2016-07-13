@@ -1,0 +1,74 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>Browse Court Minutes</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+<script language="javascript">
+function openMinutes(caseNumber)
+{
+window.location.href = "/lbi/records/view?file=scokl/" + caseNumber;
+}
+</script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
+    });
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+<div id="entry" style="display:none;"></div>
+<div id="searchingAll" style="display:none;"></div>
+<div id="found" style="display:none;"></div>
+<div class="summary" role="article">
+
+			<p>View Supreme Court of Loquntia transcripts and minutes.</p>
+
+			</div>
+			
+                <div class="preamble" role="article">
+                <h3>Cases</h3>
+                <p>The following is a list of cases with minutes or transcripts on file.</p>
+                <p>
+                <a href="javascript:openMinutes('');">2014-03 <i>Stone v. Rodriguez</i></a>
+                </p>
+                <p>
+               
+				<div id="output"></div>
+
+                </div>
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>
