@@ -24,7 +24,7 @@ searchDatabase();
 }
 function done()
 {
-document.getElementById("output").innerHTML = "Credentials Found:" + document.getElementById("found").innerHTML;
+document.getElementById("output").innerHTML = "TPSN Record Found:" + document.getElementById("found").innerHTML;
 document.dataBaseSearch.field.disabled=false;
 }
 
@@ -33,7 +33,7 @@ function searchDatabase()
 document.dataBaseSearch.hits.value = "0";
 if (document.dataBaseSearch.input.value.toUpperCase().length != 6)
 {
-document.getElementById("output").innerHTML = "This is not a valid Taxable Person's Serial Number.<br>";
+document.getElementById("output").innerHTML = "This is not a valid 6-digit Taxable Person's Serial Number.<br>";
 document.dataBaseSearch.field.disabled=false;
 }
 else if (document.dataBaseSearch.input.value.toUpperCase() == "")
@@ -42,7 +42,7 @@ else if (document.dataBaseSearch.input.value.toUpperCase() == "")
 }
 else
 {
-document.getElementById("output").innerHTML = "Searching LBI database, this may take several seconds...<br>";
+document.getElementById("output").innerHTML = "Searching TPSN database, this may take several seconds...<br>";
 document.dataBaseSearch.entry.value = "1";
 searchLoop();
 }
@@ -63,7 +63,7 @@ document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + 
 }
 else
 {
-document.getElementById("output").innerHTML = "Credentials not found or invalid for UCC code <tt>" + document.dataBaseSearch.input.value + "</tt>";
+document.getElementById("output").innerHTML = "Record not found or invalid TPSN code <tt>" + document.dataBaseSearch.input.value + "</tt>";
 document.dataBaseSearch.field.disabled=false;
 }
 }
