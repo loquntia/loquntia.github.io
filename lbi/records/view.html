@@ -31,7 +31,7 @@ setTimeout("checkDocument()", 5000);
 
 function checkDocument()
 {
-if (document.getElementById("entry").innerHTML == "<center>Loading request...</center>")
+if (document.getElementById("output").innerHTML == "<center>Loading request...</center>")
 {
 document.getElementById('output').innerHTML = "The requested document could not be foumd.";
 }
@@ -88,9 +88,9 @@ String.prototype.hashCode = function(){
 <div id="header"></div>
 
 <!-- body content -->
-<br><br><br>
+<br><br><tt>
 				<div id="output"><center>Loading request...</center></div>
-
+</tt>
                 </div>
 <!-- loads footer data here -->
 <div id="footer"></div>
