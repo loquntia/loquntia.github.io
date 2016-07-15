@@ -25,6 +25,7 @@ setTimeout("protect()", 7000);
 }
 function login()
 {
+document.login.field.disabled = true;
 parent.document.login.username.value = document.login.username.value;
 parent.document.login.password.value = document.login.password.value;
 verifyLogin();
@@ -59,15 +60,17 @@ function protect()
 
 <body id="css-zen-garden">
 <div id="credentials" style="display:none;"></div>
-			<form name="login" action="javascript:login()">
+
 			<center>
+			<form name="login" action="javascript:login()">
+			<fieldset name="field">
 			<legend><b>Login</b></legend>
 				<input type="text" name="username" placeholder=" Username"><br>
 				<input type="password" name="password" placeholder=" Password">
 				<small><div id="status">Not registered? <a href="https://docs.google.com/forms/d/1k9w0O3yTa57adjydSRvn_Izkljie0rzsRTGSbtJyY4I/viewform">Create an account</a></div></small>
 				<input type="submit" value="Login">
-			</center>
 			</form>
+			</center>
 Login stuff goes here
 </body>
 </html>
