@@ -27,6 +27,7 @@ function login()
 {
 parent.document.login.username.value = document.login.username.value;
 parent.document.login.password.value = document.login.password.value;
+verifyLogin();
 }
 function protect()
 {
@@ -38,9 +39,6 @@ function protect()
 {
     window.location.href="userhome.html";
 }
-  else {
-  document.getElementById("status").innerHTML = "Username or password incorrect.";
-  }
 }
 </script>
  <script src="/scripts/jquery.js"></script>
@@ -59,7 +57,7 @@ function protect()
 
 </head>
 
-<body id="css-zen-garden" onload="verifyLogin()">
+<body id="css-zen-garden">
 <div id="credentials" style="display:none;"></div>
 			<form name="login" action="javascript:login()">
 			<center>
@@ -67,7 +65,7 @@ function protect()
 				<input type="text" name="username" placeholder=" Username"><br>
 				<input type="password" name="password" placeholder=" Password">
 				<small><div id="status">Not registered? <a href="https://docs.google.com/forms/d/1k9w0O3yTa57adjydSRvn_Izkljie0rzsRTGSbtJyY4I/viewform">Create an account</a></div></small>
-				<button type="submit">Login</button>
+				<input type="submit" value="Login">
 			</center>
 			</form>
 Login stuff goes here
