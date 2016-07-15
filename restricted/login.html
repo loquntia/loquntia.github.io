@@ -15,11 +15,6 @@
 function verifyLogin()
 {
  document.getElementById("credentials").innerHTML = "invalid";
-if (document.cookie == "cert=")
-{
-    window.location.href="/login.html";
-}
-else {
  var username = parent.document.login.username.value;
  var password = parent.document.login.password.value;
  var file = "https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/login/" + username + "." + password + ".txt";
@@ -28,14 +23,24 @@ else {
     }); 
 setTimeout("protect()", 7000);
 }
+function login()
+{
+parent.document.login.username.value = document.login.username.value;
+parent.document.login.password.value = document.login.password.value;
 }
-
 function protect()
 {
   if (document.getElementById("credentials").innerHTML == "invalid")
 {
-    window.location.href="/login.html";
+    window.location.href="login.html";
 }
+  else if (document.getElementById("credentials").innerHTML != "invalid" && window.top.location.href.substring(0, 37) == "https://loquntia.github.io/restricted")
+{
+    window.location.href="userhome.html";
+}
+  else {
+  document.getElementById("status").innerHTML = "Username or password incorrect.";
+  }
 }
 </script>
  <script src="/scripts/jquery.js"></script>
@@ -56,6 +61,15 @@ function protect()
 
 <body id="css-zen-garden" onload="verifyLogin()">
 <div id="credentials" style="display:none;"></div>
+			<form name="login" action="javascript:login()">
+			<center>
+			<legend><b>Login</b></legend>
+				<input type="text" name="username" placeholder=" Username"><br>
+				<input type="password" name="password" placeholder=" Password">
+				<small><div id="status">Not registered? <a href="https://docs.google.com/forms/d/1k9w0O3yTa57adjydSRvn_Izkljie0rzsRTGSbtJyY4I/viewform">Create an account</a></div></small>
+				<button type="submit">Login</button>
+			</center>
+			</form>
 Login stuff goes here
 </body>
 </html>
