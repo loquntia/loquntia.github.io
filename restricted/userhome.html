@@ -14,6 +14,12 @@
 <script language="javascript">
 function verifyLogin()
 {
+if(window.top.location.href.substring(0, 37) != "https://loquntia.github.io/restricted")
+{
+    window.top.location.href = "/";
+}
+else
+{
  document.getElementById("credentials").innerHTML = "invalid";
  var username = parent.document.login.username.value;
  var password = parent.document.login.password.value;
@@ -23,13 +29,14 @@ function verifyLogin()
     }); 
 setTimeout("protect()", 4000);
 }
+}
 function protect()
 {
-  if (document.getElementById("credentials").innerHTML != "invalid" || window.top.location.href.substring(0, 37) == "https://loquntia.github.io/restricted")
+  if (document.getElementById("credentials").innerHTML != "invalid")
 {
 }
 else {
-  window.top.location.href = "/";
+    window.top.location.href = "/";
 }
 }
 </script>
