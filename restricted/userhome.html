@@ -18,6 +18,10 @@ if(window.top.location.href.substring(0, 37) != "https://loquntia.github.io/rest
 {
     window.top.location.href = "/";
 }
+else if(window.top.location.href.indexOf(".") >= 0)
+{
+    window.top.location.href = "/";
+}
 else
 {
  document.getElementById("credentials").innerHTML = "invalid";
