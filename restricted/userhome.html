@@ -34,6 +34,7 @@ function protect()
 {
   if (document.getElementById("credentials").innerHTML != "invalid")
 {
+  document.getElementById("authlinks").innerHTML = document.getElementById("userlinks").innerHTML
 }
 else {
     window.top.location.href = "/";
@@ -50,17 +51,20 @@ else {
  </script>
  
  <!-- load stylesheet and favicons -->
+  <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
  <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
  <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
  <link rel="icon" type="image/ico" href="images/favicon.ico" />
 
 </head>
 
-<body bgcolor="cccccc" onload="verifyLogin()">
+<body id="css-zen-garden"> bgcolor="cccccc" onload="verifyLogin()"><div class="page-wrapper">
 <div id="credentials" style="display:none;"></div>
 
 Welcome to the Loquntian Government's Restricted Access Center.<br>
 Do not refresh the page or press Back or Forward, you will be automatically logged out for security reasons.<br>
 Please use the sidebar to navigate.
+<div id="authlinks" class="userPortal"></div>
+</div>
 </body>
 </html>

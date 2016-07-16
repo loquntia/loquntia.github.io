@@ -21,7 +21,7 @@ function verifyLogin()
     $(function(){
    $("#credentials").load(file);
     }); 
-setTimeout("protect()", 5000);
+setTimeout("protect()", 10000);
 }
 function login()
 {
@@ -85,12 +85,15 @@ function protect()
 <div id="credentials" style="display:none;"></div>
 
 			<form name="login" action="javascript:login()" autocomplete="off">
-			<fieldset name="field">
+			<fieldset name="field" style="border-size:30;border-color:left;border-style:solid;">
 			<legend><h3>Login</h3></legend>
+			<center>
 				<input type="text" name="username" placeholder=" Username"><br>
 				<input type="password" name="password" placeholder=" Password">
 				<small><div id="status">Not registered? <a href="https://docs.google.com/forms/d/1k9w0O3yTa57adjydSRvn_Izkljie0rzsRTGSbtJyY4I/viewform">Create an account</a></div></small>
 				<input type="submit" value="Login">
+                        </fieldset>
+                        </center>
 			</form>
 			</div>
 <div id="footer"></div>

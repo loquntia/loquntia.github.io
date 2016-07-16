@@ -124,10 +124,10 @@
 				<ul>
 					<hr>
 					<li>
-
-						<form action="/search.html">
+						<a href="https://loquntia.github.io/restricted" class="design-name">Restricted Login</a>
+						<!-- <form action="/search.html">
 <input type="text" name="q" id="headersearch" autocomplete="off" placeholder="Search">
-</form>
+</form> -->
 					</li>
 
 				</ul>
