@@ -18,10 +18,6 @@ if(window.top.location.href.substring(0, 37) != "https://loquntia.github.io/rest
 {
     window.top.location.href = "/";
 }
-else if(window.top.location.href.indexOf(".") >= 0)
-{
-    window.top.location.href = "/";
-}
 else
 {
  document.getElementById("credentials").innerHTML = "invalid";
@@ -63,6 +59,8 @@ else {
 <body id="css-zen-garden" onload="verifyLogin()">
 <div id="credentials" style="display:none;"></div>
 
-Login successful.
+Welcome to the Loquntian Government's Restricted Access Center.<br>
+Do not refresh the page or press Back or Forward, you will be automatically logged out for security reasons.<br>
+Please use the sidebar to navigate.
 </body>
 </html>
