@@ -21,7 +21,7 @@ function verifyLogin()
     $(function(){
    $("#credentials").load(file);
     }); 
-setTimeout("protect()", 7000);
+setTimeout("protect()", 5000);
 }
 function login()
 {
@@ -64,7 +64,7 @@ function protect()
 <div id="credentials" style="display:none;"></div>
 
 			<center>
-			<form name="login" action="javascript:login()" autocomplete="disabled">
+			<form name="login" action="javascript:login()" autocomplete="off">
 			<fieldset name="field">
 			<legend><b>Login</b></legend>
 				<input type="text" name="username" placeholder=" Username"><br>
@@ -73,6 +73,5 @@ function protect()
 				<input type="submit" value="Login">
 			</form>
 			</center>
-Login stuff goes here
 </body>
 </html>
