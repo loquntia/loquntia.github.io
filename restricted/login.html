@@ -26,6 +26,7 @@ setTimeout("protect()", 7000);
 function login()
 {
 document.login.field.disabled = true;
+document.getElementById("status") = "Verifying credentials...";
 parent.document.login.username.value = document.login.username.value;
 parent.document.login.password.value = document.login.password.value;
 verifyLogin();
@@ -34,7 +35,8 @@ function protect()
 {
   if (document.getElementById("credentials").innerHTML == "invalid")
 {
-    window.location.href="login.html";
+    document.getElementById("status") = "Username or password incorrect.";
+    document.login.field.disabled = false;
 }
   else if (document.getElementById("credentials").innerHTML != "invalid" && window.top.location.href.substring(0, 37) == "https://loquntia.github.io/restricted")
 {
@@ -62,7 +64,7 @@ function protect()
 <div id="credentials" style="display:none;"></div>
 
 			<center>
-			<form name="login" action="javascript:login()">
+			<form name="login" action="javascript:login()" autocomplete="disabled">
 			<fieldset name="field">
 			<legend><b>Login</b></legend>
 				<input type="text" name="username" placeholder=" Username"><br>
