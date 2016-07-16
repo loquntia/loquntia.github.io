@@ -26,7 +26,7 @@ setTimeout("protect()", 7000);
 function login()
 {
 document.login.field.disabled = true;
-document.getElementById("status") = "Verifying credentials...";
+document.getElementById("status").innerHTML = "Verifying credentials...";
 parent.document.login.username.value = document.login.username.value;
 parent.document.login.password.value = document.login.password.value;
 verifyLogin();
@@ -35,7 +35,7 @@ function protect()
 {
   if (document.getElementById("credentials").innerHTML == "invalid")
 {
-    document.getElementById("status") = "Username or password incorrect.";
+    document.getElementById("status").innerHTML = "Username or password incorrect.";
     document.login.field.disabled = false;
 }
   else if (document.getElementById("credentials").innerHTML != "invalid" && window.top.location.href.substring(0, 37) == "https://loquntia.github.io/restricted")
