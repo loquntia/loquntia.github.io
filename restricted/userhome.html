@@ -25,9 +25,11 @@ setTimeout("protect()", 4000);
 }
 function protect()
 {
-  if (document.getElementById("credentials").innerHTML == "invalid" || window.top.location.href.substring(0, 37) != "https://loquntia.github.io/restricted")
+  if (document.getElementById("credentials").innerHTML != "invalid" || window.top.location.href.substring(0, 37) == "https://loquntia.github.io/restricted")
 {
-    window.location.href="login.html";
+}
+else {
+  window.top.location.href = "/";
 }
 }
 </script>
