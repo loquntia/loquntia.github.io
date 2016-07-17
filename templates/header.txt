@@ -41,6 +41,10 @@
 					</li>
 					<li>
 
+						<a href="/scokl/" class="design-name">Supreme Court of Loquntia</a>
+					</li>
+					<li>
+
 						<a href="/citizenship.html" class="design-name">Citizenship</a>
 					</li>
 					<li>
@@ -86,10 +90,6 @@
 					<li>
 
 						<a href="http://exchequer.weebly.com/" class="design-name">Ministry of the Exchequer</a>
-					</li>
-					<li>
-
-						<a href="http://rklsupremecourt.weebly.com/" class="design-name">Supreme Court of Loquntia</a>
 					</li>
 					</ul>
 
