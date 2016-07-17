@@ -122,11 +122,11 @@
 			<div class="zen-resources" id="zen-resources">
 
 				<ul>
-					<hr>
+					<!-- <hr>
 					<li>
 						<a href="https://loquntia.github.io/restricted" class="design-name">Restricted Login</a>
 						<!-- <form action="/search.html">
-<input type="text" name="q" id="headersearch" autocomplete="off" placeholder="Search">
+<input type="text" name="q" id="headersearch" autocomplete="off" placeholder="Search"> -->
 </form> -->
 					</li>
 
