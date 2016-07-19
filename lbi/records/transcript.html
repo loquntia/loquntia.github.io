@@ -24,7 +24,7 @@ function getParameterByName(name, url) {
 function fetchDocument()
 {
     $(function(){
-   $("#output").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + getParameterByName('file') + ".txt"); 
+   $("#output").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/ul/" + getParameterByName('student') + ".txt"); 
     });
 setTimeout("checkDocument()", 5000);
 }
@@ -33,7 +33,7 @@ function checkDocument()
 {
 if (document.getElementById("output").innerHTML == "<center>Loading request...</center>")
 {
-document.getElementById('output').innerHTML = "The requested document could not be foumd.";
+document.getElementById('output').innerHTML = "The requested student transcript could not be found.";
 }
 }
 
@@ -79,8 +79,13 @@ String.prototype.hashCode = function(){
 
 <body id="css-zen-garden" onload="fetchDocument()">
 <div class="page-wrapper">
-
-
+  <div id="title"><b>MMXII <i>JOHANNI REX DEI GRATIA</i></b></div>
+</div><center>
+  <h1><i>University of Loquntia</i></h1>
+  <img src="images/badge.png">
+  <h3>Academic Transcript</h4></div></small></i></h3>
+  <hr>
+  </center>
 <!-- body content -->
 <br><br><tt>DATE ACCESSED:<div id="date"><script language="javascript">var date = new Date(); document.getElementById("date").innerHTML = "<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"+date+"</p>";</script></div>
 				<div id="output"><center>Loading request...</center></div>
