@@ -44,12 +44,6 @@ else {
  <script src="/scripts/jquery.js"></script>
 
  <!-- the following script loads the header and footer using JQuery -->
- <script language="javascript">
-    $(function(){
-   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
-    });
- </script>
- 
  <!-- load stylesheet and favicons -->
   <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
  <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
@@ -60,11 +54,11 @@ else {
 
 <body id="css-zen-garden" onload="verifyLogin()"><div class="page-wrapper">
 <div id="credentials" style="display:none;"></div>
-
+<p>
 Welcome to the Loquntian Government's Restricted Access Center.<br>
 Do not refresh the page or press Back or Forward, you will be automatically logged out for security reasons.<br>
-Please use the sidebar to navigate.
-<div id="authlinks" class="userPortal"></div>
+Please use the sidebar to navigate.</p>
+<div id="userlinks" class="userPortal"></div>
 </div>
 </body>
 </html>
