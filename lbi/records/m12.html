@@ -1,0 +1,100 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>Military Dismissal</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+<script language="javascript">
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+function fetchDocument()
+{
+    $(function(){
+   $("#output").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/m/" + getParameterByName('cert') + "_m12.txt"); 
+    });
+setTimeout("checkDocument()", 5000);
+}
+
+function checkDocument()
+{
+if (document.getElementById("output").innerHTML == "<center>Loading request...</center>")
+{
+document.getElementById('output').innerHTML = "The requested M40 directive certificate could not be found.";
+}
+}
+
+String.prototype.hashCode = function(){
+
+  var hash = 0;
+
+  if (this.length == 0) return hash;
+
+  for (i = 0; i < this.length; i++) {
+
+      char = this.charCodeAt(i);
+
+      hash = ((hash<<5)-hash)+char;
+
+      hash = hash & hash; // Convert to 32bit integer
+
+  }
+
+    return hash;
+
+}
+
+</script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+  /*  $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
+    }); */
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/transcript.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden" onload="fetchDocument()">
+<div class="page-wrapper">
+  <div id="title"><b>MMXII <i>JOHANNI REX DEI GRATIA</i></b></div>
+</div><center>
+  <h1><i>Ministry of Defence</i></h1>
+  <img src="/images/seal.png" style="height:auto;width:12.5%;">
+  <h3>M12 Certificate of Dismissal</h4></div></small></i></h3>
+  <hr>
+  </center>
+<!-- body content -->
+<br><br><tt>DATE ACCESSED:<div id="date"><script language="javascript">var date = new Date(); document.getElementById("date").innerHTML = "<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"+date+"</p>";</script></div>
+				<div id="output"><center>Loading request...</center></div>
+</tt>
+                </div>
+                
+<p><p><h6 align="right">This document is printed black on a blue and pink background.<br>
+This is not an official document if registrar's name and signature do not appear to the left.<br>
+<br>
+<i>This transcript was accessed online. Contact the Library of Blue Ink or the Ministry of Defence to identify false documents.</i></h6>
+</body>
+</html>
