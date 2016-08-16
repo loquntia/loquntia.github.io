@@ -15,12 +15,9 @@
 function searchDatabase()
 {
 document.dataBaseSearch.hits.value = "0";
+document.getElementById("found").innerHTML = "";
 document.dataBaseSearch.start.value = Date.now(); 
-if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
-{
-document.getElementById("output").innerHTML = "Search query must be at least two characters long.<br>";
-}
-else if (document.dataBaseSearch.input.value.toUpperCase() == "")
+if (document.dataBaseSearch.input.value.toUpperCase() == "")
 {
 
 }
@@ -115,12 +112,12 @@ String.prototype.hashCode = function(){
 			</p>
 		</div>
 		<div id="disclaimer">
-		<h3>Privileged and Confidential Agreement</h3>
+		<h3>User's Agreement</h3>
 		<p>
-		NOTICE: This online resource is privileged and confidential. By using this online resource you agree that you will not use it for malicious purposes.
+		NOTICE: By agreering and accessing this online database you agree to be bound by and abide by all laws, terms, and conditions associated with accessing government records in the Kingdom of Loquntia.
 		</p>
 		<input type="checkbox" onclick="document.getElementById('disclaimer').style.display='none';document.getElementById('query').style.display='';">
-		&emsp; I, the party accessing this online database, hereby swear or affirm under threat of perjury that I will abide by all terms and conditions associated with this online database.
+		&emsp; I agree.
 		</div>
 		<div id="query" style="display:none;">
 
