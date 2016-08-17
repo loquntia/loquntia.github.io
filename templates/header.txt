@@ -27,6 +27,10 @@
 
 						<a href="/services.html" class="design-name">Services</a>
 					</li>
+										<li>
+
+						<a href="/military.html" class="design-name">Military Enlistment</a>
+					</li>
                                         <li>
 
 						<a href="/news.html" class="design-name">International News</a>
