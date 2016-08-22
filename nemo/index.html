@@ -16,11 +16,11 @@
 <script language="javascript">
 function search()
 {
-if (document.dataBaseSearch.tpsnType.value == "S")
+if (document.dataBaseSearch.tpsntype.value == "S")
 {
 document.dataBaseSearch.input.value =  CryptoJS.AES.encrypt(document.dataBaseSearch.input.value, "NEMO");
 }
-else if (document.dataBaseSearch.tpsnType.value == "B")
+else if (document.dataBaseSearch.tpsntype.value == "B")
 {
 document.dataBaseSearch.input.value =  CryptoJS.AES.decrypt(document.dataBaseSearch.input.value, "NEMO");
 }
