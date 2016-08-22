@@ -5,7 +5,6 @@
  <title>NEMO (A44)</title>
  <meta charset="Unicode">
  <meta http-equiv="Content-Style-Type" content="text/css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
  <meta name="description" content="Kingdom of Loquntia">
  <meta name="keywords" content="Loquntia,KL,Micronation">
@@ -18,11 +17,11 @@ function search()
 {
 if (document.dataBaseSearch.tpsntype.value == "S")
 {
-document.dataBaseSearch.input.value = atob(document.dataBaseSearch.input.value);
+document.dataBaseSearch.input.value = btoa(btoa(document.dataBaseSearch.input.value));
 }
 else if (document.dataBaseSearch.tpsntype.value == "B")
 {
-document.dataBaseSearch.input.value =  btoa(document.dataBaseSearch.input.value);
+document.dataBaseSearch.input.value =  atob(atob(document.dataBaseSearch.input.value));
 }
 }
 </script>
