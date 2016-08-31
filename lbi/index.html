@@ -84,13 +84,17 @@ document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value
 <div id="entry" style="display:none;"></div>
 <div id="searchingAll" style="display:none;"></div>
 <div id="found" style="display:none;"></div>
-			
+
                 <div class="preamble" role="article">
                 <h3>Library Catalogue</h3><p>
-                The Library of Blue Ink catalogue can be searched through here by department, year, author, title, call number, or alternate numbers. All call numbers are in the following format:</p>
+                The Library of Blue Ink catalogue can be searched through here by department, year, author, title, call numbers, or alternate numbers. All call numbers are in the following format:</p>
 		<p>
 		<tt>[3 character author code] [department code] [publication/registration year]</tt>
 		</p>
+		<p>
+		<center><input type="button" value="Show/Hide Department Codes" onclick="if(document.getElementById('codes').style.display==''){document.getElementById('codes').style.display='none'}else{document.getElementById('codes').style.display=''}"></center>
+		<p>
+<div id="codes" style="display:none;">
 		<h3>Department Codes</h3>
 		<p>
 		<ul>
@@ -169,6 +173,8 @@ document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value
 	</ul>
 		</ul>
 		</p>
+
+</div>
                 </div>
 
                 <div class="preamble" role="article">
@@ -364,8 +370,12 @@ Emborough Dylan<br>
 <div class="searchResult" id="c33"></div>
 </div>
 </div>
+<br>
+<br>
+<center>
 <div id="output">
 </div>
+</center>
 
 <!-- loads footer data here -->
 <div id="footer"></div>
