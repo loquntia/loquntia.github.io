@@ -14,11 +14,18 @@
 <script language="javascript">
 function search()
 {
+if (document.catalogueSearch.input.value.length < 2)
+{
+document.getElementById("output").innerHTML = "Search query must be at least 2 characters long.";
+}
+else
+{
 document.catalogueSearch.start.value = Date.now();
 document.catalogueSearch.hits.value="0";
 document.catalogueSearch.field.disabled=true;
 document.catalogueSearch.record.value="1";
 nextRecord();
+}
 }
 function nextRecord()
 {
@@ -126,19 +133,19 @@ document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value
 	</ul>
 <li>40 News/Annals/Chronicles/Informative</li>
 	<ul>
-	42 News / Gazzettes</li>
-	45 Non-News Annals / Chronicles</li>
+	<li>42 News / Gazzettes</li>
+	</li>45 Non-News Annals / Chronicles</li>
 	</ul>
 <li>50 Fictional Literature</li>
 	<ul>
 	<li>54 Historical Fiction</li>
 	<li>58 Poetry/Amusing</li>
 	</ul>
-<li>6 Images/Photographs</li>
+<li>6 Scholastic Reports / Informational</li>
 <li>7 Audio/Visual</li>
 	<ul>
 	<li>72 Music</li>
-	<li>74 Photography</li>
+	<li>74 Images/Photography</li>
 	<li>75 Motion Pictures / Video</li>
 	</ul>
 <li>80 Religious Scriptures</li>
@@ -248,7 +255,7 @@ Corpus Legis Vol. I: Civil Law<br>
 Kingdom of Loquntia<br>
 </div>
 <div class="searchResult" id="c13">
-.RX 65 2015<br>
+.RX 66 2015<br>
 TPSN Database<br>
 Kingdom of Loquntia<br>
 </div>
@@ -311,6 +318,48 @@ Escudo<br>
 HOU 81 2016<br>
 The Holy Catechism of the Elder Church of Ash<br>
 Houston John Bailey<br>
+</div>
+<div class="searchResult" id="c26">
+.RX R6 2011<br>
+Supreme Court of Loquntia Judgments at Large<br>
+Kingdom of Loquntia<br>
+<a href="https://loquntia.github.io/scokl/atlarge.html">View ›</a>
+</div>
+<div class="searchResult" id="c27">
+DRA 42 2016<br>
+The Artifax Apostle<br>
+Draxe James Thomas<br>
+<a href="https://artifaxapostle.wordpress.com/">View ›</a>
+</div>
+<div class="searchResult" id="c28">
+.RX R6 2016<br>
+Uniform Credentials Code Index<br>
+Kingdom of Loquntia<br>
+<a href="https://loquntia.github.io/lbi/records/ucc.html">View ›</a>
+</div>
+<div class="searchResult" id="c29">
+DAL 6 2016<br>
+2016 Audit of Public Accounts<br>
+Dalrymple Kate<br>
+<a href="https://drive.google.com/file/d/0BzPxiXwzsJY2SkowdFJNZVdCT28/view?usp=sharing">View ›</a>
+</div>
+<div class="searchResult" id="c30">
+LIB L1 2016<br>
+The First Dictionary of the Thoodish Language<br>
+Library of Blue Ink<br>
+<a href="https://drive.google.com/file/d/0BzPxiXwzsJY2cjZZU3pBc2JudnM/view?usp=sharing">View ›</a>
+</div>
+<div class="searchResult" id="c31">
+HOU 74 2016<br>
+The Barony of Green, Photograph<br>
+Houston John Bailey<br>
+<a href="https://drive.google.com/file/d/0BzPxiXwzsJY2cG0zbzM4aFZVMXM/view?usp=sharing">View ›</a>
+</div>
+<div class="searchResult" id="c32">
+EMB 42<br>
+The Ërsten Times<br>
+Emborough Dylan<br>
+<a href="https://theerstentimes.wordpress.com/">View ›</a>
 </div>
 <div class="searchResult" id="c26"></div>
 </div>
