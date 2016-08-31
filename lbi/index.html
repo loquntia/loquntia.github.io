@@ -14,10 +14,11 @@
 <script language="javascript">
 function search()
 {
+document.catalogueSearch.start.value = Date.now();
+document.catalogueSearch.hits.value="0";
 document.catalogueSearch.field.disabled=true;
 document.catalogueSearch.record.value="1";
 nextRecord();
-document.catalogueSearch.start.value = Date.now();
 }
 function nextRecord()
 {
