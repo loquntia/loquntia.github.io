@@ -1,0 +1,312 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>Library of Blue Ink Catalogue</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+<script language="javascript">
+function search()
+{
+document.catalogueSearch.field.disabled=true;
+document.catalogueSearch.record.value="1";
+nextRecord();
+}
+function nextRecord()
+{
+if (document.getElementById("c"+document.catalogueSearch.record.value).innerHTML == "")
+{
+document.catalogueSearch.field.disabled=false;document.getElementById("results").style.display="";
+}
+else
+{
+if (document.getElementById("c"+document.catalogueSearch.record.value).innerHTML.indexOf(document.catalogueSearch.input.value) != -1)
+{
+document.getElementById("c"+document.catalogueSearch.record.value).style.display="";
+document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value + "+ 1");
+}
+else
+{
+document.getElementById("c"+document.catalogueSearch.record.value).style.display="none";
+document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value + "+ 1");
+}
+}
+}
+</script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
+    });
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+<div id="entry" style="display:none;"></div>
+<div id="searchingAll" style="display:none;"></div>
+<div id="found" style="display:none;"></div>
+			
+                <div class="preamble" role="article">
+                <h3>Library Catalogue</h3><p>
+                The Library of Blue Ink catalogue can be searched through here by department, year, author, title, call number, or alternate numbers. All call numbers are in the following format:</p>
+		<p>
+		<tt>[3 character author code] [department code] [publication/registration year]</tt>
+		</p>
+		<h3>Department Codes</h3>
+		<p>
+		<ul>
+<li>A Art/Historical Documents</li>
+<li>S0 Specimens</li>
+	<ul>
+	<li>S1 Non-Documentary Articles</li>
+	<li>S2 Substances</li>
+	<li>S3 Documentary</li>
+	<li>S4 Life</li>
+	</ul>
+<li>X Sensitive Unclassified</li>
+	<ul>
+	<li>X6 Obscenity</li>
+	</ul>
+<li>R0 Records / Statistics</li>
+	<ul>
+	<li>R3 Certificates</li>
+	<li>R6 Indexes</li>
+	</ul>
+<li>L0 Language/Dictionaries</li>
+	<ul>
+	<li>L1 Written Language</li>
+	<li>L2 Spoken Language</li>
+	</ul>
+<li>0 Unclassifiable/Unclassified</li>
+<li>1 History</li>
+<li>20 Philosophy</li>
+	<ul>
+	<li>21 Theoretical Science</li>
+	<li>22 Cosmology/Phaneron Theory</li>
+	<li>23 Physics</li>
+	<li>24 Chemistry</li>
+	<li>25 Biology</li>
+	</ul>
+<li>30 Applied Science</li>
+	<ul>
+	<li>31 Mathematics</li>
+	<li>36 Political/Social Science</li>
+	</ul>
+<li>40 News/Annals/Chronicles/Informative</li>
+	<ul>
+	42 News / Gazzettes</li>
+	45 Non-News Annals / Chronicles</li>
+	</ul>
+<li>50 Fictional Literature</li>
+	<ul>
+	<li>54 Historical Fiction</li>
+	<li>58 Poetry/Amusing</li>
+	</ul>
+<li>6 Images/Photographs</li>
+<li>7 Audio/Visual</li>
+	<ul>
+	<li>72 Music</li>
+	<li>74 Photography</li>
+	<li>75 Motion Pictures / Video</li>
+	</ul>
+<li>80 Religious Scriptures</li>
+	<ul>
+	<li>81 Christianity</li>
+	<li>82 Islam</li>
+	<li>83 Judaism & Zoroastrianism</li>
+	<li>84 The Bhagavad-gita & The Vedas</li>
+	<li>85 Greco-Roman Pantheon Mythology</li>
+	<li>86 Native American Traditions</li>
+	<li>87 Misc. Western Traditions</li>
+	<li>88 Misc. Eastern Traditions</li>
+	</ul>
+<li>90 Law</li>
+	<ul>
+	<li>91 Religious Law</li>
+	<li>92 Historical Law</li>
+	<li>93 International Law</li>
+	<li>94 Legislative Law</li>
+	<li>95 Judicial Law</li>
+	</ul>
+		</ul>
+		</p>
+                </div>
+
+                <div class="preamble" role="article">
+<form name="catalogueSearch" action="javascript:search()" autocomplete="off">
+			<fieldset name="field">
+			<input type="hidden" name="hits" value="1">
+			<legend><h3>Search Library Catalogue</h3></legend>
+                                <p>
+				<br>Search ":!" for all resources that are lost or destroyed.
+				<br>Search "::" for all resources with multiple names.
+				<br>Search ":& " + [filing number] for resources filed under alternative codes.
+				</p>
+				
+				<p>
+				Use the field below to begin your search.
+				</p>
+				<p>
+				<input type="text" name="input" placeholder="Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Go">&ensp;
+				</p>
+                        </fieldset>
+			</form>
+
+<div id="results" style="display:none;">
+<div class="searchResult" id="c1">
+.RX R3 2011 :! :& 2011-03F
+Marriage Certificate in re Madison Zavala Gwynneth Robertson
+Kingdom of Loquntia
+Document lost or destroyed
+</div>
+<div class="searchResult" id="c2">
+.RX R3 2011 :! :& 2011-07F
+Marriage Certificate in re Gwynneth Robertson and Colton Cobb
+Kingdom of Loquntia
+</div>
+<div class="searchResult" id="c3">
+HOU L1 2011 :!
+Text White
+Houston John Bailey
+</div>
+<div class="searchResult" id="c4">
+HOU L1 2011
+Text Green :: Loqúnta Diccíóno
+Houston John Bailey
+</div>
+<div class="searchResult" id="c5">
+HOU L1 2012 :!
+Text Blue I
+Houston John Bailey
+</div>
+<div class="searchResult" id="c6">
+HOU L1 2012
+Text Blue II : The Language of Loqúnta/Otsú / Loqúnta I 
+Houston John Bailey
+</div>
+<div class="searchResult" id="c7">
+.RX A 2012 :!
+The Prime Edict
+Kingdom of Loquntia
+</div>
+<div class="searchResult" id="c8">
+.RX A 2012 :!
+The Grand Book of Public Record
+Kingdom of Loquntia
+</div>
+<div class="searchResult" id="c9">
+.RX A 2012 :! :& 2012-01 :& 2012-03F
+Wiegand v. Loquntia
+Kingdom of Loquntia
+</div>
+<div class="searchResult" id="c10">
+HOU L1 2014
+Loqunta-English Dictionary
+Houston John Bailey
+</div>
+<div class="searchResult" id="c11">
+.RX 94 2015
+Corpus Legis Vol. I: Criminal Law
+Kingdom of Loquntia
+</div>
+<div class="searchResult" id="c12">
+.RX 94 2015
+Corpus Legis Vol. I: Civil Law
+Kingdom of Loquntia
+</div>
+<div class="searchResult" id="c13">
+.RX 65 2015
+TPSN Database
+Kingdom of Loquntia
+</div>
+<div class="searchResult" id="c14">
+JOH 58 2015
+Relationships
+Johnson Lewis Michael
+</div>
+<div class="searchResult" id="c15">
+JOH 58 2015
+In Tiemer Eek Feel Leck Eem Goost
+Johnson Lewis Michael
+</div>
+<div class="searchResult" id="c16">
+JOH 58 2015
+Faces
+Johnson Lewis Michael
+</div>
+<div class="searchResult" id="c17">
+JOH 58 2015
+With Red Roses
+Johnson Lewis Michael
+</div>
+<div class="searchResult" id="c18">
+JOH 58 2015
+Syt :: Black
+Johnson Lewis Michael
+</div>
+<div class="searchResult" id="c19">
+JOH 58 2015
+Soþsot Fluggemer, Äsker i Snö: and Other Brief Works in English and Norling
+Johnson Lewis Michael
+</div>
+<div class="searchResult" id="c20">
+.ML 5 2015
+Ðe Går-Hinder Deht :: The Rope Trick Effect
+Johnson Lewis Michael; Berkeley Muse Paige
+</div>
+</div>
+<div class="searchResult" id="c21">
+ESC 72 2014
+Junk Silver
+Escudo
+</div>
+<div class="searchResult" id="c22">
+ESC 72 2014
+Locust wings
+Escudo
+</div>
+<div class="searchResult" id="c23">
+ESC 72 2014
+12½ Centimos
+Escudo
+</div>
+<div class="searchResult" id="c24">
+ESC 72 2015
+Butternut Squash
+Escudo
+</div>
+<div class="searchResult" id="c25"></div>
+</div>
+
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>
