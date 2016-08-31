@@ -17,19 +17,22 @@ function search()
 document.catalogueSearch.field.disabled=true;
 document.catalogueSearch.record.value="1";
 nextRecord();
+document.catalogueSearch.start.value = Date.now();
 }
 function nextRecord()
 {
 if (document.getElementById("c"+document.catalogueSearch.record.value).innerHTML == "")
 {
-document.getElementById("c"+document.catalogueSearch.record.value).style.display="";
+document.getElementById("c"+document.catalogueSearch.record.value).style.display="none";
 document.catalogueSearch.field.disabled=false;document.getElementById("results").style.display="";
+document.getElementById("output").innerHTML = "<p>" + document.catalogueSearch.hits.value + " result(s) found in " + eval((Date.now() - document.catalogueSearch.start.value) / 1000) + " seconds.<br>";
 }
 else
 {
 if (document.getElementById("c"+document.catalogueSearch.record.value).innerHTML.toUpperCase().indexOf(document.catalogueSearch.input.value.toUpperCase()) != -1)
 {
 document.getElementById("c"+document.catalogueSearch.record.value).style.display="";
+document.catalogueSearch.hits.value = eval("1 +" + document.catalogueSearch.hits.value);
 document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value + "+ 1");nextRecord();
 }
 else
@@ -164,6 +167,8 @@ document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value
 <form name="catalogueSearch" action="javascript:search()" autocomplete="off">
 			<fieldset name="field">
 			<input type="hidden" name="record" value="1">
+				<input type="hidden" name="hits" value="0">
+				<input type="hidden" name="start" value="">
 			<legend><h3>Search Library Catalogue</h3></legend>
                                 <p>
 				<br>Search ":!" for all resources that are lost or destroyed.
@@ -308,6 +313,8 @@ Houston John Bailey<br>
 </div>
 <div class="searchResult" id="c26"></div>
 </div>
+</div>
+<div id="output">
 </div>
 
 <!-- loads footer data here -->
