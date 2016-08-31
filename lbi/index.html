@@ -26,7 +26,7 @@ document.catalogueSearch.field.disabled=false;document.getElementById("results")
 }
 else
 {
-if (document.getElementById("c"+document.catalogueSearch.record.value).innerHTML.indexOf(document.catalogueSearch.input.value) != -1)
+if (document.getElementById("c"+document.catalogueSearch.record.value).innerHTML.toUpperCase().indexOf(document.catalogueSearch.input.value.toUpperCase()) != -1)
 {
 document.getElementById("c"+document.catalogueSearch.record.value).style.display="";
 document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value + "+ 1");nextRecord();
