@@ -29,12 +29,12 @@ else
 if (document.getElementById("c"+document.catalogueSearch.record.value).innerHTML.indexOf(document.catalogueSearch.input.value) != -1)
 {
 document.getElementById("c"+document.catalogueSearch.record.value).style.display="";
-document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value + "+ 1");
+document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value + "+ 1");nextRecord();
 }
 else
 {
 document.getElementById("c"+document.catalogueSearch.record.value).style.display="none";
-document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value + "+ 1");
+document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value + "+ 1");nextRecord();
 }
 }
 }
