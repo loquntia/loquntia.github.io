@@ -22,6 +22,7 @@ function nextRecord()
 {
 if (document.getElementById("c"+document.catalogueSearch.record.value).innerHTML == "")
 {
+document.getElementById("c"+document.catalogueSearch.record.value).style.display="";
 document.catalogueSearch.field.disabled=false;document.getElementById("results").style.display="";
 }
 else
@@ -301,9 +302,9 @@ Butternut Squash<br>
 Escudo<br>
 </div>
 <div class="searchResult" id="c25">
-HOU 81 2016
-The Holy Catechism of the Elder Church of Ash
-Houston John Bailey
+HOU 81 2016<br>
+The Holy Catechism of the Elder Church of Ash<br>
+Houston John Bailey<br>
 </div>
 <div class="searchResult" id="c26"></div>
 </div>
