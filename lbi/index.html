@@ -94,12 +94,59 @@ document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value
 		<p>
 		<tt>[3 character author code] [department code] [publication/registration year]</tt>
 		</p>
+                <h3>Library Resources <input type="button" value="[Show/Hide]" onclick="if(document.getElementById('others').style.display==''){document.getElementById('others').style.display='none'}else{document.getElementById('others').style.display=''}"></h3>
+                <p>
+		<div id="others" style="display:none;">
+                <a href="/scokl/"><button type="button">Browse Supreme Court Minutes and Transcripts</button></a>
+                </p>
+                <p>
+                <a href="search.html"><button type="button">Search Records By Filing Number (Under Construction)</button></a>
+                </p>
+                <p>
+                <a href="https://hmkingjohni.typeform.com/to/aL5MMw"><button type="button">Request Government Documents</button></a>
+                </p>
+                <p>
+                <a href="tpsn.html"><button type="button">Verify Taxable Person's Serial Number Records (TPSN)</button></a>
+                </p>
+                <p>
+                <a href="ucc.html"><button type="button">Verify Universal Credentials Code Records (UCC)</button></a>
+                </p>
+                <p>
+		<form name="mail">
+                <input type="text" name="input" placeholder="View Certified Mail">&emsp;&emsp;<input type="button" value="Go" onclick="window.location.href = '/lbi/records/view?file=mail/' + document.mail.input.value;">
+                </form>
+		</p>
+                <p>
+		<form name="view">
+                <input type="text" name="input" placeholder="Resource No.">&emsp;&emsp;<input type="button" value="View a Checked Out Resource" onclick="window.location.href = '/lbi/records/view?file=lbi/' + document.view.input.value;">
+                </form>
+		</p>
+                <p>
+		<form name="ul">
+                <input type="text" name="input" placeholder="Student ID / TPSN">&emsp;&emsp;<input type="button" value="View UL Academic Transcript" onclick="window.location.href = '/lbi/records/transcript?student=' + document.ul.input.value;">
+                </form>
+		</p>
+                <p>
+		<form name="m12">
+                <input type="text" name="input" placeholder="TPSN">&emsp;&emsp;<input type="button" value="View M12 Military Discharge Certificate" onclick="window.location.href = '/lbi/records/m12?cert=' + document.m12.input.value;">
+                </form>
+		</p>
+                <p>
+		<form name="m40">
+                <input type="text" name="input" placeholder="TPSN">&emsp;&emsp;<input type="button" value="View M40 Military Directives Certificate" onclick="window.location.href = '/lbi/records/m40?cert=' + document.m40.input.value;">
+                </form>
+		</p>
+                <p>
+                </div>
 		<p>
-		<center><input type="button" value="Show/Hide Department Codes" onclick="if(document.getElementById('codes').style.display==''){document.getElementById('codes').style.display='none'}else{document.getElementById('codes').style.display=''}"></center>
+
+
+		<center></center>
+		</p>
+		<h3>Department Codes <input type="button" value="Show/Hide" onclick="if(document.getElementById('codes').style.display==''){document.getElementById('codes').style.display='none'}else{document.getElementById('codes').style.display=''}"></h3>
 		<p>
+
 <div id="codes" style="display:none;">
-		<h3>Department Codes</h3>
-		<p>
 		<ul>
 <li>A0 Art/Historical Documents</li>
 <li>S0 Specimens</li>
@@ -186,10 +233,11 @@ document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value
 			<input type="hidden" name="record" value="1">
 				<input type="hidden" name="hits" value="0">
 				<input type="hidden" name="start" value="">
-			<legend><h3>Search Library Catalogue</h3></legend>
+			<legend><h3>Search Library Catalogue <input type="button" value="Show/Hide" onclick="if(document.getElementById('search').style.display==''){document.getElementById('search').style.display='none'}else{document.getElementById('search').style.display=''}"></h3></legend>
                                 <p>
-				<br>Search ":!" for all resources that are lost or destroyed.
-				<br>Search "::" for all resources with multiple names.
+				<div id="search" style="display:none;">
+				<br>Search ":! " for all resources that are lost or destroyed.
+				<br>Search ":: " for all resources with multiple names.
 				<br>Search ":& " + [filing number] for resources filed under alternative codes.
 				</p>
 				
@@ -434,6 +482,7 @@ Miscellaneous Case Documents (Supreme Court)<br>
 The Kingdom of Loquntia<br>
 </div>
 <div class="searchResult" id="c44"></div>
+</div>
 </div>
 </div>
 <br>
