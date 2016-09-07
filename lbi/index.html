@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <head>
  <!-- metadata about page -->
- <title>Library of Blue Ink Catalogue</title>
+ <title>Library of Blue In Catalogue</title>
  <meta charset="UTF-8">
  <meta http-equiv="Content-Style-Type" content="text/css">
  <meta name="description" content="Kingdom of Loquntia">
@@ -89,31 +89,36 @@ document.catalogueSearch.record.value=eval(document.catalogueSearch.record.value
 <div id="found" style="display:none;"></div>
 
                 <div class="preamble" role="article">
+		<h3>Library of Blue Ink</h3>
+		<p>
+		The Library of Blue Ink was founded as a private publishing and recordkeeping agency in 2011 and was given to the Crown of Loquntia as a national archives agency. The Library of Blue Ink now currently serves as the national archives service for Loquntia, a central recordkeeping office for all Loquntian government agencies, and as the academic library for the University of Loquntia.
+		</p>
                 <h3>Library Catalogue</h3><p>
                 The Library of Blue Ink catalogue can be searched through here by department, year, author, title, call numbers, or alternate numbers. All call numbers are in the following format:</p>
 		<p>
 		<tt>[3 character author code] [department code] [publication/registration year]</tt>
 		</p>
-                <h3>Library Resources <input type="button" value="[Show/Hide]" onclick="if(document.getElementById('others').style.display==''){document.getElementById('others').style.display='none'}else{document.getElementById('others').style.display=''}"></h3>
+                <h3>Library Resources <input type="button" value="Show/Hide" onclick="if(document.getElementById('others').style.display==''){document.getElementById('others').style.display='none'}else{document.getElementById('others').style.display=''}"></h3>
                 <p>
 		<div id="others" style="display:none;">
-                <a href="/scokl/"><button type="button">Browse Supreme Court Minutes and Transcripts</button></a>
-                </p>
-                <p>
-                <a href="search.html"><button type="button">Search Records By Filing Number (Under Construction)</button></a>
-                </p>
                 <p>
                 <a href="https://hmkingjohni.typeform.com/to/aL5MMw"><button type="button">Request Government Documents</button></a>
                 </p>
-                <p>
-                <a href="tpsn.html"><button type="button">Verify Taxable Person's Serial Number Records (TPSN)</button></a>
+		<p>
+                <a href="/scokl/"><button type="button">Browse Supreme Court Minutes and Transcripts</button></a>
                 </p>
                 <p>
-                <a href="ucc.html"><button type="button">Verify Universal Credentials Code Records (UCC)</button></a>
+                <a href="/lbi/records/search.html"><button type="button">Search Records By Filing Number (Under Construction)</button></a>
+                </p>
+                <p>
+                <a href="/lbi/records/tpsn.html"><button type="button">Verify Taxable Person's Serial Number Records (TPSN)</button></a>
+                </p>
+                <p>
+                <a href="/lbi/records/ucc.html"><button type="button">Verify Universal Credentials Code Records (UCC)</button></a>
                 </p>
                 <p>
 		<form name="mail">
-                <input type="text" name="input" placeholder="View Certified Mail">&emsp;&emsp;<input type="button" value="Go" onclick="window.location.href = '/lbi/records/view?file=mail/' + document.mail.input.value;">
+                <input type="text" name="input" placeholder="Certified Mail No.">&emsp;&emsp;<input type="button" value="View Certified Mail" onclick="window.location.href = '/lbi/records/view?file=mail/' + document.mail.input.value;">
                 </form>
 		</p>
                 <p>
