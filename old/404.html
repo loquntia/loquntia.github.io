@@ -1,0 +1,53 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>404 - Not Found</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="scripts/standard.js"></script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
+    });
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+<center>
+<h1>404</h1>
+<i>Error - Page Not Found</i>
+<hr>
+Please check the URL.<br>
+If you got here by clicking on a link and an "under construction" message does <b>not</b> appear above, please notify our Library of Blue Ink webmasters at <a href="mailto:loquntia@gmail.com">loquntia@gmail.com</a>.
+</center>
+
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>
