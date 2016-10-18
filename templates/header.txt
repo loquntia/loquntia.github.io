@@ -21,14 +21,14 @@
                         <li><a href="https://hmkingjohni.typeform.com/to/UD6esC">Tax Self Assessment</a></li>
                     </ul>
                     </li>
-                    <li><a href="loquntia.boards.net">Loquntia Forum</a></li>
+                    <li><a href="http://loquntia.boards.net">Loquntia Forum</a></li>
                     <li><a href="http://b.nootropicosbrasil.info/">MEG Finances</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 
-    <header style="background-color:#999999;background-image:url('img/banner.jpg')">
+    <header style="background-color:#999999;background-image:url('/img/banner.jpg')">
         <div class="wrap">
 
         	<h1 id="logo-main">
