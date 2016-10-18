@@ -1,0 +1,77 @@
+﻿	<footer>
+		<div class="wrap">
+
+			<div class="bicolor">
+				<span class="azul"></span>
+				<span class="rojo"></span>
+			</div>
+
+            <div class="top">
+
+                <div class="listas">
+
+					<div class="lista">
+						<h5>Email Government Agencies</h5>
+						<ul>
+							<li><a href="mailto:loquntia@gmail.com?subject=MFA">Ministry of Foreign Affairs</a></li>
+							<li><a href="mailto:loquntia@gmail.com?subject=MDA">Ministry of Domestic Affairs</a></li>
+							<li><a href="mailto:loquntia@gmail.com?subject=MArf">Ministry of Armed Forces</a></li>
+							<li><a href="mailto:loquntia@gmail.com?subject=MEx">Ministry of the Exchequer</a></li>
+							<li><a href="mailto:loquntia@gmail.com?subject=LBI">Library of Blue Ink</a></li>
+							<li><a href="mailto:loquntia@gmail.com?subject=RMS">Ministry of the Exchequer</a></li>
+						</ul>
+					</div>
+
+					<div class="lista">
+						<h5>Agency Sites</h5>
+						<ul>
+							<li><a href="/lbi">Library of Blue Ink</a></li>
+							<li><a href="hmnbl.weebly.com">National Bank of Loquntia</a></li>
+							<li><a href="ul.boards.net">UL Boards</a></li>
+							
+						</ul>
+					</div>
+
+					<div class="lista">
+						<h5>Services</h5>
+						<ul>
+							<li><a href="https://hmkingjohni.typeform.com/to/aL5MMw">Request Government Documents</a></li>
+							<li><a href="https://docs.google.com/forms/d/1Tm0pSDuuvxa7S9w7tJNLTNXBh94HT3DFKu50lx4kn5I/viewform">Register as a Taxable Person</a></li>
+							<li><a href="https://docs.google.com/forms/d/1Tm0pSDuuvxa7S9w7tJNLTNXBh94HT3DFKu50lx4kn5I/viewform">Register a New Corporation</a></li>
+							<li><a href="https://docs.google.com/forms/d/1X0by-3BGDFZw47qb9AYHRt19wYAzMIWYMMnQGEJEFJU/viewform">File a Criminal or Civil Complaint/Suit</a></li>
+						
+						</ul>
+					</div>
+
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="sep"></div>
+
+            </div>
+
+            <div class="bottom">
+
+                <div class="left">
+                    <span>Copyright &copy; 2016 His Majesty, King John I</span>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </nav>
+
+                <div class="clearfix"></div>
+
+                <div class="bicolor">
+					<span class="azul"></span>
+					<span class="rojo"></span>
+				</div>
+
+            </div>
+
+		</div>
+
+	</footer>

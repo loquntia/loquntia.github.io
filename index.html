@@ -22,6 +22,13 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"  />
 
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#tmphead").load("templates/header.txt"); $("#tmpfoot").load("templates/footer.txt");
+    });
+ </script>
+
     </head>
     <body class="single">
 
@@ -34,74 +41,7 @@
 	  	fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
 
-    <div id="menu-movil">
-        <div class="wrap">
-            <nav id="menu-principal">
-                <ul id="menu-main-menu" class="menu-main">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Government</a>
-                    <ul class="sub-menu">
-                        <li><a href="#">House of Lords</a></li>
-                        <li><a href="#">Supreme Court of Loquntia</a></li>
-                        <li><a href="#">Library of Blue Ink</a></li>
-                        <li><a href="#">Ministry of the Exchequer</a></li>
-                        <li><a href="#">Ministry of Foreign Affairs</a></li>
-                        <li><a href="#">Ministry of Domestic Affairs</a></li>
-                        <li><a href="#">Ministry of Armed Forces</a></li>
-                    </ul>
-                    </li>
-                    <li><a href="#">Citizenship Services</a>
-                    <ul class="sub-menu">
-                        <li><a href="https://hmkingjohni.typeform.com/to/TBjGn6">Citizenship Application</a></li>
-                        <li><a href="https://hmkingjohni.typeform.com/to/UD6esC">Tax Self Assessment</a></li>
-                    </ul>
-                    </li>
-                    <li><a href="loquntia.boards.net">Loquntia Forum</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
-    <header style="background-image:url('img/banner.jpg')">
-        <div class="wrap">
-
-        	<h1 id="logo-main">
-                <a href="/">
-                    <img src="img/logo-main.png">
-                </a>
-            </h1>
-
-            <nav id="menu-principal">
-                <ul id="menu-main-menu" class="menu-main">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Government</a>
-                    <ul class="sub-menu">
-                        <li><a href="#">House of Lords</a></li>
-                        <li><a href="#">Supreme Court of Loquntia</a></li>
-                        <li><a href="#">Library of Blue Ink</a></li>
-                        <li><a href="#">Ministry of the Exchequer</a></li>
-                        <li><a href="#">Ministry of Foreign Affairs</a></li>
-                        <li><a href="#">Ministry of Domestic Affairs</a></li>
-                        <li><a href="#">Ministry of Armed Forces</a></li>
-                    </ul>
-                    </li>
-                    <li><a href="#">Citizenship Services</a>
-                    <ul class="sub-menu">
-                        <li><a href="https://hmkingjohni.typeform.com/to/TBjGn6">Citizenship Application</a></li>
-                        <li><a href="https://hmkingjohni.typeform.com/to/UD6esC">Tax Self Assessment</a></li>
-                    </ul>
-                    </li>
-                    <li><a href="http://loquntia.boards.net/">Loquntia Forum</a></li>
-                    <li><a href="http://b.nootropicosbrasil.info/">MEG Finances</a></li>
-                </ul>
-            </nav>
-
-            <a href="#" id="menu-movil-trigger">Main Menu</a>
-
-        </div>
-    </header>
+    <div id="tmphead"></div>
 
 	<div id="content">
 
@@ -153,7 +93,7 @@
 					<div class="clearfix"></div>
 
 					<div class="texto">
-						<span class="meta">Junio 20, 2014</span>
+						<span class="meta">17 October 2016</span>
 						<h3 class="title">Government website is undergoing a massive makeover.</h3>
 
 						<div class="contenido">
@@ -313,89 +253,14 @@
 
 	<div class="clearfix"></div>
 
-	<footer>
-		<div class="wrap">
+<div id="tmpfoot"></div>
 
-			<div class="bicolor">
-				<span class="azul"></span>
-				<span class="rojo"></span>
-			</div>
-
-            <div class="top">
-
-                <div class="listas">
-
-					<div class="lista">
-						<h5>Email Government Agencies</h5>
-						<ul>
-							<li><a href="mailto:loquntia@gmail.com?subject=MFA">Ministry of Foreign Affairs</a></li>
-							<li><a href="mailto:loquntia@gmail.com?subject=MDA">Ministry of Domestic Affairs</a></li>
-							<li><a href="mailto:loquntia@gmail.com?subject=MArf">Ministry of Armed Forces</a></li>
-							<li><a href="mailto:loquntia@gmail.com?subject=MEx">Ministry of the Exchequer</a></li>
-							<li><a href="mailto:loquntia@gmail.com?subject=LBI">Library of Blue Ink</a></li>
-							<li><a href="mailto:loquntia@gmail.com?subject=RMS">Ministry of the Exchequer</a></li>
-						</ul>
-					</div>
-
-					<div class="lista">
-						<h5>Agency Sites</h5>
-						<ul>
-							<li><a href="/lbi">Library of Blue Ink</a></li>
-							<li><a href="hmnbl.weebly.com">National Bank of Loquntia</a></li>
-							<li><a href="ul.boards.net">UL Boards</a></li>
-							
-						</ul>
-					</div>
-
-					<div class="lista">
-						<h5>Services</h5>
-						<ul>
-							<li><a href="https://hmkingjohni.typeform.com/to/aL5MMw">Request Government Documents</a></li>
-							<li><a href="https://docs.google.com/forms/d/1Tm0pSDuuvxa7S9w7tJNLTNXBh94HT3DFKu50lx4kn5I/viewform">Register as a Taxable Person</a></li>
-							<li><a href="https://docs.google.com/forms/d/1Tm0pSDuuvxa7S9w7tJNLTNXBh94HT3DFKu50lx4kn5I/viewform">Register a New Corporation</a></li>
-							<li><a href="https://docs.google.com/forms/d/1X0by-3BGDFZw47qb9AYHRt19wYAzMIWYMMnQGEJEFJU/viewform">File a Criminal or Civil Complaint/Suit</a></li>
-						
-						</ul>
-					</div>
-
-
-                </div>
-
-                <div class="clearfix"></div>
-                <div class="sep"></div>
-
-            </div>
-
-            <div class="bottom">
-
-                <div class="left">
-                    <span>Copyright &copy; 2016 His Majesty, King John I</span>
-                </div>
-
-                <nav>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </nav>
-
-                <div class="clearfix"></div>
-
-                <div class="bicolor">
-					<span class="azul"></span>
-					<span class="rojo"></span>
-				</div>
-
-            </div>
-
-		</div>
-
-	</footer>
 
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/main.js" ></script>
 
 <script type="text/javascript">
-  window.___gcfg = {lang: 'es-419'};
+  window.___gcfg = {lang: 'en'};
   (function() {
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
     po.src = 'https://apis.google.com/js/platform.js';

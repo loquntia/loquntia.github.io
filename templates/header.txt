@@ -1,0 +1,69 @@
+﻿    <div id="menu-movil">
+        <div class="wrap">
+            <nav id="menu-principal">
+                <ul id="menu-main-menu" class="menu-main">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Government</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">House of Lords</a></li>
+                        <li><a href="#">Supreme Court of Loquntia</a></li>
+                        <li><a href="#">Library of Blue Ink</a></li>
+                        <li><a href="#">Ministry of the Exchequer</a></li>
+                        <li><a href="#">Ministry of Foreign Affairs</a></li>
+                        <li><a href="#">Ministry of Domestic Affairs</a></li>
+                        <li><a href="#">Ministry of Armed Forces</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="#">Citizenship Services</a>
+                    <ul class="sub-menu">
+                        <li><a href="https://hmkingjohni.typeform.com/to/TBjGn6">Citizenship Application</a></li>
+                        <li><a href="https://hmkingjohni.typeform.com/to/UD6esC">Tax Self Assessment</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="loquntia.boards.net">Loquntia Forum</a></li>
+                    <li><a href="http://b.nootropicosbrasil.info/">MEG Finances</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <header style="background-image:url('img/banner.jpg')">
+        <div class="wrap">
+
+        	<h1 id="logo-main">
+                <a href="/">
+                    <img src="img/logo-main.png">
+                </a>
+            </h1>
+
+            <nav id="menu-principal">
+                <ul id="menu-main-menu" class="menu-main">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Government</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">House of Lords</a></li>
+                        <li><a href="#">Supreme Court of Loquntia</a></li>
+                        <li><a href="#">Library of Blue Ink</a></li>
+                        <li><a href="#">Ministry of the Exchequer</a></li>
+                        <li><a href="#">Ministry of Foreign Affairs</a></li>
+                        <li><a href="#">Ministry of Domestic Affairs</a></li>
+                        <li><a href="#">Ministry of Armed Forces</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="#">Citizenship Services</a>
+                    <ul class="sub-menu">
+                        <li><a href="https://hmkingjohni.typeform.com/to/TBjGn6">Citizenship Application</a></li>
+                        <li><a href="https://hmkingjohni.typeform.com/to/UD6esC">Tax Self Assessment</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="http://loquntia.boards.net/">Loquntia Forum</a></li>
+                    <li><a href="http://b.nootropicosbrasil.info/">MEG Finances</a></li>
+                </ul>
+            </nav>
+
+            <a href="#" id="menu-movil-trigger">Main Menu</a>
+
+        </div>
+    </header>
