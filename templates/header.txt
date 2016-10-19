@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <header style="background-image:url('/img/banner.jpg');">
+    <header style="background-image:url('/img/gif/banner.gif');">
         <div class="wrap">
 
         	<h1 id="logo-main">
