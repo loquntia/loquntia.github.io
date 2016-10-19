@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <header style="background-image:url('/img/banner.jpg');background-color:#999999;">
+    <header style="background-image:url('/img/banner.jpg');">
         <div class="wrap">
 
         	<h1 id="logo-main">
