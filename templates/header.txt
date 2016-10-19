@@ -3,20 +3,25 @@
             <nav id="menu-principal">
                 <ul id="menu-main-menu" class="menu-main">
                     <li><a href="/">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Government</a>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="#">Cabinet</a>
                     <ul class="sub-menu">
-                        <li><a href="/lbi.html">Library of Blue Ink (UL)</a></li>
+                        <li><a href="/lbi.html">Library of Blue Ink</a></li>
+                        <li><a href="/lbi.html">University of Loquntia</a></li>
+                        <li><a href="/rms.html">Royal Marshals Service</a></li>
+                        <li><a href="/mex.html">Ministry of the Exchequer</a></li>
                         <li><a href="/mfa.html">Ministry of Foreign Affairs</a></li>
+                        <li><a href="/mda.html">Ministry of Domestic Affairs</a></li>
+                        <li><a href="/marf.html">Ministry of Armed Forces</a></li>
                     </ul>
                     </li>
-                    <li><a href="#">Citizenship Services</a>
+                    <li><a href="#">Citizens</a>
                     <ul class="sub-menu">
                         <li><a href="https://hmkingjohni.typeform.com/to/TBjGn6">Citizenship Application</a></li>
                         <li><a href="https://hmkingjohni.typeform.com/to/UD6esC">Tax Self Assessment</a></li>
                     </ul>
                     </li>
-                    <li><a href="http://loquntia.boards.net">Loquntia Forum</a></li>
+                    <li><a href="http://loquntia.boards.net/">Loquntia Forum</a></li>
                     <li><a href="http://b.nootropicosbrasil.info/">MEG Finances</a></li>
                 </ul>
             </nav>
@@ -35,14 +40,19 @@
             <nav id="menu-principal">
                 <ul id="menu-main-menu" class="menu-main">
                     <li><a href="/">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Government</a>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="#">Cabinet</a>
                     <ul class="sub-menu">
-                        <li><a href="/lbi.html">Library of Blue Ink (UL)</a></li>
+                        <li><a href="/lbi.html">Library of Blue Ink</a></li>
+                        <li><a href="/lbi.html">University of Loquntia</a></li>
+                        <li><a href="/rms.html">Royal Marshals Service</a></li>
+                        <li><a href="/mex.html">Ministry of the Exchequer</a></li>
                         <li><a href="/mfa.html">Ministry of Foreign Affairs</a></li>
+                        <li><a href="/mda.html">Ministry of Domestic Affairs</a></li>
+                        <li><a href="/marf.html">Ministry of Armed Forces</a></li>
                     </ul>
                     </li>
-                    <li><a href="#">Citizenship Services</a>
+                    <li><a href="#">Citizens</a>
                     <ul class="sub-menu">
                         <li><a href="https://hmkingjohni.typeform.com/to/TBjGn6">Citizenship Application</a></li>
                         <li><a href="https://hmkingjohni.typeform.com/to/UD6esC">Tax Self Assessment</a></li>
