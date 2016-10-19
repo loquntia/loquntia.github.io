@@ -54,7 +54,7 @@
             <div class="bottom">
 
                 <div class="left">
-                    <span>Copyright &copy; 2016 His Majesty, King John I</span>
+                    <span>Copyright &copy; 2016 His Majesty, King John I.</span>
                 </div>
 
                 <nav>
