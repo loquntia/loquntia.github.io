@@ -6,13 +6,8 @@
                     <li><a href="#">About</a></li>
                     <li><a href="#">Government</a>
                     <ul class="sub-menu">
-                        <li><a href="#">House of Lords</a></li>
-                        <li><a href="#">Supreme Court of Loquntia</a></li>
-                        <li><a href="#">Library of Blue Ink</a></li>
-                        <li><a href="#">Ministry of the Exchequer</a></li>
-                        <li><a href="#">Ministry of Foreign Affairs</a></li>
-                        <li><a href="#">Ministry of Domestic Affairs</a></li>
-                        <li><a href="#">Ministry of Armed Forces</a></li>
+                        <li><a href="/lbi.html">Library of Blue Ink (UL)</a></li>
+                        <li><a href="/mfa.html">Ministry of Foreign Affairs</a></li>
                     </ul>
                     </li>
                     <li><a href="#">Citizenship Services</a>
