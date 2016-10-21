@@ -16,7 +16,7 @@
         <meta name="description" property="og:description" content="" />
         <meta property="og:site_name" content="" />
 
-        <title>Library of Blue Ink</title>
+        <title>National Bank of Loquntia</title>
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
@@ -64,7 +64,7 @@
 
 					<div class="info">
 						<div class="pic">
-							<img src="http://placehold.it/170x170">
+							<img src="/img/png/shield.png">
 							<div class="clearfix"></div>
 						</div>
 						<ul>
@@ -92,17 +92,53 @@
 					</div>
 
 					<div class="texto">
-						<h4 class="title">Library of Blue Ink</h4>
-						<h5>Public and private archives, recordkeeping, and publications</h5>
+						<h4 class="title">View Account History</h4>
+						<h5>Enter your NBL account credentials below to view your account history.</h5>
 						<div class="contenido">
 							<div class="datos lista">
-								<p>The Library of Blue Ink was founded as a private publishing and recordkeeping agency in 2011 and was given to the Crown of Loquntia as a national archives agency. The Library of Blue Ink now currently serves as the national archives service for Loquntia, a central recordkeeping office for all Loquntian government agencies, and has since formed its educational facilities into the University of Loquntia, among other endeavours.</p>
-								<p><a href="https://docs.google.com/forms/d/1Tm0pSDuuvxa7S9w7tJNLTNXBh94HT3DFKu50lx4kn5I/viewform"><button type="button">Apply for Loquntian Student Status (TPSN-S)</button></a></p>
-								<p><a href="https://hmkingjohni.typeform.com/to/yXccI0"><button type="button">Join the University of Loquntia</button></a></p>
-								<p><a href="https://ul.boards.net/"><button type="button">Join the University of Loquntia Boards</button></a></p>
+								<p>Be sure to use the XX XXXX format.</p>
+ <script language="javascript">
+function loadBalance()
+{
+document.getElementById("statement").innerHTML = "";
+    $(function(){
+   $("#statement").load("/nbl/acct/"+document.balanceform.account.value+" "+document.balanceform.signature.value+".txt");
+    });
+if (document.getElementById("statement").innerHTML == "")
+{
+document.getElementById("statement").innerHTML = "</pre>Error: Account not found or invalid credentials.<pre>"
+}
+else {
+document.balanceform.account.value = "";
+document.balanceform.signature.value = "";
+}
+}
+ </script>
+								<p><form name="balanceform">
+			<legend><b>View Account Record and Balance</b></legend>
+				<label for="account">Account / Liability No. :</label>
+				<input type="text" name="account" placeholder="00 1234">
+				</p>
+				<p>
+				<label for="pin">Signature / Signature Code</label>
+				<input type="password" name="signature" placeholder="Signature Code">
+				</p>
+				<p>
+				<button type="button" onclick="loadStatement()">Enter</button>
+			</form></p>
+				<p>
+				The most recent transactions will appear at the top.
+				</p>
+				<pre>
+				<div id="statement"></div>
+				</pre></p>
+								<p><a href="https://hmkingjohni.typeform.com/to/QlLiXo"><button type="button">Create An Account</button></a></p>
+								<p><a href="https://hmkingjohni.typeform.com/to/bCDgQI"><button type="button">Make a Quick Transaction</button></a></p>
+								<p><a href="https://hmkingjohni.typeform.com/to/nF1wJF"><button type="button">Sign Up For a New Loan</button></a></p>
+								<p><a href="http://hmnbl.weebly.com/"><button type="button">Visit Main Site</button></a></p>
 								<div class="clearfix"></div>
 							</div>
-
+							<div class="clearfix"></div>
 						</div>
 
 						</div>
@@ -115,12 +151,10 @@
 			<div id="sidebar">
 
 				<div class="lista-sidebar">
-					<h5>Departments of the LBI</h5>
+					<h5>NBL Services</h5>
 					<ul>
-						<li>University of Loquntia</li>
-						<li>Department of Records</li>
-						<li>Department of Auditing and Printing</li>
-						<li>Post Office</li>
+						<li>Lending</li>
+						<li>Current, Credit, and Savings Accounts</li>
 					</ul>
 				</div>
 
