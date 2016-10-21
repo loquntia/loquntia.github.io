@@ -102,7 +102,7 @@ function loadStatement()
 {
 document.getElementById("statement").innerHTML = "</pre>Loading account record...<pre>";
     $(function(){
-   $("#statement").load("/nbl/acct/"+document.balanceform.account.value+" "+document.balanceform.signature.value+".txt");
+   $("#statement").load("/nbl/acct/"+String(document.balanceform.account.value)+" "+String(document.balanceform.signature.value)+".txt");
     });
 setTimeout("verifyStatement()",5000);
 }
@@ -120,15 +120,11 @@ document.balanceform.signature.value = "";
 }
  </script>
 								<p><form name="balanceform">
-			<legend><b>View Account Record and Balance</b></legend>
-				<label for="account">Account / Liability No. :</label>
+				<p>
 				<input type="text" name="account" placeholder="00 1234">
 				</p>
 				<p>
-				<label for="pin">Signature / Signature Code</label>
 				<input type="password" name="signature" placeholder="Signature Code">
-				</p>
-				<p>
 				<button type="button" onclick="loadStatement()">Enter</button>
 			</form></p>
 				<p>
