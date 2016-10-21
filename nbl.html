@@ -99,29 +99,38 @@
  <script language="javascript">
 function loadStatement()
 {
+if (document.balanceform.acctbin.value.length == 2 && document.balanceform.account.value.length == 4)
+{
+fetchStatement();
+setTimeout("verifyStatement()",8000);
+}
+else
+{
+document.getElementById("statement").innerHTML = "</pre>Invalid account/liability number.<pre>";
+}
+}
+function fetchStatement()
+{
 document.getElementById("statement").innerHTML = "</pre>Loading account record...<pre>";
     $(function(){
    $("#statement").load("/nbl/acct/"+document.balanceform.acctbin.value + "_" + document.balanceform.account.value + "_" + document.balanceform.signature.value + ".txt");
     });
-setTimeout("verifyStatement()",5000);
 }
 
 function verifyStatement()
 {
-if (document.getElementById("statement").innerHTML == "</pre>Loading account record...<pre>")
-{
-document.getElementById("statement").innerHTML = "</pre>Error: Account not found or invalid credentials.<pre>"
-}
-else {
 document.balanceform.account.value = "";
 document.balanceform.acctbin.value = "";
 document.balanceform.signature.value = "";
+if (document.getElementById("statement").innerHTML == "</pre>Loading account record...<pre>")
+{
+document.getElementById("statement").innerHTML = "</pre>Error: Account not found or invalid credentials.<pre>"
 }
 }
  </script>
 								<p><form name="balanceform" action="loadStatement()">
 				<p>
-				<input type="text" name="acctbin" placeholder="00" size="2"><input type="text" name="account" placeholder="1234" size="4">
+				<input type="text" name="acctbin" placeholder="00" size="2">&nbsp;&nbsp;<input type="text" name="account" placeholder="1234" size="4">
 				</p>
 				<p>
 				<input type="password" name="signature" placeholder="Signature Code">
