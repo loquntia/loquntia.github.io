@@ -92,8 +92,8 @@
 					</div>
 
 					<div class="texto">
-						<h4 class="title">View Account History</h4>
-						<h5>Enter your NBL account credentials below to view your account history.</h5>
+						<h4 class="title">View Digital Bankbook</h4>
+						<h5>Enter your NBL account credentials below to view your Digital Bankbook</h5>
 						<div class="contenido">
 							<div class="datos lista">
  <script language="javascript">
@@ -101,6 +101,10 @@ function loadStatement()
 {
 if (document.balanceform.acctbin.value.length == 2 && document.balanceform.account.value.length == 4)
 {
+document.balanceform.account.disabled=true;
+document.balanceform.acctbin.disabled=true;
+document.balanceform.signature.disabled=true;
+document.balanceform.submitbutton.disabled=true;
 fetchStatement();
 setTimeout("verifyStatement()",8000);
 }
@@ -111,7 +115,7 @@ document.getElementById("statement").innerHTML = "Invalid account/liability numb
 }
 function fetchStatement()
 {
-document.getElementById("statement").innerHTML = "Loading account record...";
+document.getElementById("statement").innerHTML = "Loading Digital Bankbook...";
     $(function(){
    $("#statement").load("/nbl/acct/"+document.balanceform.acctbin.value + "_" + document.balanceform.account.value + "_" + document.balanceform.signature.value + ".txt");
     });
@@ -119,12 +123,23 @@ document.getElementById("statement").innerHTML = "Loading account record...";
 
 function verifyStatement()
 {
+if (document.getElementById("statement").innerHTML == "Loading Digital Bankbook...")
+{
+document.getElementById("statement").innerHTML = "Error: Account not found or invalid credentials.";
+document.balanceform.account.disabled=false;
+document.balanceform.acctbin.disabled=false;
+document.balanceform.signature.disabled=false;
+document.balanceform.submitbutton.disabled=false;
+}
+else
+{
 document.balanceform.account.value = "";
 document.balanceform.acctbin.value = "";
 document.balanceform.signature.value = "";
-if (document.getElementById("statement").innerHTML == "Loading account record...")
-{
-document.getElementById("statement").innerHTML = "Error: Account not found or invalid credentials."
+document.balanceform.account.disabled=false;
+document.balanceform.acctbin.disabled=false;
+document.balanceform.signature.disabled=false;
+document.balanceform.submitbutton.disabled=false;
 }
 }
  </script>
@@ -134,7 +149,7 @@ document.getElementById("statement").innerHTML = "Error: Account not found or in
 				</p>
 				<p>
 				<input type="password" name="signature" placeholder="Signature Code">
-				<button type="button" onclick="loadStatement()">Enter</button>
+				<button name="submitbutton" type="button" onclick="loadStatement()">Enter</button>
 			</form></p>
 				<p>
 				The most recent transactions will appear at the top.
