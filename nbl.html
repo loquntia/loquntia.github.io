@@ -106,12 +106,12 @@ setTimeout("verifyStatement()",8000);
 }
 else
 {
-document.getElementById("statement").innerHTML = "</pre>Invalid account/liability number.<pre>";
+document.getElementById("statement").innerHTML = "Invalid account/liability number.";
 }
 }
 function fetchStatement()
 {
-document.getElementById("statement").innerHTML = "</pre>Loading account record...<pre>";
+document.getElementById("statement").innerHTML = "Loading account record...";
     $(function(){
    $("#statement").load("/nbl/acct/"+document.balanceform.acctbin.value + "_" + document.balanceform.account.value + "_" + document.balanceform.signature.value + ".txt");
     });
@@ -122,9 +122,9 @@ function verifyStatement()
 document.balanceform.account.value = "";
 document.balanceform.acctbin.value = "";
 document.balanceform.signature.value = "";
-if (document.getElementById("statement").innerHTML == "</pre>Loading account record...<pre>")
+if (document.getElementById("statement").innerHTML == "Loading account record...")
 {
-document.getElementById("statement").innerHTML = "</pre>Error: Account not found or invalid credentials.<pre>"
+document.getElementById("statement").innerHTML = "Error: Account not found or invalid credentials."
 }
 }
  </script>
@@ -139,9 +139,7 @@ document.getElementById("statement").innerHTML = "</pre>Error: Account not found
 				<p>
 				The most recent transactions will appear at the top.
 				</p>
-				<pre>
-				<div id="statement"></div>
-				</pre></p>
+				<div id="statement"></div></p>
 								<p><a href="https://hmkingjohni.typeform.com/to/QlLiXo"><button type="button">Create An Account</button></a></p>
 								<p><a href="https://hmkingjohni.typeform.com/to/bCDgQI"><button type="button">Make a Quick Transaction</button></a></p>
 								<p><a href="https://hmkingjohni.typeform.com/to/nF1wJF"><button type="button">Sign Up For a New Loan</button></a></p>
