@@ -100,11 +100,16 @@
  <script language="javascript">
 function loadStatement()
 {
-document.getElementById("statement").innerHTML = "";
+document.getElementById("statement").innerHTML = "</pre>Loading account record...<pre>";
     $(function(){
    $("#statement").load("/nbl/acct/"+document.balanceform.account.value+" "+document.balanceform.signature.value+".txt");
     });
-if (document.getElementById("statement").innerHTML == "")
+setTimeout("verifyStatement()",5000);
+}
+
+function verifyStatement()
+{
+if (document.getElementById("statement").innerHTML == "</pre>Loading account record...<pre>")
 {
 document.getElementById("statement").innerHTML = "</pre>Error: Account not found or invalid credentials.<pre>"
 }
