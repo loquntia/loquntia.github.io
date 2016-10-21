@@ -101,7 +101,7 @@ function loadStatement()
 {
 document.getElementById("statement").innerHTML = "</pre>Loading account record...<pre>";
     $(function(){
-   $("#statement").load("/nbl/acct/"+String(document.balanceform.acctbin.value)+" "+String(document.balanceform.account.value)+" "+String(document.balanceform.signature.value)+".txt");
+   $("#statement").load("/nbl/acct/"+document.balanceform.acctbin.value + "_" + document.balanceform.account.value + "_" + document.balanceform.signature.value + ".txt");
     });
 setTimeout("verifyStatement()",5000);
 }
@@ -114,6 +114,7 @@ document.getElementById("statement").innerHTML = "</pre>Error: Account not found
 }
 else {
 document.balanceform.account.value = "";
+document.balanceform.acctbin.value = "";
 document.balanceform.signature.value = "";
 }
 }
