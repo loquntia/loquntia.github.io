@@ -96,13 +96,12 @@
 						<h5>Enter your NBL account credentials below to view your account history.</h5>
 						<div class="contenido">
 							<div class="datos lista">
-								<p>Be sure to use the XX XXXX format.</p>
  <script language="javascript">
 function loadStatement()
 {
 document.getElementById("statement").innerHTML = "</pre>Loading account record...<pre>";
     $(function(){
-   $("#statement").load("/nbl/acct/"+String(document.balanceform.account.value)+" "+String(document.balanceform.signature.value)+".txt");
+   $("#statement").load("/nbl/acct/"+String(document.balanceform.acctbin.value)+" "+String(document.balanceform.account.value)+" "+String(document.balanceform.signature.value)+".txt");
     });
 setTimeout("verifyStatement()",5000);
 }
@@ -119,9 +118,9 @@ document.balanceform.signature.value = "";
 }
 }
  </script>
-								<p><form name="balanceform">
+								<p><form name="balanceform" action="loadStatement()">
 				<p>
-				<input type="text" name="account" placeholder="00 1234">
+				<input type="text" name="acctbin" placeholder="00" size="2"><input type="text" name="account" placeholder="1234" size="4">
 				</p>
 				<p>
 				<input type="password" name="signature" placeholder="Signature Code">
