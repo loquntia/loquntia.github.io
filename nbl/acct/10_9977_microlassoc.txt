@@ -1,4 +1,4 @@
-<b>Savings Account</b>
+<b>Current Account</b>
 <br>
 <pre>
 Empty account history.
