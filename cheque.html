@@ -114,11 +114,11 @@ else
 cheque += "(MicroCoin)";
 }
 cheque += "\r\nDraft Number: " + document.cheque.expiry.value + " " + document.cheque.acctbin.value + " " + document.cheque.account.value + " [" + document.cheque.signature.value + "]\r\n";
-window.location.href="mailto:loquntia@gmail.com; " + document.cheque.email.value + "?subject=NBL Secure Cheque;body=" + cheque;
+window.location.href="mailto:loquntia@gmail.com; " + document.cheque.email.value + "?subject=NBL Secure Cheque&body=" + cheque;
 document.cheque.reset();
 }
 </script>
-								<p><form name="cheque" action="javascript:drawCheque()">
+								<p><form name="cheque" action="drawCheque()">
 				<p>
 				Account Number to Draw From:&nbsp;&nbsp;
 				<input type="text" name="acctbin" placeholder="12" size="2">&nbsp;&nbsp;<input type="text" name="account" placeholder="3456" size="4">
