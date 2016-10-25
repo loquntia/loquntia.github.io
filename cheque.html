@@ -99,7 +99,7 @@
 							<p>This is the most secure method of transferring funds between NBL and MEG accounts. This method is used for paying large amounts from NBL accounts.
 							</p>
 							<p>
-							After you press "Submit", an email window will open. Send the email <strong>without</strong> modifying the subject line or email contents.
+							After you press "Submit", an email window will open. You can add your own message, but send the email <strong>without</strong> modifying or removing the subject line or original email contents.
 							</p>
 <script language="javascript">
 function drawCheque()
@@ -118,7 +118,7 @@ window.location.href="mailto:loquntia@gmail.com; " + document.cheque.email.value
 document.cheque.reset();
 }
 </script>
-								<p><form name="cheque" action="drawCheque()">
+								<p><form name="cheque" action="javascript:drawCheque()">
 				<p>
 				Account Number to Draw From:&nbsp;&nbsp;
 				<input type="text" name="acctbin" placeholder="12" size="2">&nbsp;&nbsp;<input type="text" name="account" placeholder="3456" size="4">
