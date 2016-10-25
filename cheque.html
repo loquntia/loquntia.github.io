@@ -16,7 +16,7 @@
         <meta name="description" property="og:description" content="" />
         <meta property="og:site_name" content="" />
 
-        <title>Library of Blue Ink</title>
+        <title>Secure Cheque</title>
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
@@ -64,7 +64,7 @@
 
 					<div class="info">
 						<div class="pic">
-							<img src="http://placehold.it/170x170">
+							<img src="/img/png/shield.png">
 							<div class="clearfix"></div>
 						</div>
 						<ul>
@@ -92,17 +92,73 @@
 					</div>
 
 					<div class="texto">
-						<h4 class="title">Library of Blue Ink</h4>
-						<h5>Public and private archives, recordkeeping, and publications</h5>
+						<h4 class="title">Draw Secure Cheque</h4>
+						<h5>Enter your NBL credentials below to send a cheque from your NBL account</h5>
 						<div class="contenido">
 							<div class="datos lista">
-								<p>The Library of Blue Ink was founded as a private publishing and recordkeeping agency in 2011 and was given to the Crown of Loquntia as a national archives agency. The Library of Blue Ink now currently serves as the national archives service for Loquntia, a central recordkeeping office for all Loquntian government agencies, and has since formed its educational facilities into the University of Loquntia, among other endeavours.</p>
-								<p><a href="https://docs.google.com/forms/d/1Tm0pSDuuvxa7S9w7tJNLTNXBh94HT3DFKu50lx4kn5I/viewform"><button type="button">Apply for Loquntian Student Status (TPSN-S)</button></a></p>
-								<p><a href="https://hmkingjohni.typeform.com/to/yXccI0"><button type="button">Join the University of Loquntia</button></a></p>
-								<p><a href="https://ul.boards.net/"><button type="button">Join the University of Loquntia Boards</button></a></p>
+							<p>This is the most secure method of transferring funds between NBL and MEG accounts. This method is used for paying large amounts from NBL accounts.
+							</p>
+							<p>
+							After you press "Submit", an email window will open. Send the email <strong>without</strong> modifying the subject line or email contents.
+							</p>
+<script language="javascript">
+function drawCheque()
+{
+var cheque = "Secure Cheque - National Bank of Loquntia\r\nGo to hmnbl.weebly.com to deposit this cheque into your MEG or NBL account. Information about this cheque is available below, including an expiration date.\r\n\r\nAmount: ***" + document.cheque.amount.value + "***\r\n" + document.cheque.acctbin.value + " " + document.cheque.account.value + " [" + document.cheque.signature.value + "]\r\n";
+if (document.cheque.currency.value == "loquntian")
+{
+cheque += "(Loquntian Pounds)";
+}
+else
+{
+cheque += "(MicroCoin)";
+}
+cheque += "\r\nDraft Number: " + document.cheque.expiry.value + " " + document.cheque.acctbin.value + " " + document.cheque.account.value + " [" + document.cheque.signature.value + "]\r\n";
+window.location.href="mailto:loquntia@gmail.com; " + document.cheque.email.value + "?subject=NBL Secure Cheque;body=" + cheque;
+document.cheque.reset();
+}
+</script>
+								<p><form name="cheque" action="drawCheque()">
+				<p>
+				Account Number to Draw From:&nbsp;&nbsp;
+				<input type="text" name="acctbin" placeholder="12" size="2">&nbsp;&nbsp;<input type="text" name="account" placeholder="3456" size="4">
+				</p>
+				<p>
+				Account Signature Code:&nbsp;&nbsp;
+				<input type="password" name="signature" placeholder="Signature Code">
+				</p>
+				<p>
+				Email to Send Cheque To:&nbsp;&nbsp;
+				<input type="text" name="email" placeholder="berniemac@gmail.com">
+				</p>
+				<p>
+				Amount to Draw:&nbsp;&nbsp;
+				<input type="text" name="amount" placeholder="12lbs./10c./99p." size="16">
+				</p>
+				<p>
+				Currency:&nbsp;&nbsp;
+				<select name="currency">
+				<option value="loquntian">Loquntian Pounds</option>
+				<option value="microcoin">MicroCoin</option>
+				</select>
+				</p>
+				<p>
+				Expiry Date (DDMMYYYY):&nbsp;&nbsp;
+				<input type="text" size="8" name="expiry" placeholder="01212018">
+				</p>
+				<input name="submitbutton" type="submit">
+			</form></p>
+				<p>
+				<div id="statement"></div></p>
+				<h5>Don't have an account?</h5>
+								<p><a href="https://hmkingjohni.typeform.com/to/QlLiXo"><button type="button">Create An Account</button></a></p>
+								<p><a href="https://loquntia.github.io/nbl.html"><button type="button">View Digital Bankbook</button></a></p>
+								<p><a href="https://hmkingjohni.typeform.com/to/bCDgQI"><button type="button">Make a Quick Transaction</button></a></p>
+								<p><a href="https://hmkingjohni.typeform.com/to/nF1wJF"><button type="button">Sign Up For a New Loan</button></a></p>
+								<p><a href="http://hmnbl.weebly.com/"><button type="button">Visit Main Site</button></a></p>
 								<div class="clearfix"></div>
 							</div>
-
+							<div class="clearfix"></div>
 						</div>
 
 						</div>
@@ -241,7 +297,6 @@
 <div id="tmpfoot"></div>
 
 
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/main.js" ></script>
 
 <script type="text/javascript">
