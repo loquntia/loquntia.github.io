@@ -1,5 +1,5 @@
 <b>Current Account</b>
 <br>
 <pre>
-Empty account history.
+26102016 0034 0704 0056 D 500M +500M
 </pre>
