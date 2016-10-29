@@ -123,7 +123,7 @@ function fetchStatement()
 {
 document.getElementById("statement").innerHTML = "Loading Digital Bankbook...";
     $(function(){
-   $("#statement").load("/nbl/acct/"+document.balanceform.acctbin.value.toUpperCase() + "_" + document.balanceform.account.value.toUpperCase + "_" + document.balanceform.signature.value.toLowerCase() + ".txt");
+   $("#statement").load("/nbl/acct/"+document.balanceform.acctbin.value.toUpperCase() + "_" + document.balanceform.account.value.toUpperCase() + "_" + document.balanceform.signature.value.toLowerCase() + ".txt");
     });
 }
 
