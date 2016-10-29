@@ -1,4 +1,4 @@
-<b>MicroCard Silver Membership</b>
+<b>Savings Account</b>
 <br>
 <pre>
 Empty account record.

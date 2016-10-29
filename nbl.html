@@ -99,6 +99,9 @@
 							<p>Your entire account history is available online through Digital Bankbook. If you see any mistakes or have any questions please <a href="mailto:loquntia@gmail.com">email us</a> at your earliest convenience. Your transactions will appear in order from newest to oldest in the following format:<br>
 							[DDMMYYYY] [Account Number] [D/W] [Amount (Pounds, Crown, Pence)] [Balance]
 							</p>
+							<p>
+							If you have an old account number (before October 2016), your account number is still valid. To view your digital bankbook, enter only the last six characters of your account number. <i>E.g. if your account number is GA-Q0F2RD and your security number 209, use "Q0 F2RD" and use 209 as your Signature Code.</i>
+							</p>
  <script language="javascript">
 function loadStatement()
 {
@@ -120,7 +123,7 @@ function fetchStatement()
 {
 document.getElementById("statement").innerHTML = "Loading Digital Bankbook...";
     $(function(){
-   $("#statement").load("/nbl/acct/"+document.balanceform.acctbin.value + "_" + document.balanceform.account.value + "_" + document.balanceform.signature.value + ".txt");
+   $("#statement").load("/nbl/acct/"+document.balanceform.acctbin.value.toUpperCase() + "_" + document.balanceform.account.value.toUpperCase + "_" + document.balanceform.signature.value.toLowerCase() + ".txt");
     });
 }
 
