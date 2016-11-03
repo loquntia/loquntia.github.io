@@ -1,5 +1,0 @@
-<b>MicroCard Platinum</b>
-<br>
-<pre>
-Empty account record.
-</pre>
