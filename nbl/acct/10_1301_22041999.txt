@@ -1,4 +1,4 @@
-<b>Current Account</b>
+<b>Current Account — </b><i>Jorge I de Numancia</i>
 <br>
 <pre>
 Empty account history.
