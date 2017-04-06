@@ -1,5 +1,6 @@
-<b>Current Account</b>
+ <b>Current Account</b>
 <br>
 <pre>
-26102016 0034 0704 0056 D 500M +500M
+(DATE) PAYER : RECIPIENT ¤ AMOUNT (BALANCE)
+(06 APR 2017) 1030 : 1030 10 3429 ¤ 243.75 (243.75)
 </pre>
