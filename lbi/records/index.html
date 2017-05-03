@@ -1,0 +1,210 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>Dept. of Records</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+<script language="javascript">
+function search()
+{
+    if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.viewDoc.checked == false)
+    {
+    searchSpecific();
+    }
+    else if(document.dataBaseSearch.viewDoc.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
+    {
+    document.dataBaseSearch.field.disabled=true;viewDocument();
+    }
+    else
+    {
+    document.getElementById("output").innerHTML = "You must select where to search.<br>";
+    }
+}
+function searchSpecific()
+{
+document.dataBaseSearch.field.disabled=true;document.getElementById("found").innerHTML="";
+document.dataBaseSearch.start.value = Date.now();
+searchDatabase();
+}
+function done()
+{
+document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
+document.dataBaseSearch.field.disabled=false;
+}
+
+function searchDatabase()
+{
+document.dataBaseSearch.hits.value = "0";
+if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
+{
+document.getElementById("output").innerHTML = "Search query must be at least two characters long.<br>";
+}
+else if (document.dataBaseSearch.input.value.toUpperCase() == "")
+{
+
+}
+else
+{
+document.getElementById("output").innerHTML = "Searching LBI database, this may take several seconds...<br>";
+document.dataBaseSearch.entry.value = "1";
+searchLoop();
+}
+}
+function searchLoop()
+{
+    $(function(){
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
+    });
+setTimeout("checkHits();",3000)
+}
+
+function checkHits()
+{
+if (document.getElementById("entry").innerHTML != "")
+{
+document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
+}
+else
+{
+done();
+}
+}
+
+
+function viewDocument()
+{
+document.dataBaseSearch.hits.value = "0";
+if (document.dataBaseSearch.input.value.toUpperCase().length != 6)
+{
+document.getElementById("output").innerHTML = "This is not a valid 6-digit document code.<br>";
+}
+else if (document.dataBaseSearch.input.value.toUpperCase() == "")
+{
+
+}
+else
+{
+document.getElementById("output").innerHTML = "Locating document <tt>" + document.dataBaseSearch.input.value + "</tt>...<br>";
+document.dataBaseSearch.entry.value = "1";
+downloadDocument();
+}
+}
+function downloadDocument()
+{
+    $(function(){
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + "ordered" + "/" + document.dataBaseSearch.input.value.toLowerCase() + ".txt"); 
+    });
+setTimeout("checkDocument()", 5000);
+}
+
+function checkDocument()
+{
+if (document.getElementById("entry").innerHTML != "")
+{
+document.getElementById("found").innerHTML += "<p><div class='searchResult'><a href='" + document.getElementById("entry").innerHTML + "'>" + "Click to View Document: <tt>" + document.dataBaseSearch.input.value + "</tt></a></div></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("output").innerHTML = document.getElementById("found").innerHTML;document.document.getElementById("entry").innerHTML="";document.dataBaseSearch.field.disabled=false;
+}
+else
+{
+document.getElementById("output").innerHTML = "The specified document <tt>" + document.dataBaseSearch.input.value + "</tt> could not be found.";document.dataBaseSearch.field.disabled=false;
+}
+}
+
+String.prototype.hashCode = function(){
+
+  var hash = 0;
+
+  if (this.length == 0) return hash;
+
+  for (i = 0; i < this.length; i++) {
+
+      char = this.charCodeAt(i);
+
+      hash = ((hash<<5)-hash)+char;
+
+      hash = hash & hash; // Convert to 32bit integer
+
+  }
+
+    return hash;
+
+}
+
+</script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
+    });
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+<div id="entry" style="display:none;"></div>
+<div id="searchingAll" style="display:none;"></div>
+<div id="found" style="display:none;"></div>
+<div class="summary" role="article">
+
+			<p>Records and documents from all branches of the Loquntian government in one place</p>
+
+			</div>
+			
+                <div class="preamble" role="article">
+                <h3>Department of Records</h3>
+                New services are coming online to allow to view and search government records online, currently you are only able to search through records by filing number.
+                </p>
+                <p>
+                <a href="/scokl/"><button type="button">Browse Supreme Court Minutes and Transcripts</button></a>
+                </p>
+                <p>
+                <a href="search.html"><button type="button">Search Records By Filing Number</button></a>
+                </p>
+                <p>
+                <a href="https://hmkingjohni.typeform.com/to/aL5MMw"><button type="button">Request Government Documents</button></a>
+                </p>
+                <p>
+                <a href="tpsn.html"><button type="button">Verify Taxable Person's Serial Number Records (TPSN)</button></a>
+                </p>
+                <p>
+                <a href="ucc.html"><button type="button">Verify Universal Credentials Code Records (UCC)</button></a>
+                </p>
+                <p>
+                <a href="mail.html"><button type="button">Verify Certified Mail</button></a>
+                </p>
+                <p>
+               
+				<div id="output"></div>
+
+                </div>
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>

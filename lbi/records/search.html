@@ -1,0 +1,237 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>Records Search</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+<script language="javascript">
+function search()
+{
+    if(document.dataBaseSearch.searchSpecific.checked == true && document.dataBaseSearch.viewDoc.checked == false)
+    {
+    searchSpecific();
+    }
+    else if(document.dataBaseSearch.viewDoc.checked == true && document.dataBaseSearch.searchSpecific.checked == false)
+    {
+    document.dataBaseSearch.field.disabled=true;viewDocument();
+    }
+    else
+    {
+    document.getElementById("output").innerHTML = "You must select where to search.<br>";
+    }
+}
+function searchSpecific()
+{
+document.dataBaseSearch.field.disabled=true;document.getElementById("found").innerHTML="";
+document.dataBaseSearch.start.value = Date.now();
+searchDatabase();
+}
+function done()
+{
+document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " result(s) found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>";
+document.dataBaseSearch.field.disabled=false;
+}
+
+function searchDatabase()
+{
+document.dataBaseSearch.hits.value = "0";
+if (document.dataBaseSearch.input.value.toUpperCase().length < 2)
+{
+document.getElementById("output").innerHTML = "Search query must be at least two characters long.<br>";
+document.dataBaseSearch.field.disabled=false;
+}
+else if (document.dataBaseSearch.input.value.toUpperCase() == "")
+{
+
+}
+else
+{
+document.getElementById("output").innerHTML = "Searching LBI database, this may take several seconds...<br>";
+document.dataBaseSearch.entry.value = "1";
+searchLoop();
+}
+}
+function searchLoop()
+{
+    $(function(){
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + document.dataBaseSearch.agency.value + "/" + document.dataBaseSearch.input.value.toLowerCase() + "-" + document.dataBaseSearch.entry.value + ".txt"); 
+    });
+setTimeout("checkHits();",3000)
+}
+
+function checkHits()
+{
+if (document.getElementById("entry").innerHTML != "")
+{
+document.getElementById("found").innerHTML += "<p><pre class='searchResult'>" + document.getElementById("entry").innerHTML + "</pre></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("entry").innerHTML="";searchLoop();
+}
+else
+{
+done();
+}
+}
+
+
+function viewDocument()
+{
+document.dataBaseSearch.hits.value = "0";
+if (document.dataBaseSearch.input.value.toUpperCase().length != 6)
+{
+document.getElementById("output").innerHTML = "This is not a valid 6-digit document code.<br>";
+}
+else if (document.dataBaseSearch.input.value.toUpperCase() == "")
+{
+
+}
+else
+{
+document.getElementById("output").innerHTML = "Locating document <tt>" + document.dataBaseSearch.input.value + "</tt>...<br>";
+document.dataBaseSearch.entry.value = "1";
+downloadDocument();
+}
+}
+function downloadDocument()
+{
+    $(function(){
+   $("#entry").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/records/" + "ordered" + "/" + document.dataBaseSearch.input.value.toLowerCase() + ".txt"); 
+    });
+setTimeout("checkDocument()", 5000);
+}
+
+function checkDocument()
+{
+if (document.getElementById("entry").innerHTML != "")
+{
+document.getElementById("found").innerHTML += "<p><div class='searchResult'><a href='" + document.getElementById("entry").innerHTML + "'>" + "Click to View Document: <tt>" + document.dataBaseSearch.input.value + "</tt></a></div></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");document.dataBaseSearch.entry.value=eval(document.dataBaseSearch.entry.value + "+ 1");document.getElementById("output").innerHTML = document.getElementById("found").innerHTML;document.document.getElementById("entry").innerHTML="";document.dataBaseSearch.field.disabled=false;
+}
+else
+{
+document.getElementById("output").innerHTML = "The specified document <tt>" + document.dataBaseSearch.input.value + "</tt> could not be found.";document.dataBaseSearch.field.disabled=false;
+}
+}
+
+String.prototype.hashCode = function(){
+
+  var hash = 0;
+
+  if (this.length == 0) return hash;
+
+  for (i = 0; i < this.length; i++) {
+
+      char = this.charCodeAt(i);
+
+      hash = ((hash<<5)-hash)+char;
+
+      hash = hash & hash; // Convert to 32bit integer
+
+  }
+
+    return hash;
+
+}
+
+</script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
+    });
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+<div id="entry" style="display:none;"></div>
+<div id="searchingAll" style="display:none;"></div>
+<div id="found" style="display:none;"></div>
+<div class="summary" role="article">
+
+			<p>Browse through government records by filing number and check them out to view them online</p>
+
+			</div>
+			
+                <div class="preamble" role="article">
+                <h3>Government Records Database</h3>
+                This index allows you to search all government documents held by the Loquntian Government. Each agency stores records using a different numbering system, outlined below. Records which have been filed, but have since been removed (such as documentary court evidence) will have an "unfiled" date. A brief description of all filed documents (number, title, filing date) is available in this index, but documents filed under seal are not available to members of the public to check out.
+                <ul>
+                <li>
+                    <b>Supreme Court of Loquntia</b><br>
+                    <p>Records are sorted by case number, starting with the year, and then a unique 2 digit number, followed by a unique document number. Filings that have had their numbers changed end in "F". (e.g. 100-2015-03-1, 100-2014-09F-4)</p>
+                </li>
+                <li>
+                    <b>Ministry of Defence</b><br>
+                    <p>Military records are sorted by TPSN-M with the letter "M" omitted, followed by a unique document number. (e.g. M-041802-1, <b>NOT</b> M-M041802-1))</p>
+                </li>
+                <li>
+                    <b>CFC Department</b><br>
+                    <p>CFC Collections Reports are sorted by TPSN with the letter in front of the number omitted, followed by a unique document number. (e.g. CFC-101352-1, <b>NOT</b> CFC-C101352-1)</p>
+                </li>
+                <li>
+                    <b>Crown Vital Records</b><br>
+                    <p>The LBI's Crown Vital Records division files birth, death, and marriage certificates by a unique certificate number. (e.g. CR-103-1)</p>
+                </li>
+                </ul>
+                
+                For records that may be harder to find, you can file a Q37 request using <a href="https://docs.google.com/forms/d/1omo2E9dAk82RaANAfohOOt0UFdRhvENuFVgMZJt_6sQ/viewform">this form</a>.
+                
+			<form name="dataBaseSearch" action="javascript:search()" autocomplete="off">
+			<fieldset name="field">
+			<legend><h3>Search Index</h3></legend>
+                                <p>
+				<input type="hidden" name="entry" value="0">
+				<input type="hidden" name="hits" value="0">
+				<input type="hidden" name="start" value="">
+                                <input type="checkbox" name="searchSpecific" onclick="if(this.checked==true){document.dataBaseSearch.viewDoc.checked=false;document.dataBaseSearch.input.placeholder='Search Query';}else{this.checked=true;}" checked> Search the following agency's records:&ensp;
+                                <select name="agency" required>
+                                <option value="100">Supreme Court of Loquntia</option>
+				<option value="m">Ministry of Defence</option>
+				<option value="cfc">Dept. of Collections, Forfeiture and Compensations</option>
+				<option value="cr">Crown Vital Records Office</option>
+				</select>
+				<br>Do not include agency prefixes or a hyphen and a number at the end of your search query. (e.g. "101352", <b>NOT</b> CFC-101352-1)
+				</p>
+				
+				<p>
+				<input type="checkbox" name="viewDoc" onclick="if(this.checked==true){document.dataBaseSearch.searchSpecific.checked=false;document.dataBaseSearch.input.placeholder='Document Code';}else{this.checked=true;}"> View a digital document you have checked out.<br><a href="https://hmkingjohni.typeform.com/to/aL5MMw">Click here</a> to check out a document you have searched, be sure to specify the number it is filed under.
+				</p>
+				
+				<p>
+				<input type="text" name="input" placeholder="Search Query" required><input type="submit" style="width:0px; height:0px; opacity:0;">&ensp;<input type="submit" name="submitBtn" value="Go">&ensp;
+				</p>
+                        </fieldset>
+			</form>
+				<div id="output"></div>
+
+                </div>
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>

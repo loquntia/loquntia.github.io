@@ -1,0 +1,35 @@
+STUDENT NAME: HOUSTON, JOHN BAILEY<br>
+TPSN: 000001<br>
+MAJOR(S): LINGUISTICS, LAW
+<p>
+DISTINCTION(S): L.R.&.Esq.; AATSP SHH
+<hr>
+<table align="center">
+<td>
+<b>
+&emsp;SPRING 2012<br>
+LANG L02BB2 OTSU / ITSU LOQUNTA 02 A<br>
+&emsp;&emsp;&emsp;EARNED CREDITS: 02 GPA: 4.000<br>
+-------------------------------------------------<br>
+&emsp;SPRING 2014<br>
+LAWS 942501 INTRO TO CRJ 03 K<br>
+&emsp;&emsp;&emsp;EARNED CREDITS: 03 GPA: K<br>
+-------------------------------------------------<br>
+&emsp;SPRING 2015<br>
+LAWS 942502 CRIMINAL JUSTICE 03 K<br>
+LANG L02ES1 SPAN 08 B<br>
+&emsp;&emsp;&emsp;EARNED CREDITS: 11 GPA: 3.000<br>
+-------------------------------------------------<br>
+&emsp;LEVELS-C<br>
+LANG L02EN1 ENGLISH 08 K<br>
+&emsp;&emsp;&emsp;EARNED CREDITS: 08 GPA: K<br>
+-------------------------------------------------<br>
+=================================================<br>
+&emsp;TOTAL EARNED CREDITS: 24    GPA: 3.500<br>
+</b>
+<td>
+<b>
+</b>
+</td>
+</table>
+</center>

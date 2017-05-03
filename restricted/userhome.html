@@ -1,0 +1,64 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>International Records</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+<script language="javascript">
+function verifyLogin()
+{
+if(window.top.location.href.substring(0, 37) != "https://loquntia.github.io/restricted")
+{
+    window.top.location.href = "/";
+}
+else
+{
+ document.getElementById("credentials").innerHTML = "invalid";
+ var username = parent.document.login.username.value;
+ var password = parent.document.login.password.value;
+ var file = "https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/login/" + username + "." + password + ".txt";
+    $(function(){
+   $("#credentials").load(file);
+    }); 
+setTimeout("protect()", 4000);
+}
+}
+function protect()
+{
+  if (document.getElementById("credentials").innerHTML != "invalid")
+{
+  document.getElementById("authorisedlinks").innerHTML = document.getElementById("userlinks").innerHTML
+}
+else {
+    window.top.location.href = "/";
+}
+}
+</script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <!-- load stylesheet and favicons -->
+  <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+<body id="css-zen-garden" onload="verifyLogin()"><div class="page-wrapper">
+<div id="credentials" style="display:none;"></div>
+<p>
+Welcome to the Loquntian Government's Restricted Access Center.<br>
+Do not refresh the page or press Back or Forward, you will be automatically logged out for security reasons.<br>
+Please use the sidebar to navigate.</p>
+<div id="userlinks" class="userPortal"></div>
+</div>
+</body>
+</html>

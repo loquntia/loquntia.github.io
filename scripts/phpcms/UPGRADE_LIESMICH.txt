@@ -1,0 +1,149 @@
+/* $Id: UPGRADE_LIESMICH.txt,v 1.1.2.8 2006/06/19 15:26:14 ignatius0815 Exp $ */
+
+Diese Anleitung geht davon aus, dass eine ältere phpCMS Installation vorhanden
+ist, die während des Upgrades und der notwendigen Tests nicht gestört werden
+soll.
+Möchten Sie eine Neuinstallation durchführen, lesen Sie bitte die Datei
+"Installation.txt" im Verzeichnis "/parser/readme/de".
+
+##################################################################################
+    Upgrade von phpCMS 1.1.x oder phpCMS 1.2.x auf die aktuelle Version
+##################################################################################
+
+(10 Schritte zum Erfolg ;-))
+
+   0. Entpacken Sie das phpCMS Archiv (phpcms-1_2_x.zip oder
+      phpcms-1_2_x.tar.gz) auf Ihrem lokalen Rechner.
+
+   1. Nennen Sie das nun auf Ihrem lokalen Rechner entpackte Verzeichnis "/parser"
+      in "/parser_neu" um.
+
+   2. Laden Sie dieses komplette parser_neu Verzeichnis auf Ihren Server. Sie
+      haben dort nun zwei Verzeichnisse:
+       /parser (die alte phpCMS Version)
+       /parser_neu (die neue phpCMS Version)
+
+   3. Ihre bisherigen Einstellungen und Profile des HTTP-Indexers können ohne
+      Probleme in die neue phpCMS Version übernommen werden. Dazu _kopieren_ Sie
+      jetzt die  Dateien "default.php" sowie "defaults_indexer.php" aus dem
+      Verzeichnis "/parser/include" in das neue Verzeichnis "/parser_neu/include",
+      wobei sie Sie beiden vorhandenen Dateien überschreiben.
+
+   4. Kopieren Sie eventuell verwendete Plug-Ins und Scripte aus dem alten
+      Verzeichnis "/parser/plugs" in das neue Verzeichnis "/parser_neu/plugs"
+
+   5. Stellen Sie sicher, dass alle neu angelegten Verzeichnisse und Dateien
+      die erforderlichen Rechte besitzen. Die benötigten Rechte sind in der
+      Datei "Installation.txt" im Verzeichnis "/parser/readme/de" beschrieben.
+
+   6. Loggen Sie sich nun mit Ihrem alten Passwort in das GUI ein:
+       http://www.domain.test/parser_neu/parser.php
+      Beim ersten Aufruf des Menüpunktes "Konfiguration" im GUI wird die Datei
+      default.php automatisch konvertiert und neue Einstellungen werden
+      hinzugefügt. Die Datei defaults_indexer.php ist ohne Änderungen zu 100%
+      kompatibel, da sich das Format nicht geändert hat.
+      (Zwei neue Einstellungen in Version 1.2.x werden ggf. beim Ändern eines
+      Profils automatisch hinzugefügt).
+
+   7. Überprüfen Sie Ihre Einstellungen:
+         1. Überall dort, wo "/parser" verwendet wird, ändern Sie dies in
+            "/parser_neu".
+         2. Schalten Sie den Stealth-Mode zunächst aus.
+         3. Falls Sie von phpCMS 1.1.x auf phpCMS 1.2.x upgraden, lesen Sie
+            bitte den Abschnitt "Ergänzende Hinweise für das Upgrade von phpCMS
+            1.1.x auf phpCMS 1.2.x" weiter unten, und nehmen Sie ggf.
+            notwendige Anpassungen vor.
+
+   8. Nun testen Sie, ob Ihre Seiten mit dem neuen Parser richtig angezeigt
+      werden:
+       http://www.domain.test/parser_neu/parser.php?file=/demo-de/index.htm .
+
+   9. Wenn dieser Test erfolgreich verlaufen ist, ändern Sie in der
+      Konfiguration wieder alle Einträge, die "/parser_neu" enthalten, zurück
+      in "/parser". Wenn Sie den Stealth-Mode verwenden, schalten Sie diesen
+      wieder ein.
+
+  10. Nennen Sie nun Ihr altes und das neue Parser Verzeichnis um:
+       /parser in /parser_alt
+       /parser_neu in /parser
+      Das Verzeichnis /parser_alt sollten Sie zur Sicherheit für einige Tage
+      an einem Ort archivieren, der vom Web aus nicht zugänglich ist.
+      Sie können diese archivierte Version löschen, wenn Sie sich sicher sind,
+      dass der Betrieb Ihrer Webseite mit der neuen Version problemlos
+      funktioniert.
+
+Fertig!
+
+
+##################################################################################
+      Ergänzende Hinweise für das Upgrade von phpCMS 1.1.x auf phpCMS 1.2.x
+##################################################################################
+
+
+##################################################################################
+                                    PLUGINS
+##################################################################################
+
+
+   1. Alle eigenen Plugins aus dem Plugin-Verzeichnis in den neuen Parser
+      kopieren.
+   2. Plugin sxform: Hier muss eine Anpassung gemacht werden:
+       http://phpcms.de/forum/showthread.php?id=3736
+
+
+##################################################################################
+                                     SCRIPTE
+##################################################################################
+
+   1. Die Auto-Gallery funktioniert im Secure Stealth-Mode nicht ohne Anpassung.
+      Näheres dazu hier:
+       http://phpcms.de/forum/showthread.php?id=3409
+
+
+##################################################################################
+                                      SUCHE
+##################################################################################
+
+In Version 1.2.x werden Stopworte und indizierte Worte in einem anderen Format
+gespeichert. Sie haben daher zwei Möglichkeiten:
+
+   1. Am besten: erstellen Sie einen neuen Index.
+   2. Am 2.besten: words.db und stop.db, die Stopwortdatei, in einem guten
+      Text-Editor öffnen, und alle Wörter auf kleinschreibung setzen.
+
+    * Neues Feature: Sie können in Ihrer Tag-Datei <SEARCH_MIDDLE> definieren.
+      Dieses wird dann zwischen <SEARCH_PREV> und <SEARCH_NEXT> platziert. Wenn
+      es nicht definiert ist, wird es durch " " ersetzt.
+    * Neues Feature: In der Datei nono.db können "verbotene" Suchbegriffe
+      definiert werden. Bei verwendung eines dort definierten Wortes kann dem
+      Besucher eine besondere Mitteilung angezeigt werden.
+
+
+##################################################################################
+                            Mail2Crypt SPAM Schutz
+##################################################################################
+
+Der in v1.1.9 eingeführte SPAM Schutz "PAX MailCrypt?" wurde unabhängig von PAX
+neu implementiert. Zur Verwendung von Mail2Crypt ist es nun nicht mehr
+erforderlich, "PAX TAGS berücksichtigen" aktiviert zu haben. Zudem wurde
+wegen einer Namenskollision die Bezeichnung in "Mail2Crypt" geändert.
+
+    * In Zukunft wird der Bezeichner des Tags auf "MAIL2CRYPT" umgestellt.
+      In v1.2.x funktioniert jedoch auch noch "MAILCRYPT".
+    * Die JavaScript?-Datei heisst nun ebenfalls js_mail2crypt.js.
+      Bitte beachten!
+    * Das Tag <!-- MAILCRYPT include ---> wird nicht mehr benötigt - kann
+      also gelöscht werden.
+      Zur Einbindung der JS-Datei wird - wo erforderlich - automatisch ein
+      <script> Tag in die geparste Seite eingefügt.
+
+
+##################################################################################
+                    Anleitung für die Profis (via symlinks)
+##################################################################################
+
+Eine andere Möglichkeit, phpCMS zu updaten, ist, das Ganze über Symlinks zu
+machen. Dies funktioniert natürlich nur unter [Linux|Unix]. Falls Sie das
+machen wollen, empfielt es sich, diesen Thread von [TOM] zu lesen:
+ http://phpcms.de/forum/index.de.html?topic=1509.0
+Da ist alles schön beschrieben.

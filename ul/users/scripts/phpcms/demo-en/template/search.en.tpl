@@ -1,0 +1,4 @@
+{TEMPLATE FILE="header.en.tpl"}
+{CONTENT}
+{SEARCHRESULT SEARCHTEMP="SEARCH"}
+{TEMPLATE FILE="footer.en.tpl"}

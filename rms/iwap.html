@@ -1,0 +1,160 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>International Records</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+<script language="javascript">
+function searchDatabase()
+{
+document.dataBaseSearch.hits.value = "0";
+document.getElementById("found").innerHTML = "";
+document.dataBaseSearch.start.value = Date.now(); 
+if (document.dataBaseSearch.input.value.toUpperCase() == "")
+{
+
+}
+else
+{
+document.getElementById("output").innerHTML = "Searching database, this might take some time...<br>";
+document.dataBaseSearch.entry.value = "0";
+searchLoop();
+}
+}
+function searchLoop()
+{
+document.dataBaseSearch.entry.value = eval(document.dataBaseSearch.entry.value + "+ 1");
+if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML == "END")
+{
+document.getElementById("output").innerHTML = document.getElementById("found").innerHTML + "<p>" + document.dataBaseSearch.hits.value + " results found in " + eval((Date.now() - document.dataBaseSearch.start.value) / 1000) + " seconds.<br>(Hash: " + Math.abs(document.getElementById("found").innerHTML.hashCode()) + ")</p>";
+}
+else if (document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML.indexOf(document.dataBaseSearch.input.value.toUpperCase()) != -1)
+{
+document.getElementById("found").innerHTML += "<p><div class='searchResult'>" + document.getElementById("n"+document.dataBaseSearch.entry.value).innerHTML + "</div></p>";document.dataBaseSearch.hits.value=eval(document.dataBaseSearch.hits.value + "+ 1");setTimeout("searchLoop()", 250);
+}
+else {
+setTimeout("searchLoop()", 250);
+}
+}
+String.prototype.hashCode = function(){
+
+  var hash = 0;
+
+  if (this.length == 0) return hash;
+
+  for (i = 0; i < this.length; i++) {
+
+      char = this.charCodeAt(i);
+
+      hash = ((hash<<5)-hash)+char;
+
+      hash = hash & hash; // Convert to 32bit integer
+
+  }
+
+    return hash;
+
+}
+
+</script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt"); $("#record").load("/rms/record.txt");
+    });
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+<div id="record" style="display:none;"></div>
+<div id="found" style="display:none;"></div>
+	
+		<div class="summary"role="article">
+
+			<p>Access an international database of persons who have criminal records or outstanding warrants in Loquntia and cooperative Micronations.</p>
+
+			</div>
+
+
+	<div class="preamble" role="article">
+
+			<h2>International Warrants, Arrests, and Prosecutions Record (IWAPS)</h2>
+			<p>
+			The Royal Marshals Service has made this online database to help the international effort of fighting crime, and to assist micronations with identifying serial offenders who commit international crimes. If you are a government agency and you would like to contribute to this database, fill out <a href="https://docs.google.com/forms/d/1gb4ON5NqK8JXHIDkflzZHaGAxWaoHUl_eD9vxKbfH8M/viewform">this form</a>.
+			</p>
+		</div>
+		<div id="disclaimer">
+		<h3>User's Agreement</h3>
+		<p>
+		NOTICE: By agreering and accessing this online database you agree to be bound by and abide by all laws, terms, and conditions associated with accessing government records in the Kingdom of Loquntia.
+		</p>
+		<input type="checkbox" onclick="document.getElementById('disclaimer').style.display='none';document.getElementById('query').style.display='';">
+		&emsp; I agree.
+		</div>
+		<div id="query" style="display:none;">
+
+			<h3>Search Database</h3>
+
+			<form name="dataBaseSearch" action="javascript:searchDatabase()">
+				<input type="hidden" name="entry" value="0">
+				<input type="hidden" name="hits" value="0">
+				<input type="hidden" name="start" value="">
+				<p>
+				For more refined results, try the following:
+				<ul>
+				<li>To search for a person with outstanding warrants, place an asterisk ("*") before their last name</li>
+				<li>Names are listed in the format [last name], [first name and middle name] (e.g. DOE, JOHN QUINTON)</li>
+				<li>Dates are listed in the format [DD MON YYYY] (e.g. 08 FEB 2014)</li>
+				<li>Pending arrests, warrants, or prosecutions will have an asterisk ("*") before the data</li>
+				<li>Arrests, warrants, indictments, and convictions will have an "A:", "W:", "I:", or "C:" in front of them, respectively</li>
+				</ul>
+				</p>
+				<p>
+				If you have any reason to believe information in this database to be false or incorrect, or you would like to know how to eliminate a warrant, please contact <a href="mailto:loquntia@gmail.com">loquntia@gmail.com</a>.
+				</p>
+				<p>
+				<center><input type="text" name="input" placeholder="Search Database"><input type="submit" style="width:0px; height:0px; opacity:0;">&emsp;<button type="button" onclick="searchDatabase()">Search</button></center>
+				</p>
+
+
+			</form>
+		</div>
+
+
+				<tt>
+				<div id="output"></div>
+				</tt>
+
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>International News</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="scripts/standard.js"></script>
+ <script src="scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("templates/header.txt"); $("#footer").load("templates/footer.txt");  $("#hodiny").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/news/hodiny_news.txt");  $("#loquntia").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/news/loquntia_news.txt");  $("#breaking").load("https://e7260a03fc46cb7172382da0414ee8272d86496d.googledrive.com/host/0B7CSGGoPIUWiZ1UwazJldmpEVlk/news/breaking.txt");
+    });
+ </script>
+  <script language="javascript">
+function startMarquee()
+{
+updateMarquee();
+scrollMarquee();
+}
+function updateMarquee()
+{
+document.marquee1.text.value= "     Breaking News     " + document.getElementById("breaking").innerHTML;
+}
+function scrollMarquee()
+{
+var msg = document.marquee1.text.value;
+var scrollChars = 1;
+document.marquee1.text.value =
+msg.substring(scrollChars) +
+msg.substring(0,scrollChars);
+document.getElementById("ticker").innerHTML = "" + document.marquee1.text.value.substring(0,50) + "";
+var scrollSpeed = 150;
+setTimeout('scrollMarquee()',scrollSpeed);
+}
+</script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="scripts/standard.css" />
+ <link rel="icon" href="images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden" onload="setTimeout('startMarquee()',2500)">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<center><form name="marquee1"> 
+<input type="hidden" name="text" length="30" value=" Loading..."> 
+</form>
+<tt><div id="ticker">Loading...</div></tt>
+<div id="breaking" style="display:none;">Loading...</div></center>
+
+<!-- body content -->
+<div class="summary" role="article">
+
+			<p>Read front page news stories from Loquntia and all over the world</p>
+
+			</div>
+
+
+	<div id="loquntia" class="preamble" role="article">
+		</div>
+		
+        <div id="hodiny" class="preamble" role="article">
+		</div>
+
+
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>

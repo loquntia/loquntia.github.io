@@ -1,0 +1,99 @@
+<html>
+<!DOCTYPE html>
+<head>
+ <!-- metadata about page -->
+ <title>Supreme Court of Loquntia</title>
+ <meta charset="Unicode">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta name="description" content="Kingdom of Loquntia">
+ <meta name="keywords" content="Loquntia,KL,Micronation">
+ <meta name="author" content="John Houston">
+ 
+ <!-- load scripts -->
+ <script language="javascript" src="/scripts/standard.js"></script>
+<script language="javascript">
+function openMinutes(caseNumber)
+{
+var caseFile=caseNumber;
+window.location.href = "/lbi/records/view?file=scokl/" + caseFile;
+}
+</script>
+ <script src="/scripts/jquery.js"></script>
+
+ <!-- the following script loads the header and footer using JQuery -->
+ <script language="javascript">
+    $(function(){
+   $("#header").load("/templates/header.txt"); $("#footer").load("/templates/footer.txt");
+    });
+ </script>
+ 
+ <!-- load stylesheet and favicons -->
+ <link rel="stylesheet" type="text/css" href="/scripts/standard.css" />
+ <link rel="icon" href="/images/favicon16.png" sizes="16x16" type="image/png" />
+ <link rel="icon" href="/images/favicon32.png" sizes="32x32" type="image/png" /> 
+ <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+</head>
+
+
+
+<body id="css-zen-garden">
+<div class="page-wrapper">
+
+
+<!-- official title of page here (will become window/tab title)-->
+
+
+<!-- loads header data here -->
+<div id="header"></div>
+
+<!-- body content -->
+			
+                <div class="preamble" role="article">
+                <h3>Current Cases</h3>
+                <p>Below is a list of the public minutes of all currently pending cases, so you can view your case's status. For other minutes on important cases, click <a href="/scokl/minutes.html">here</a>. For minutes and transcripts that are not public, or to view other documents, please fill out a <a href="https://hmkingjohni.typeform.com/to/aL5MMw">Q37 Records Request Form</a>. A list of all docketted cases is available <a href="/scokl/atlarge.html">here</a>.</p>
+                <p>
+                <a href="javascript:openMinutes('2016-12');">2016-12 <i>Library of Blue Ink v. Triumvirate Tribune, LLC.</i></a>
+                </p>
+                <p>
+                <a href="javascript:openMinutes('2016-13');">2016-13 <i>Rodriguez v. Garza.</i></a>
+                </p>
+                <p>
+                <a href="javascript:openMinutes('2016-14');">2016-14 <i>R (on the application of L) v. Lowerlipistan.</i></a>
+                </p>
+               
+                <div class="preamble" role="article">
+                <h3>Court Activities</h3>
+                <p>
+                If you're not sure what to do next, contact us and we will answer you promptly.
+                <ul>
+                <li><a href="mailto:">Contact the Supreme Court of Loquntia</a></li>
+                <li><a href="https://docs.google.com/forms/d/1rmjOGzMib6AoIROX-nXHHCZfmRpbVXs3kQlHfeOgMMs/viewform">File a Complaint / Report (Lawsuits Included)</a></li>
+                <li><a href="https://docs.google.com/forms/d/1X0by-3BGDFZw47qb9AYHRt19wYAzMIWYMMnQGEJEFJU/viewform">File a Motion / Petition</a></li>
+                <li><a href="https://hmkingjohni.typeform.com/to/aL5MMw">Request Government Documents</a></li>
+                </ul>
+                </p>
+                </div>
+                
+                <div class="preamble" role="article">
+                <h3>Counsel</h3>
+                <p>
+                Anyone may serve as counsel in the Supreme Court of Loquntia, but you must be learnéd in Loquntian law in order to charge a fee. You may serve as a solicitor, barrister, justice pro tem. or a judge in Loquntia if you attain a degree from or transfer a degree to the University of Loquntia. Click <a href="https://loquntia.github.io/ul.html">here</a> for more information about the University of Loquntia. More information about counsel and what you can do as counsel is available in the Court Rules below.
+                </p>
+                </div>
+                
+                <div class="preamble" role="article">
+                <h3>Court Rules</h3>
+                <p>
+                A link to the current rules is available below:<br/>
+                <a href="javascript:window.location.href = '/lbi/records/view?file=scokl/rules'"><button type="button">Rules of the Supreme Court of Loquntia</button></a>
+                </p>
+                </div>
+				<div id="output"></div>
+
+                </div>
+<!-- loads footer data here -->
+<div id="footer"></div>
+
+</body>
+</html>
