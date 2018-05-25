@@ -1,5 +1,0 @@
-<b>Savings Account — </b><i>David Ross</i>
-<br>
-<pre>
-Empty account history.
-</pre>
